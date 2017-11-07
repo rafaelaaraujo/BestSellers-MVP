@@ -4,7 +4,7 @@ package com.bestsellers.bookDetails
  * Created by Rafaela
  * on 03/11/2017.
  */
-class BestSellerDetailsPresenter(val bestSellerView: BestSellerDetailsContract.View): BestSellerDetailsContract.Presenter {
+class BookDetailsPresenter(val bestSellerView: BookDetailsContract.View): BookDetailsContract.Presenter {
 
     init {
         bestSellerView.presenter = this

@@ -17,7 +17,6 @@ import kotlinx.android.synthetic.main.activity_genre.*
  */
 class GenreActivity : AppCompatActivity(), GenreContract.View {
 
-
     override lateinit var presenter: GenreContract.Presenter
     private var genreList = ArrayList<Genre>()
 

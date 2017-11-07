@@ -7,7 +7,7 @@ import com.bestsellers.common.BaseView
  * Created by Rafaela Araujo
  * on 03/11/2017.
  */
-class BestSellerDetailsContract {
+class BookDetailsContract {
 
     interface View : BaseView<Presenter> {
 

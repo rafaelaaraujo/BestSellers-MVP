@@ -1,5 +1,7 @@
 package com.bestsellers.model
 
+import java.io.Serializable
+
 /**
  * Created by rafaela.araujo on 07/11/17.
  */
@@ -33,4 +35,4 @@ data class Book(
         val amazon_product_url: String,
         val book_review_link: String,
         val first_chapter_link: String
-)
+) : Serializable

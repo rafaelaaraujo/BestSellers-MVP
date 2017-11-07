@@ -31,7 +31,7 @@ class BestSellersAdapter(
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(item: Book, listener: (Book) -> Unit) = with(itemView) {
             bookTittle.text = item.title
-            bookAuthor.text = item.author
+            bookAuthor.text = "by "+item.author
             bookPublisher.text = item.publisher
             bookImage.loadUrl(item.book_image)
             setOnClickListener { listener(item) }

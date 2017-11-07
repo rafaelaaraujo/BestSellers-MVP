@@ -5,7 +5,9 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import com.bestsellers.bookDetails.BookDetailsActivity
 import com.bestsellers.model.Book
+import com.bestsellers.util.launchActivity
 import kotlinx.android.synthetic.main.activity_best_sellers.*
 
 /**
@@ -22,7 +24,6 @@ class BestSellersActivity : AppCompatActivity(), BestSellersContract.View {
         setContentView(R.layout.activity_best_sellers)
         presenter = BestSellersPresenter(this)
         configureRecicleView()
-        showLoading()
         presenter.requestBestSellers(intent.getStringExtra("genreName"))
     }
 
@@ -34,6 +35,9 @@ class BestSellersActivity : AppCompatActivity(), BestSellersContract.View {
     }
 
     private fun showBookDetails(book: Book) {
+        launchActivity<BookDetailsActivity> {
+            putExtra("book", book)
+        }
     }
 
     override fun showErrorMessage() {

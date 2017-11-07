@@ -17,6 +17,7 @@ class BestSellersPresenter(
     }
 
     override fun requestBestSellers(name:String) {
+        view.showLoading()
         manager.getBestSellerList(name)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
