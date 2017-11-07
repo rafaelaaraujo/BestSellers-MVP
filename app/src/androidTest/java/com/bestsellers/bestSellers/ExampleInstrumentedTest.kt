@@ -1,4 +1,4 @@
-package com.bestsellers.best_sellers
+package com.bestsellers.bestSellers
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4

@@ -18,8 +18,8 @@ data class BestSeller(
         val price: Double,
         val age_group: String,
         val publisher: String,
-        val reviews: List<Review>)
+        val reviews: List<HistoryReview>)
 
-data class Review(
+data class HistoryReview(
         val book_review_link: String,
         val first_chapter_link: String)

@@ -1,4 +1,4 @@
-package com.bestsellers.best_sellers
+package com.bestsellers.bestSellers
 
 import org.junit.Test
 

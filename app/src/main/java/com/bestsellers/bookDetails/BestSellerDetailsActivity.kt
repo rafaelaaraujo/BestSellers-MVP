@@ -1,10 +1,10 @@
-package com.bestsellers.best_seller_details
+package com.bestsellers.bookDetails
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import com.bestsellers.best_sellers.R
+import com.bestsellers.bestSellers.R
 import com.bestsellers.util.showSnackBar
 import kotlinx.android.synthetic.main.activity_best_seller_details.*
 

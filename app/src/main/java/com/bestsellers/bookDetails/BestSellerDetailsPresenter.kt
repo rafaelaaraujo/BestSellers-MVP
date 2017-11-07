@@ -1,4 +1,4 @@
-package com.bestsellers.best_seller_details
+package com.bestsellers.bookDetails
 
 /**
  * Created by Rafaela

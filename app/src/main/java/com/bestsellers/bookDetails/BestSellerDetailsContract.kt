@@ -1,23 +1,19 @@
-package com.bestsellers.best_sellers
+package com.bestsellers.bookDetails
 
 import com.bestsellers.common.BasePresenter
 import com.bestsellers.common.BaseView
-import com.bestsellers.model.BestSeller
 
 /**
- * Created by Rafaela
+ * Created by Rafaela Araujo
  * on 03/11/2017.
  */
-class BestSellersContract {
+class BestSellerDetailsContract {
 
     interface View : BaseView<Presenter> {
-
-        fun showBestSellers(bestSeller: List<BestSeller>)
 
     }
 
     interface Presenter : BasePresenter {
-
 
     }
 }

@@ -1,6 +1,5 @@
-package com.bestsellers.best_sellers
+package com.bestsellers.bestSellers
 
-import android.util.Log
 import com.bestsellers.common.BestSellersManager
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -11,23 +10,23 @@ import io.reactivex.schedulers.Schedulers
  */
 class BestSellersPresenter(
         val view: BestSellersContract.View,
-        val manager: BestSellersManager = BestSellersManager()) : BestSellersContract.Presenter {
+        private val manager: BestSellersManager = BestSellersManager()) : BestSellersContract.Presenter {
 
     init {
         view.presenter = this
-        requestBestSellers()
     }
 
-    fun requestBestSellers() {
-        manager.getHistoryBestSellers()
+    override fun requestBestSellers(name:String) {
+        manager.getBestSellerList(name)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         { retreiveBestSellers ->
-                            view.showBestSellers(retreiveBestSellers.results)
+                            view.hideLoading()
+                            view.showBestSellers(retreiveBestSellers.results.books)
                         },
-                        { e ->
-                            Log.e("erro", e.message)
+                        {
+                            view.showErrorMessage()
                         }
                 )
     }
