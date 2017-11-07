@@ -22,8 +22,8 @@ class BestSellersActivity : AppCompatActivity(), BestSellersContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_best_sellers)
-        presenter = BestSellersPresenter(this)
         configureRecicleView()
+        presenter = BestSellersPresenter(this)
         presenter.requestBestSellers(intent.getStringExtra("genreName"))
     }
 
@@ -55,6 +55,4 @@ class BestSellersActivity : AppCompatActivity(), BestSellersContract.View {
         booksList.addAll(bestSeller)
         bestSellersList.adapter.notifyDataSetChanged()
     }
-
-
 }

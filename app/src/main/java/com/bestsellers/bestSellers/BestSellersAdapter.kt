@@ -20,18 +20,14 @@ class BestSellersAdapter(
         return ViewHolder(v)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(bestSellerList[position], listener)
-    }
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(bestSellerList[position], listener)
 
-    override fun getItemCount(): Int {
-        return bestSellerList.size
-    }
+    override fun getItemCount(): Int = bestSellerList.size
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(item: Book, listener: (Book) -> Unit) = with(itemView) {
             bookTittle.text = item.title
-            bookAuthor.text = "by "+item.author
+            bookAuthor.text = "by " + item.author
             bookPublisher.text = item.publisher
             bookImage.loadUrl(item.book_image)
             setOnClickListener { listener(item) }

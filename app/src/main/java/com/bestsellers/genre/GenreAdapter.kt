@@ -20,13 +20,9 @@ class GenreAdapter(
         return ViewHolder(v)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(genreList[position], listener)
-    }
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(genreList[position], listener)
 
-    override fun getItemCount(): Int {
-        return genreList.size
-    }
+    override fun getItemCount(): Int = genreList.size
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(item: Genre, listener: (Genre) -> Unit) = with(itemView) {

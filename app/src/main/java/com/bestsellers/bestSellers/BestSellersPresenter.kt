@@ -9,7 +9,7 @@ import io.reactivex.schedulers.Schedulers
  * on 03/11/2017.
  */
 class BestSellersPresenter(
-        val view: BestSellersContract.View,
+        private val view: BestSellersContract.View,
         private val manager: BestSellersManager = BestSellersManager()) : BestSellersContract.Presenter {
 
     init {

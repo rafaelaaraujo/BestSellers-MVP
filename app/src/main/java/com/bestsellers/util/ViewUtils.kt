@@ -3,10 +3,8 @@ package com.bestsellers.util
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.support.design.widget.Snackbar
-import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.Toast
 
@@ -21,11 +19,6 @@ fun Activity.showSnackBar(view: View, text: String) {
 
 fun Activity.toast(text: String) {
     Toast.makeText(this, text, Toast.LENGTH_LONG).show()
-
-}
-
-fun Activity.openActivity(activity: AppCompatActivity) {
-    this.startActivity(Intent(this, activity::class.java))
 }
 
 inline fun <reified T : Activity> Activity.launchActivity(
@@ -35,7 +28,6 @@ inline fun <reified T : Activity> Activity.launchActivity(
     intent.init()
     startActivity(intent, options)
 }
-
 
 inline fun <reified T : Any> newIntent(context: Context): Intent =
         Intent(context, T::class.java)

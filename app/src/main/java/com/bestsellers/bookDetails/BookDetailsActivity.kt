@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.activity_best_seller_details.*
 class BookDetailsActivity : AppCompatActivity(), BookDetailsContract.View {
 
     override lateinit var presenter: BookDetailsContract.Presenter
-    private lateinit var book:Book
+    private lateinit var book: Book
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +25,7 @@ class BookDetailsActivity : AppCompatActivity(), BookDetailsContract.View {
         setSupportActionBar(toolbar)
         image.loadUrl(book.book_image)
         collapsingToolbar.title = book.title
-        collapsingToolbar.subtitle = "by "+book.author
+        collapsingToolbar.subtitle = "by " + book.author
         fab.setOnClickListener { view ->
             showSnackBar(view, "share button clicked")
         }
