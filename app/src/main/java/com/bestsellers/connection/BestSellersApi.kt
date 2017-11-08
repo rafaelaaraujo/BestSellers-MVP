@@ -3,6 +3,7 @@ package com.bestsellers.connection
 import com.bestsellers.model.BestSellersResult
 import com.bestsellers.model.GenreResult
 import com.bestsellers.model.HistoryBestSellersResult
+import com.bestsellers.model.ReviewsResult
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -22,5 +23,8 @@ interface BestSellersApi {
 
     @GET("/svc/books/v3/lists/{date}/{list}.json")
     fun getBestSellerByNameList(@Path("list") list:String ): Call<BestSellersResult>
+
+    @GET("/svc/books/v3/svc/books/v3/reviews.json")
+    fun getReviews(@Query("title") tittle:String ): Call<ReviewsResult>
 
 }

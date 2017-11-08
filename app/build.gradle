@@ -6,7 +6,8 @@ android {
     compileSdkVersion 26
     buildToolsVersion "26.0.2"
     defaultConfig {
-        applicationId "com.news.news"
+        vectorDrawables.useSupportLibrary = true
+        applicationId "com.news"
         minSdkVersion 19
         targetSdkVersion 26
         versionCode 1

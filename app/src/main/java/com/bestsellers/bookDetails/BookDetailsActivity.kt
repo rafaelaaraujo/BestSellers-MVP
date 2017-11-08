@@ -7,6 +7,7 @@ import com.bestsellers.model.Book
 import com.bestsellers.util.loadUrl
 import com.bestsellers.util.showSnackBar
 import kotlinx.android.synthetic.main.activity_best_seller_details.*
+import kotlinx.android.synthetic.main.content_news_details.*
 
 class BookDetailsActivity : AppCompatActivity(), BookDetailsContract.View {
 
@@ -18,14 +19,19 @@ class BookDetailsActivity : AppCompatActivity(), BookDetailsContract.View {
         setContentView(R.layout.activity_best_seller_details)
         presenter = BookDetailsPresenter(this)
         book = intent.extras.getSerializable("book") as Book
-        configureView()
+        setBookInformations()
     }
 
-    private fun configureView() {
+    private fun setBookInformations() {
         setSupportActionBar(toolbar)
         image.loadUrl(book.book_image)
         collapsingToolbar.title = book.title
-        collapsingToolbar.subtitle = "by " + book.author
+        collapsingToolbar.subtitle = book.contributor
+        publisher.text = book.publisher
+        description.text = book.description
+        contributorNote.text = book.contributor_note
+        fristCapterLink.text = book.first_chapter_link
+
         fab.setOnClickListener { view ->
             showSnackBar(view, "share button clicked")
         }
