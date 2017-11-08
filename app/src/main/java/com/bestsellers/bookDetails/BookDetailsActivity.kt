@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.bestsellers.bestSellers.R
 import com.bestsellers.model.Book
+import com.bestsellers.model.BookReview
 import com.bestsellers.util.loadUrl
 import com.bestsellers.util.showSnackBar
 import kotlinx.android.synthetic.main.activity_best_seller_details.*
 import kotlinx.android.synthetic.main.content_news_details.*
+
 
 class BookDetailsActivity : AppCompatActivity(), BookDetailsContract.View {
 
@@ -27,15 +29,21 @@ class BookDetailsActivity : AppCompatActivity(), BookDetailsContract.View {
         image.loadUrl(book.book_image)
         collapsingToolbar.title = book.title
         collapsingToolbar.subtitle = book.contributor
-        publisher.text = book.publisher
-        description.text = book.description
-        contributorNote.text = book.contributor_note
-        fristCapterLink.text = book.first_chapter_link
 
         fab.setOnClickListener { view ->
             showSnackBar(view, "share button clicked")
         }
+
+        presenter.getBookReview(book.title)
     }
+
+    override fun loadBookReview(review: BookReview) {
+        reviewWebView.loadUrl(review.url)
+    }
+
+    override fun loadEmpytReviewsMessage() {
+    }
+
 
     override fun showErrorMessage() {
     }

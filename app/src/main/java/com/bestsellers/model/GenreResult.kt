@@ -15,4 +15,5 @@ data class Genre(
         val list_name_encoded: String,
         val oldest_published_date: String,
         val newest_published_date: String,
+        val teste: String,
         val updated: String)

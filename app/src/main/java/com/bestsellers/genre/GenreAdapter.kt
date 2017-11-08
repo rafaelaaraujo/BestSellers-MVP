@@ -27,7 +27,7 @@ class GenreAdapter(
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(item: Genre, listener: (Genre) -> Unit) = with(itemView) {
             genreTittle.text = item.display_name
-            genreUpdated.text = "Updated "+item.updated.toLowerCase()
+            genreUpdated.text = "Updated "+item.updated
             setOnClickListener { listener(item) }
         }
     }

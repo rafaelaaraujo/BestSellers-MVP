@@ -3,6 +3,7 @@ package com.bestsellers.connection
 import com.bestsellers.model.BestSellersResult
 import com.bestsellers.model.GenreResult
 import com.bestsellers.model.HistoryBestSellersResult
+import com.bestsellers.model.ReviewsResult
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
@@ -44,5 +45,9 @@ class BestSellersService {
 
     fun getBestSellerByNameList(name:String): Call<BestSellersResult> {
         return bestSellersApi.getBestSellerByNameList(name)
+    }
+
+    fun getReviews(tittle:String): Call<ReviewsResult> {
+        return bestSellersApi.getReviews(tittle)
     }
 }

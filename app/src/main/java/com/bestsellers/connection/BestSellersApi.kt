@@ -24,7 +24,7 @@ interface BestSellersApi {
     @GET("/svc/books/v3/lists/{date}/{list}.json")
     fun getBestSellerByNameList(@Path("list") list:String ): Call<BestSellersResult>
 
-    @GET("/svc/books/v3/svc/books/v3/reviews.json")
+    @GET("/svc/books/v3/reviews.json")
     fun getReviews(@Query("title") tittle:String ): Call<ReviewsResult>
 
 }

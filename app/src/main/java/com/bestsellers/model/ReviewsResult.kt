@@ -6,9 +6,9 @@ package com.bestsellers.model
 data class ReviewsResult(
         val status: String,
         val num_results: Int,
-        val results: ResultsReviews)
+        val results: List<BookReview>)
 
-data class ResultsReviews(
+data class BookReview(
         val url: String,
         val publication_dt: String
 )

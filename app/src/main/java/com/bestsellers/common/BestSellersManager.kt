@@ -4,6 +4,7 @@ import com.bestsellers.connection.BestSellersService
 import com.bestsellers.model.BestSellersResult
 import com.bestsellers.model.GenreResult
 import com.bestsellers.model.HistoryBestSellersResult
+import com.bestsellers.model.ReviewsResult
 import io.reactivex.Observable
 
 /**
@@ -43,6 +44,20 @@ class BestSellersManager(val bestSellersService: BestSellersService = BestSeller
     fun getBestSellerList(listName:String): Observable<BestSellersResult> {
         return Observable.create { subscriber ->
             val callResponse = bestSellersService.getBestSellerByNameList(listName)
+            val response = callResponse.execute()
+
+            if (response.isSuccessful && response.body()?.status == "OK") {
+                subscriber.onNext(response.body())
+                subscriber.onComplete()
+            } else {
+                subscriber.onError(Throwable(response.message()))
+            }
+        }
+    }
+
+    fun getReviews(tittle:String): Observable<ReviewsResult> {
+        return Observable.create { subscriber ->
+            val callResponse = bestSellersService.getReviews(tittle)
             val response = callResponse.execute()
 
             if (response.isSuccessful && response.body()?.status == "OK") {

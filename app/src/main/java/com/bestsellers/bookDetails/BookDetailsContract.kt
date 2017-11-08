@@ -2,6 +2,7 @@ package com.bestsellers.bookDetails
 
 import com.bestsellers.common.BasePresenter
 import com.bestsellers.common.BaseView
+import com.bestsellers.model.BookReview
 
 /**
  * Created by Rafaela Araujo
@@ -10,10 +11,12 @@ import com.bestsellers.common.BaseView
 class BookDetailsContract {
 
     interface View : BaseView<Presenter> {
+        fun loadBookReview(review: BookReview)
 
+        fun loadEmpytReviewsMessage()
     }
 
     interface Presenter : BasePresenter {
-
+        fun getBookReview(tittle:String)
     }
 }
