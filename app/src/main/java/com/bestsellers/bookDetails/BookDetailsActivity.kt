@@ -2,47 +2,52 @@ package com.bestsellers.bookDetails
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.View.VISIBLE
 import com.bestsellers.bestSellers.R
 import com.bestsellers.model.Book
 import com.bestsellers.model.BookReview
+import com.bestsellers.util.Constants.Companion.BOOK
 import com.bestsellers.util.loadUrl
 import com.bestsellers.util.showSnackBar
-import kotlinx.android.synthetic.main.activity_best_seller_details.*
-import kotlinx.android.synthetic.main.content_news_details.*
-import android.webkit.WebView
+import kotlinx.android.synthetic.main.activity_details.*
+import kotlinx.android.synthetic.main.best_seller_item.*
 import android.webkit.WebViewClient
+import com.bestsellers.common.BaseActivity
 
 
-class BookDetailsActivity : AppCompatActivity(), BookDetailsContract.View {
+class BookDetailsActivity : BaseActivity(), BookDetailsContract.View {
 
     override lateinit var presenter: BookDetailsContract.Presenter
     private lateinit var book: Book
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_best_seller_details)
+        setContentView(R.layout.activity_details)
         presenter = BookDetailsPresenter(this)
-        book = intent.extras.getSerializable("book") as Book
+        book = intent.extras.getSerializable(BOOK) as Book
+        configureActionBar(book.title)
         setBookInformations()
     }
 
     private fun setBookInformations() {
-        setSupportActionBar(toolbar)
-        image.loadUrl(book.book_image)
-        collapsingToolbar.title = book.title
-        collapsingToolbar.subtitle = book.contributor
+        bookTittle.text = book.title
+        bookAuthor.text = book.contributor
+        bookDescription.text = book.description
+        bookImage.loadUrl(book.book_image)
 
-        fab.setOnClickListener { view ->
-            showSnackBar(view, "share button clicked")
+        buyButton.setOnClickListener { view ->
+            showSnackBar(view, "buy button clicked")
         }
-
         presenter.getBookReview(book.title)
     }
 
     override fun loadBookReview(review: BookReview) {
-        reviewWebView.webViewClient = WebClient()
-        reviewWebView.settings.loadsImagesAutomatically = false
+        reviewWebView.webViewClient = WebViewClient()
         reviewWebView.loadUrl(review.url)
+    }
+
+    override fun showEmpityReviewMessage() {
+        empityReviewMessage.visibility = VISIBLE
     }
 
     override fun loadEmpytReviewsMessage() {
@@ -50,6 +55,7 @@ class BookDetailsActivity : AppCompatActivity(), BookDetailsContract.View {
 
 
     override fun showErrorMessage() {
+
     }
 
     override fun showLoading() {
@@ -58,21 +64,4 @@ class BookDetailsActivity : AppCompatActivity(), BookDetailsContract.View {
     override fun hideLoading() {
     }
 
-    inner class WebClient : WebViewClient() {
-
-        override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
-            view.loadUrl(url)
-            return true
-        }
-
-        override fun onPageFinished(view: WebView, url: String) {
-            view.loadUrl("javascript:(function() { " +
-                    "document.getElementById('singleAd')[0].style.display='none';})()");
-
-            view.loadUrl("javascript:(function() { " +
-                    "document.getElementById('navigation tabsContainer')[0].style.display='none';})()");
-
-        }
-
-    }
 }

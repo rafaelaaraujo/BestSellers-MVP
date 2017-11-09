@@ -26,11 +26,21 @@ class BestSellersAdapter(
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(item: Book, listener: (Book) -> Unit) = with(itemView) {
+            bookTimeInList.text = getListTime(item.weeks_on_list)
             bookTittle.text = item.title
             bookAuthor.text = item.contributor
-            bookPublisher.text = item.publisher
+            bookDescription.text = item.description
             bookImage.loadUrl(item.book_image)
             setOnClickListener { listener(item) }
+        }
+
+        private fun getListTime(weeks_on_list: Int): String {
+            return if(weeks_on_list == 1){
+                "NEW THIS WEEK"
+            }else{
+                "$weeks_on_list WEEKS ON THE LIST"
+            }
+
         }
     }
 }

@@ -14,6 +14,8 @@ class BookDetailsContract {
         fun loadBookReview(review: BookReview)
 
         fun loadEmpytReviewsMessage()
+
+        fun showEmpityReviewMessage()
     }
 
     interface Presenter : BasePresenter {

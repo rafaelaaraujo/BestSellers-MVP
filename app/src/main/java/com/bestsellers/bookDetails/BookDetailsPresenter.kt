@@ -17,7 +17,7 @@ class BookDetailsPresenter(val view: BookDetailsContract.View,
 
     override fun getBookReview(tittle: String) {
         view.showLoading()
-        manager.getReviews(tittle)
+        manager.getReview(tittle)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
@@ -25,6 +25,8 @@ class BookDetailsPresenter(val view: BookDetailsContract.View,
                             view.hideLoading()
                             if (retreiveReviews.num_results > 0)
                                 view.loadBookReview(retreiveReviews.results[0])
+                            else
+                                view.showEmpityReviewMessage()
                         },
                         {
                             view.showErrorMessage()

@@ -8,14 +8,16 @@ import android.view.View.VISIBLE
 import com.bestsellers.bestSellers.BestSellersActivity
 import com.bestsellers.bestSellers.R
 import com.bestsellers.bookDetails.GenreContract
+import com.bestsellers.common.BaseActivity
 import com.bestsellers.model.Genre
+import com.bestsellers.util.Constants.Companion.GENRE_NAME
 import com.bestsellers.util.launchActivity
 import kotlinx.android.synthetic.main.activity_genre.*
 
 /**
  * Created by rafaela.araujo on 07/11/17.
  */
-class GenreActivity : AppCompatActivity(), GenreContract.View {
+class GenreActivity : BaseActivity(), GenreContract.View {
 
     override lateinit var presenter: GenreContract.Presenter
     private var genreList = ArrayList<Genre>()
@@ -36,7 +38,7 @@ class GenreActivity : AppCompatActivity(), GenreContract.View {
 
     private fun openListByGenre(genre: Genre) {
         launchActivity<BestSellersActivity> {
-            putExtra("genreName", genre.list_name)
+            putExtra(GENRE_NAME, genre.list_name)
         }
     }
 
