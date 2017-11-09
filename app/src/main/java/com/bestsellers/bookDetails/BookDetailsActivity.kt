@@ -9,6 +9,8 @@ import com.bestsellers.util.loadUrl
 import com.bestsellers.util.showSnackBar
 import kotlinx.android.synthetic.main.activity_best_seller_details.*
 import kotlinx.android.synthetic.main.content_news_details.*
+import android.webkit.WebView
+import android.webkit.WebViewClient
 
 
 class BookDetailsActivity : AppCompatActivity(), BookDetailsContract.View {
@@ -38,6 +40,8 @@ class BookDetailsActivity : AppCompatActivity(), BookDetailsContract.View {
     }
 
     override fun loadBookReview(review: BookReview) {
+        reviewWebView.webViewClient = WebClient()
+        reviewWebView.settings.loadsImagesAutomatically = false
         reviewWebView.loadUrl(review.url)
     }
 
@@ -54,4 +58,21 @@ class BookDetailsActivity : AppCompatActivity(), BookDetailsContract.View {
     override fun hideLoading() {
     }
 
+    inner class WebClient : WebViewClient() {
+
+        override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
+            view.loadUrl(url)
+            return true
+        }
+
+        override fun onPageFinished(view: WebView, url: String) {
+            view.loadUrl("javascript:(function() { " +
+                    "document.getElementById('singleAd')[0].style.display='none';})()");
+
+            view.loadUrl("javascript:(function() { " +
+                    "document.getElementById('navigation tabsContainer')[0].style.display='none';})()");
+
+        }
+
+    }
 }
