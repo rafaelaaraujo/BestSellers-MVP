@@ -1,5 +1,6 @@
 package com.bestsellers.genre
 
+import android.annotation.SuppressLint
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -27,7 +28,7 @@ class GenreAdapter(
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(item: Genre, listener: (Genre) -> Unit) = with(itemView) {
             genreTittle.text = item.display_name
-            genreUpdated.text = "Updated "+item.updated
+            genreUpdated.text ="Updated ${item.updated}"
             setOnClickListener { listener(item) }
         }
     }

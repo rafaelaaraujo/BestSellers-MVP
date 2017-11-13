@@ -11,11 +11,9 @@ import com.bestsellers.model.BookReview
 class BookDetailsContract {
 
     interface View : BaseView<Presenter> {
-        fun loadBookReview(review: BookReview)
+        fun loadBookReview(reviewUrl: String)
 
-        fun loadEmpytReviewsMessage()
-
-        fun showEmpityReviewMessage()
+        fun showNoReviewsView()
     }
 
     interface Presenter : BasePresenter {

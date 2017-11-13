@@ -1,6 +1,7 @@
 package com.bestsellers.bestSellers
 
 import android.os.Bundle
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.MenuItem
@@ -49,6 +50,8 @@ class BestSellersActivity : BaseActivity(), BestSellersContract.View {
     }
 
     override fun showErrorMessage() {
+        hideLoading()
+        errorMessage.visibility = VISIBLE
     }
 
     override fun showLoading() {

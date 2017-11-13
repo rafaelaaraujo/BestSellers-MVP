@@ -22,15 +22,18 @@ class BookDetailsPresenter(val view: BookDetailsContract.View,
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         { retreiveReviews ->
-                            view.hideLoading()
                             if (retreiveReviews.num_results > 0)
-                                view.loadBookReview(retreiveReviews.results[0])
+                                view.loadBookReview(retreiveReviews.results[0].url)
                             else
-                                view.showEmpityReviewMessage()
+                                view.showNoReviewsView()
                         },
                         {
                             view.showErrorMessage()
                         }
                 )
+
+
     }
+
+
 }

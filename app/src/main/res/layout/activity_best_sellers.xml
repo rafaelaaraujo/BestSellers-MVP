@@ -16,4 +16,14 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"/>
 
+
+    <TextView
+        android:id="@+id/errorMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Error loading Books"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:textColor="@android:color/black"/>
+
 </RelativeLayout>
