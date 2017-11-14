@@ -12,7 +12,7 @@ import io.reactivex.schedulers.Schedulers
  */
 class GenrePresenter(
         val view: GenreContract.View,
-        val manager: BestSellersManager = BestSellersManager()) : GenreContract.Presenter {
+        private val manager: BestSellersManager = BestSellersManager()) : GenreContract.Presenter {
 
     init {
         view.presenter = this
