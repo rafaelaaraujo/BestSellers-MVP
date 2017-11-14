@@ -4,4 +4,5 @@
     <string name="choose_category">Choose a category:</string>
     <string name="updated">Updated %s</string>
     <string name="error_loading_review">error loading review</string>
+    <string name="search_hint">Search</string>
 </resources>
