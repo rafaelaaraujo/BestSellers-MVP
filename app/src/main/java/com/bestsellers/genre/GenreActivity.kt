@@ -2,10 +2,10 @@ package com.bestsellers.genre
 
 import android.app.SearchManager
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.SearchView
@@ -66,7 +66,7 @@ class GenreActivity : BaseActivity(), GenreContract.View, SearchView.OnQueryText
     override fun showGenreList(genreList: List<Genre>) {
         hideLoading()
         this.genreList.addAll(genreList)
-        genreGrid.adapter.notifyDataSetChanged()
+        adapter.notifyDataSetChanged()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -81,17 +81,16 @@ class GenreActivity : BaseActivity(), GenreContract.View, SearchView.OnQueryText
         val searchView = menu.findItem(R.id.search).actionView as SearchView
         searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
         searchView.setOnQueryTextListener(this)
-
     }
 
-    override fun onQueryTextSubmit(p0: String?): Boolean {
-        adapter.filter.filter(p0)
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        adapter.filter.filter(query)
         return true
     }
 
-    override fun onQueryTextChange(p0: String?): Boolean {
+    override fun onQueryTextChange(query: String): Boolean {
+        adapter.filter.filter(query)
         return false
     }
-
 
 }

@@ -23,6 +23,7 @@ class BookDetailsActivity : BaseActivity(), BookDetailsContract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_details)
         book = intent.extras.getSerializable(BOOK) as Book
         presenter = BookDetailsPresenter(this)
         presenter.getBookReview(book.title)
@@ -65,11 +66,11 @@ class BookDetailsActivity : BaseActivity(), BookDetailsContract.View {
     }
 
     override fun showLoading() {
-        progressReview.visibility = VISIBLE
+        pgReview.visibility = VISIBLE
     }
 
     override fun hideLoading() {
-        progressReview.visibility = GONE
+        pgReview.visibility = GONE
     }
 
 }

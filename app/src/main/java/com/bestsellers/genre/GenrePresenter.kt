@@ -28,7 +28,7 @@ class GenrePresenter(
                         { retreiveGenres ->
                             view.showGenreList(retreiveGenres.results)
                         },
-                        { e ->
+                        {
                             view.showErrorMessage()
                         }
                 )
