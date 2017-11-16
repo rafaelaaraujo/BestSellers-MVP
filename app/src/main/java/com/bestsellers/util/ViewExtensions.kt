@@ -21,14 +21,11 @@ fun Activity.toast(text: String) {
     Toast.makeText(this, text, Toast.LENGTH_LONG).show()
 }
 
-inline fun <reified T : Activity> Activity.launchActivity(
-        options: Bundle? = null, noinline init: Intent.() -> Unit = {}) {
-
+inline fun <reified T : Activity> Activity.launchActivity(noinline init: Intent.() -> Unit = {}) {
     val intent = newIntent<T>(this)
     intent.init()
-    startActivity(intent, options)
+    startActivity(intent)
 }
 
-inline fun <reified T : Any> newIntent(context: Context): Intent =
-        Intent(context, T::class.java)
+inline fun <reified T : Any> newIntent(context: Context): Intent = Intent(context, T::class.java)
 

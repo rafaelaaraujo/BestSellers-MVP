@@ -2,7 +2,7 @@ package com.bestsellers.common
 
 import com.bestsellers.connection.BestSellersService
 import com.bestsellers.model.BestSellersResult
-import com.bestsellers.model.GenreResult
+import com.bestsellers.model.BookGenresResult
 import com.bestsellers.model.HistoryBestSellersResult
 import com.bestsellers.model.ReviewsResult
 import io.reactivex.Observable
@@ -18,7 +18,7 @@ class BestSellersManager(private val bestSellersService: BestSellersService = Be
         return getObservable(bestSellersService.getHistoryBestSellers())
     }
 
-    fun getGenreList(): Observable<GenreResult> {
+    fun getGenreList(): Observable<BookGenresResult> {
         return getObservable(bestSellersService.getGenreList())
     }
 

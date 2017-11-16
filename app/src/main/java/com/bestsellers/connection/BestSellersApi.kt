@@ -1,7 +1,7 @@
 package com.bestsellers.connection
 
 import com.bestsellers.model.BestSellersResult
-import com.bestsellers.model.GenreResult
+import com.bestsellers.model.BookGenresResult
 import com.bestsellers.model.HistoryBestSellersResult
 import com.bestsellers.model.ReviewsResult
 import retrofit2.Call
@@ -19,7 +19,7 @@ interface BestSellersApi {
     fun getHistoryBestSellers(): Call<HistoryBestSellersResult>
 
     @GET("/svc/books/v3/lists/names.json")
-    fun getGenreList(): Call<GenreResult>
+    fun getBookGenresList(): Call<BookGenresResult>
 
     @GET("/svc/books/v3/lists/{date}/{list}.json")
     fun getBestSellerByNameList(@Path("list") list:String ): Call<BestSellersResult>

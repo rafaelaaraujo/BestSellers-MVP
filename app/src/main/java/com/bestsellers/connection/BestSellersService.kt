@@ -1,7 +1,7 @@
 package com.bestsellers.connection
 
 import com.bestsellers.model.BestSellersResult
-import com.bestsellers.model.GenreResult
+import com.bestsellers.model.BookGenresResult
 import com.bestsellers.model.HistoryBestSellersResult
 import com.bestsellers.model.ReviewsResult
 import retrofit2.Call
@@ -39,8 +39,8 @@ class BestSellersService {
         return bestSellersApi.getHistoryBestSellers()
     }
 
-    fun getGenreList(): Call<GenreResult> {
-        return bestSellersApi.getGenreList()
+    fun getGenreList(): Call<BookGenresResult> {
+        return bestSellersApi.getBookGenresList()
     }
 
     fun getBestSellerByNameList(name:String): Call<BestSellersResult> {
