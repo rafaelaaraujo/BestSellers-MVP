@@ -68,13 +68,12 @@ class BookGenresActivity : BaseActivity(), BookGenresContract.View, SearchView.O
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        val inflater = menuInflater
-        inflater.inflate(R.menu.search_menu, menu)
-        configureSearchManeger(menu)
+        menuInflater.inflate(R.menu.search_menu, menu)
+        configureSearchManager(menu)
         return true
     }
 
-    private fun configureSearchManeger(menu: Menu) {
+    private fun configureSearchManager(menu: Menu) {
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         val searchView = menu.findItem(R.id.search).actionView as SearchView
         searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
@@ -90,5 +89,4 @@ class BookGenresActivity : BaseActivity(), BookGenresContract.View, SearchView.O
         adapter.filter.filter(query)
         return false
     }
-
 }

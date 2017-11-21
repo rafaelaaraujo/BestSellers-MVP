@@ -33,11 +33,13 @@ class BookGenresAdapter(private var genreList: List<Genre>, private val listener
     override fun getItemCount(): Int = genreList.size
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
         fun bind(item: Genre, listener: (Genre) -> Unit) = with(itemView) {
             genreTittle.text = item.display_name
-            genreUpdated.text = "Updated ${item.updated}"
+            genreUpdated.text = context.getString(R.string.update_date, item.updated)
             setOnClickListener { listener(item) }
         }
+
     }
 
     override fun getFilter(): Filter = filter

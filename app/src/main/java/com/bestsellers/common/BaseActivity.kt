@@ -1,6 +1,5 @@
 package com.bestsellers.common
 
-import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 
@@ -21,4 +20,5 @@ abstract class BaseActivity: AppCompatActivity() {
         if (item.itemId == android.R.id.home) onBackPressed()
         return super.onOptionsItemSelected(item)
     }
+
 }

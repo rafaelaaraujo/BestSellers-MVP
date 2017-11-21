@@ -14,21 +14,17 @@ import retrofit2.Call
  */
 class BestSellersManager(private val bestSellersService: BestSellersService = BestSellersService()) {
 
-    fun getHistoryBestSellers(): Observable<HistoryBestSellersResult> {
-        return getObservable(bestSellersService.getHistoryBestSellers())
-    }
+    fun getHistoryBestSellers(): Observable<HistoryBestSellersResult> =
+            getObservable(bestSellersService.getHistoryBestSellers())
 
-    fun getGenreList(): Observable<BookGenresResult> {
-        return getObservable(bestSellersService.getGenreList())
-    }
+    fun getGenreList(): Observable<BookGenresResult> =
+            getObservable(bestSellersService.getGenreList())
 
-    fun getBestSellerList(listName: String): Observable<BestSellersResult> {
-        return getObservable(bestSellersService.getBestSellerByNameList(listName))
-    }
+    fun getBestSellerList(listName: String): Observable<BestSellersResult> =
+            getObservable(bestSellersService.getBestSellerByNameList(listName))
 
-    fun getReview(tittle: String): Observable<ReviewsResult> {
-        return getObservable(bestSellersService.getReviews(tittle))
-    }
+    fun getReview(tittle: String): Observable<ReviewsResult> =
+            getObservable(bestSellersService.getReviews(tittle))
 
     fun <T : Any> getObservable(callResponse: Call<T>): Observable<T> {
         return Observable.create { subscriber ->

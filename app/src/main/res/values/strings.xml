@@ -5,4 +5,5 @@
     <string name="updated">Updated %s</string>
     <string name="error_loading_review">error loading review</string>
     <string name="search_hint">Search</string>
+    <string name="update_date">Updated %s</string>
 </resources>
