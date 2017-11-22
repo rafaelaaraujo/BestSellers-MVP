@@ -17,11 +17,12 @@ import org.junit.Test
 class BookGenresActivityTest {
 
     @get:Rule val activityRule = ActivityTestRule(BookGenresActivity::class.java)
-    private val robot: BookGenresActivityRobot = BookGenresActivityRobot();
+    private val robot: BookGenresRobot = BookGenresRobot()
 
     @Test
     fun selectedFirstItem_displayBestSellersList() {
-        robot.checkFirstItemText("Combined Print & E-Book Fiction").selectListFirstItem().checkDisplayBestSellersList()
+        robot.checkFirstItemText("Combined Print & E-Book Fiction")
+                .selectListFirstItem().checkDisplayBestSellersList()
     }
 
     @Test
@@ -31,12 +32,14 @@ class BookGenresActivityTest {
 
     @Test
     fun selectLastItem_displayBestSellersList() {
-        robot.scrolltoBottom().sleep().checkLastItemText().selectListLastItem().checkDisplayBestSellersList()
+        robot.scrolltoBottom().waitTime().checkLastItemText()
+                .selectListLastItem().checkDisplayBestSellersList()
     }
 
     @Test
     fun selectSearchButtonAndMakeSearch_filterList() {
-        robot.selectSearchButton().addTextToSearchView("Travel").checkFirstItemText("Travel")
+        robot.selectSearchButton().addTextToSearchView("Travel")
+                .checkFirstItemText("Travel")
     }
 
 }

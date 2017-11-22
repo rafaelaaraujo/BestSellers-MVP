@@ -1,10 +1,7 @@
 package com.bestsellers.bestSellers
 
 import android.os.Bundle
-import android.support.v7.app.AlertDialog
-import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.view.MenuItem
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import com.bestsellers.bookDetails.BookDetailsActivity

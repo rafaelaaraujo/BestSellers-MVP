@@ -1,6 +1,5 @@
 package com.bestsellers.bestSellers.bookDetails
 
-import com.bestsellers.bestSellers.R
 import com.bestsellers.bestSellers.base.BaseRobot
 
 /**
@@ -8,9 +7,10 @@ import com.bestsellers.bestSellers.base.BaseRobot
  * on 15/11/2017.
  */
 
-class BookDetailsActivityRobot : BaseRobot() {
+
+class BookDetailsRobot : BaseRobot() {
 
 
-
+    
 
 }

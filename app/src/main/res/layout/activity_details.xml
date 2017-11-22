@@ -9,6 +9,7 @@
     tools:context="com.bestsellers.bookDetails.BookDetailsActivity">
 
     <RelativeLayout
+        android:id="@+id/detailsView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/white"
@@ -64,8 +65,8 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:layout_margin="20dp"
-            android:visibility="gone"
             android:onClick="openAmazonProductUrl"
+            android:visibility="gone"
             app:srcCompat="@drawable/ic_shopping_cart" />
 
     </RelativeLayout>
