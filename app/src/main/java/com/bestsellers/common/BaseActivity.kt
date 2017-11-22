@@ -15,7 +15,6 @@ abstract class BaseActivity: AppCompatActivity() {
         supportActionBar?.title = title
     }
 
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) onBackPressed()
         return super.onOptionsItemSelected(item)

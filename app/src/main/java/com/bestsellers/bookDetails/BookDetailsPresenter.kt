@@ -8,8 +8,10 @@ import io.reactivex.schedulers.Schedulers
  * Created by Rafaela
  * on 03/11/2017.
  */
-class BookDetailsPresenter(val view: BookDetailsContract.View,
-                           private val manager: BestSellersManager = BestSellersManager()) : BookDetailsContract.Presenter {
+class BookDetailsPresenter(
+        val view: BookDetailsContract.View,
+        private val manager: BestSellersManager = BestSellersManager()) :
+        BookDetailsContract.Presenter {
 
     init {
         view.presenter = this

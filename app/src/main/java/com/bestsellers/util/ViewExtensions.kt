@@ -13,11 +13,11 @@ import android.widget.Toast
  * on 03/11/2017.
  */
 
-fun Activity.showSnackBar(view: View, text: String) {
+fun Context.showSnackBar(view: View, text: String) {
     Snackbar.make(view, text, Snackbar.LENGTH_LONG).show()
 }
 
-fun Activity.toast(text: String) {
+fun Context.toast(text: String) {
     Toast.makeText(this, text, Toast.LENGTH_LONG).show()
 }
 

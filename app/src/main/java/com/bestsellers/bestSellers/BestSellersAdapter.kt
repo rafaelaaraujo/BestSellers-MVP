@@ -13,7 +13,8 @@ import kotlinx.android.synthetic.main.best_seller_item.view.*
  */
 class BestSellersAdapter(
         private val bestSellerList: List<Book>,
-        private val listener: (Book) -> Unit) : RecyclerView.Adapter<BestSellersAdapter.ViewHolder>() {
+        private val listener: (Book) -> Unit) :
+        RecyclerView.Adapter<BestSellersAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.best_seller_item, parent, false)
@@ -25,6 +26,7 @@ class BestSellersAdapter(
     override fun getItemCount(): Int = bestSellerList.size
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
         fun bind(item: Book, listener: (Book) -> Unit) = with(itemView) {
             bookTimeInList.text = getWeeksOnTheList(item.weeks_on_list)
             bookTittle.text = item.title

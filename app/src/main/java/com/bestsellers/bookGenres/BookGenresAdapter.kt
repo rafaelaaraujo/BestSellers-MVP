@@ -13,7 +13,9 @@ import kotlinx.android.synthetic.main.genre_item.view.*
 /**
  * Created by rafaela.araujo on 07/11/17.
  */
-class BookGenresAdapter(private var genreList: List<Genre>, private val listener: (Genre) -> Unit) :
+class BookGenresAdapter(
+        private var genreList: List<Genre>,
+        private val listener: (Genre) -> Unit) :
         RecyclerView.Adapter<BookGenresAdapter.ViewHolder>(), Filterable {
 
     val filter: BookGenresFilter = BookGenresFilter(genreList, this::updateGenreList)
