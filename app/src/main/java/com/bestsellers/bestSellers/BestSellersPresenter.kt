@@ -19,7 +19,7 @@ class BestSellersPresenter(
 
     override fun requestBestSellers(name:String) {
         view.showLoading()
-        service.getBestSellerByNameList(name)
+        service.getBestSeller(name)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(

@@ -45,7 +45,7 @@ class BestSellersService {
 
     fun getGenreList(): Observable<BookGenresResult> = bestSellersApi.getBookGenresList()
 
-    fun getBestSellerByNameList(name:String): Observable<BestSellersResult> =
+    fun getBestSeller(name:String): Observable<BestSellersResult> =
             bestSellersApi.getBestSellerByNameList(name)
 
     fun getBookReview(tittle:String): Observable<ReviewsResult> = bestSellersApi.getReviews(tittle)
