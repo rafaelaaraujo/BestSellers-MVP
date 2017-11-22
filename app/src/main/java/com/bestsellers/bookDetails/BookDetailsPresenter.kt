@@ -1,6 +1,6 @@
 package com.bestsellers.bookDetails
 
-import com.bestsellers.common.BestSellersManager
+import com.bestsellers.connection.BestSellersService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
@@ -10,7 +10,7 @@ import io.reactivex.schedulers.Schedulers
  */
 class BookDetailsPresenter(
         val view: BookDetailsContract.View,
-        private val manager: BestSellersManager = BestSellersManager()) :
+        private val service: BestSellersService = BestSellersService()) :
         BookDetailsContract.Presenter {
 
     init {
@@ -19,7 +19,7 @@ class BookDetailsPresenter(
 
     override fun getBookReview(tittle: String) {
         view.showLoading()
-        manager.getReview(tittle)
+        service.getBookReview(tittle)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(

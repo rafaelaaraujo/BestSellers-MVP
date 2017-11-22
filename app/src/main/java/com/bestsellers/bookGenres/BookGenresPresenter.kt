@@ -1,7 +1,7 @@
 package com.bestsellers.bookGenres
 
 import com.bestsellers.bookDetails.BookGenresContract
-import com.bestsellers.common.BestSellersManager
+import com.bestsellers.connection.BestSellersService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
@@ -12,7 +12,7 @@ import io.reactivex.schedulers.Schedulers
  */
 class BookGenresPresenter(
         val view: BookGenresContract.View,
-        private val manager: BestSellersManager = BestSellersManager()) : BookGenresContract.Presenter {
+        private val service: BestSellersService = BestSellersService()) : BookGenresContract.Presenter {
 
     init {
         view.presenter = this
@@ -20,7 +20,7 @@ class BookGenresPresenter(
 
     override fun requestGenreList() {
         view.showLoading()
-        manager.getGenreList()
+        service.getGenreList()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
