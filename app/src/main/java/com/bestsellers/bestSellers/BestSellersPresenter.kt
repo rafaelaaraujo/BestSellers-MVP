@@ -23,9 +23,9 @@ class BestSellersPresenter(
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
-                        { retreiveBestSellers ->
+                        { retrieveBestSellers ->
                             view.hideLoading()
-                            view.showBestSellers(retreiveBestSellers.results.books)
+                            view.showBestSellers(retrieveBestSellers.results.books)
                         },
                         {
                             view.showErrorMessage()

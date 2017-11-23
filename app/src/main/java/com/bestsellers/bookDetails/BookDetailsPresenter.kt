@@ -23,9 +23,9 @@ class BookDetailsPresenter(
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
-                        { retreiveReviews ->
-                            if (retreiveReviews.num_results > 0)
-                                view.loadBookReview(retreiveReviews.results[0].url)
+                        { retrieveReviews ->
+                            if (retrieveReviews.num_results > 0)
+                                view.loadBookReview(retrieveReviews.results[0].url)
                             else
                                 view.showNoReviewsView()
                         },
@@ -33,9 +33,6 @@ class BookDetailsPresenter(
                             view.showErrorMessage()
                         }
                 )
-
-
     }
-
 
 }

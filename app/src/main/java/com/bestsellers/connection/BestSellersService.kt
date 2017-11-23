@@ -4,6 +4,7 @@ import com.bestsellers.model.BestSellersResult
 import com.bestsellers.model.BookGenresResult
 import com.bestsellers.model.HistoryBestSellersResult
 import com.bestsellers.model.ReviewsResult
+import com.bestsellers.util.Constants.Companion.BASE_URL
 import io.reactivex.Observable
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -16,7 +17,6 @@ import retrofit2.converter.moshi.MoshiConverterFactory
  * on 06/11/2017.
  */
 private const val AUTORIZATION = "f60617ae371d44d898018a1e77a89a8d"
-private const val BASE_URL = "https://api.nytimes.com/"
 private const val API_KEY = "api-key"
 
 class BestSellersService {

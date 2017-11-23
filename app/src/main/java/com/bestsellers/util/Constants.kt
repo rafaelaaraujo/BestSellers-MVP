@@ -8,5 +8,7 @@ class Constants {
     companion object {
         const val GENRE_NAME = "genteName"
         const val BOOK = "book"
+        var BASE_URL = "https://api.nytimes.com/"
+
     }
 }

@@ -2,6 +2,11 @@ package com.bestsellers.bestSellers.genre
 
 import com.bestsellers.bestSellers.R
 import com.bestsellers.bestSellers.base.BaseRobot
+import com.squareup.okhttp.mockwebserver.MockWebServer
+import android.content.Intent
+import com.bestsellers.bestSellers.base.RestServiceTestHelper
+import com.bestsellers.util.Constants
+
 
 /**
  * Created by Rafaela Araujo
@@ -13,6 +18,14 @@ const val LAST_ITEM = 52
 const val FIRST_ITEM = 0
 
 class BookGenresRobot : BaseRobot() {
+
+    private val mockWebServer = MockWebServer()
+
+    init {
+        mockWebServer.start()
+        Constants.BASE_URL = mockWebServer.getUrl("/").toString()
+        mockWebServer.setDispatcher(RestServiceTestHelper.dispatcher)
+    }
 
     fun selectListFirstItem(): BookGenresRobot {
         clickItemAtPosition(LIST_ID, FIRST_ITEM)

@@ -24,8 +24,8 @@ class BookGenresPresenter(
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
-                        { retreiveGenres ->
-                            view.showGenreList(retreiveGenres.results)
+                        { retrieveGenres ->
+                            view.showGenreList(retrieveGenres.results)
                         },
                         {
                             view.showErrorMessage()
