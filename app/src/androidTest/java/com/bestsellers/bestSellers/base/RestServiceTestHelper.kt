@@ -9,9 +9,10 @@ import java.io.InputStream
 import java.io.InputStreamReader
 
 import android.support.test.InstrumentationRegistry.getInstrumentation
+import com.bestsellers.util.URL_BEST_SELLERS
+import com.bestsellers.util.URL_NAMES
 import com.squareup.okhttp.mockwebserver.Dispatcher
 import java.net.HttpURLConnection
-
 
 object RestServiceTestHelper{
 
@@ -21,7 +22,8 @@ object RestServiceTestHelper{
         override fun dispatch(request: RecordedRequest): MockResponse {
             try {
                 when (request.path) {
-                    "/svc/books/v3/lists/names.json" -> return getMockResponse("names_list.json")
+                    URL_NAMES -> return getMockResponse(NAMES_JSON)
+                    URL_BEST_SELLERS -> return getMockResponse(BEST_SELLERS_JSON)
                 }
 
             } catch (e: Exception) {
@@ -35,7 +37,7 @@ object RestServiceTestHelper{
             MockResponse().setResponseCode(HttpURLConnection.HTTP_OK).setBody(getBody(filename))
 
     private fun getBody(fileName:String) =
-            RestServiceTestHelper.getStringFromFile(context, fileName)
+            getStringFromFile(context, fileName)
 
     @Throws(Exception::class)
     private fun convertStreamToString(inputStream: InputStream): String {

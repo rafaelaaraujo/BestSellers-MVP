@@ -4,8 +4,11 @@ import com.bestsellers.model.BestSellersResult
 import com.bestsellers.model.BookGenresResult
 import com.bestsellers.model.HistoryBestSellersResult
 import com.bestsellers.model.ReviewsResult
+import com.bestsellers.util.URL_BEST_SELLERS
+import com.bestsellers.util.URL_HISTORY
+import com.bestsellers.util.URL_NAMES
+import com.bestsellers.util.URL_REVIEWS
 import io.reactivex.Observable
-import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -16,16 +19,16 @@ import retrofit2.http.Query
  */
 interface BestSellersApi {
 
-    @GET("/svc/books/v3/lists/best-sellers/history.json")
+    @GET(URL_HISTORY)
     fun getHistoryBestSellers(): Observable<HistoryBestSellersResult>
 
-    @GET("/svc/books/v3/lists/names.json")
+    @GET(URL_NAMES)
     fun getBookGenresList(): Observable<BookGenresResult>
 
-    @GET("/svc/books/v3/lists/{date}/{list}.json")
+    @GET(URL_BEST_SELLERS)
     fun getBestSellerByNameList(@Path("list") list:String ): Observable<BestSellersResult>
 
-    @GET("/svc/books/v3/reviews.json")
+    @GET(URL_REVIEWS)
     fun getReviews(@Query("title") tittle:String ): Observable<ReviewsResult>
 
 }

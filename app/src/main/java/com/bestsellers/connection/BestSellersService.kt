@@ -4,7 +4,9 @@ import com.bestsellers.model.BestSellersResult
 import com.bestsellers.model.BookGenresResult
 import com.bestsellers.model.HistoryBestSellersResult
 import com.bestsellers.model.ReviewsResult
-import com.bestsellers.util.Constants.Companion.BASE_URL
+import com.bestsellers.util.API_KEY
+import com.bestsellers.util.AUTORIZATION
+import com.bestsellers.util.BASE_URL
 import io.reactivex.Observable
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -16,8 +18,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
  * Created by Rafaela Araujo
  * on 06/11/2017.
  */
-private const val AUTORIZATION = "f60617ae371d44d898018a1e77a89a8d"
-private const val API_KEY = "api-key"
+
 
 class BestSellersService {
 

@@ -7,8 +7,8 @@ import android.view.View.VISIBLE
 import com.bestsellers.bookDetails.BookDetailsActivity
 import com.bestsellers.common.BaseActivity
 import com.bestsellers.model.Book
-import com.bestsellers.util.Constants.Companion.BOOK
-import com.bestsellers.util.Constants.Companion.GENRE_NAME
+import com.bestsellers.util.BOOK
+import com.bestsellers.util.GENRE_NAME
 import com.bestsellers.util.launchActivity
 import kotlinx.android.synthetic.main.activity_best_sellers.*
 

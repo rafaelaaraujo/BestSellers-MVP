@@ -1,39 +1,23 @@
 package com.bestsellers.bestSellers.genre
 
 import com.bestsellers.bestSellers.R
-import com.bestsellers.bestSellers.base.BaseRobot
-import com.squareup.okhttp.mockwebserver.MockWebServer
-import android.content.Intent
-import com.bestsellers.bestSellers.base.RestServiceTestHelper
-import com.bestsellers.util.Constants
-
+import com.bestsellers.bestSellers.base.*
 
 /**
  * Created by Rafaela Araujo
  * on 15/11/2017.
  */
 
-const val LIST_ID = R.id.genreGrid
-const val LAST_ITEM = 52
-const val FIRST_ITEM = 0
 
 class BookGenresRobot : BaseRobot() {
 
-    private val mockWebServer = MockWebServer()
-
-    init {
-        mockWebServer.start()
-        Constants.BASE_URL = mockWebServer.getUrl("/").toString()
-        mockWebServer.setDispatcher(RestServiceTestHelper.dispatcher)
-    }
-
     fun selectListFirstItem(): BookGenresRobot {
-        clickItemAtPosition(LIST_ID, FIRST_ITEM)
+        clickItemAtPosition(LIST_ID_GENRE, FIRST_ITEM_GENRE)
         return this
     }
 
     fun selectListLastItem(): BookGenresRobot {
-        clickItemAtPosition(LIST_ID, LAST_ITEM)
+        clickItemAtPosition(LIST_ID_GENRE, LAST_ITEM_GENRE)
         return this
     }
 
@@ -42,21 +26,21 @@ class BookGenresRobot : BaseRobot() {
     }
 
     fun scrolltoBottom(): BookGenresRobot {
-        scrollListAtPosition(FIRST_ITEM, LAST_ITEM)
+        scrollListAtPosition(FIRST_ITEM_GENRE, LAST_ITEM_GENRE)
         return this
     }
 
     fun scrolltoTop() {
-        scrollListAtPosition(LIST_ID, FIRST_ITEM)
+        scrollListAtPosition(LIST_ID_GENRE, FIRST_ITEM_GENRE)
     }
 
-    fun checkFirstItemText(text:String): BookGenresRobot {
-        checkTextFromRecicleViewItem(LIST_ID, FIRST_ITEM, text)
+    fun checkFirstItemText(): BookGenresRobot {
+        checkTextFromRecicleViewItem(LIST_ID_GENRE, FIRST_ITEM_GENRE, FIRST_ITEM_TEXT_GENRE)
         return this
     }
 
     fun checkLastItemText(): BookGenresRobot {
-        checkTextFromRecicleViewItem(LIST_ID, LAST_ITEM, "Travel")
+        checkTextFromRecicleViewItem(LIST_ID_GENRE, LAST_ITEM_GENRE, LAST_ITEM_TEXT_GENRE)
         return this
     }
 
@@ -70,9 +54,13 @@ class BookGenresRobot : BaseRobot() {
         return this
     }
 
-    fun addTextToSearchView(text:String): BookGenresRobot {
-        putTextInEditText(text)
+    fun addTextToSearchView(): BookGenresRobot {
+        putTextInEditText(SEARCH_TEXT_GENRE)
         return this
+    }
+
+    fun checkFirstItemSearchText() {
+        checkTextFromRecicleViewItem(LIST_ID_GENRE, FIRST_ITEM_GENRE,  SEARCH_TEXT_GENRE)
     }
 
 }

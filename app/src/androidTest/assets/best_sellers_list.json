@@ -1,0 +1,776 @@
+{
+  "status": "OK",
+  "copyright": "Copyright (c) 2017 The New York Times Company.  All Rights Reserved.",
+  "num_results": 15,
+  "last_modified": "2017-12-01T14:38:02-05:00",
+  "results": {
+    "list_name": "Combined Print and E-Book Fiction",
+    "list_name_encoded": "combined-print-and-e-book-fiction",
+    "bestsellers_date": "2017-11-25",
+    "published_date": "2017-12-10",
+    "published_date_description": "latest",
+    "next_published_date": "",
+    "previous_published_date": "2017-12-03",
+    "display_name": "Combined Print & E-Book Fiction",
+    "normal_list_ends_at": 15,
+    "updated": "WEEKLY",
+    "books": [
+      {
+        "rank": 1,
+        "rank_last_week": 0,
+        "weeks_on_list": 1,
+        "asterisk": 0,
+        "dagger": 0,
+        "primary_isbn10": "None",
+        "primary_isbn13": "9780316508827",
+        "publisher": "Little, Brown",
+        "description": "Detective Cross takes on a case even though he has been suspended from the department and taken to federal court to stand trial on murder charges.",
+        "price": 0,
+        "title": "THE PEOPLE VS. ALEX CROSS",
+        "author": "James Patterson",
+        "contributor": "by James Patterson",
+        "contributor_note": "",
+        "book_image": "https://s1.nyt.com/du/books/images/9780316273909.jpg",
+        "book_image_width": 321,
+        "book_image_height": 495,
+        "amazon_product_url": "https://www.amazon.com/People-vs-Alex-Cross/dp/0316273902?tag=NYTBS-20",
+        "age_group": "",
+        "book_review_link": "",
+        "first_chapter_link": "",
+        "sunday_review_link": "",
+        "article_chapter_link": "",
+        "isbns": [
+          {
+            "isbn10": "0316273902",
+            "isbn13": "9780316273909"
+          },
+          {
+            "isbn10": "0316508810",
+            "isbn13": "9780316508810"
+          }
+        ],
+        "buy_links": [
+          {
+            "name": "Local Booksellers",
+            "url": "http://www.indiebound.org/book/9780316508827?aff=NYT"
+          },
+          {
+            "name": "Barnes and Noble",
+            "url": "http://www.anrdoezrs.net/click-7990613-11819508?url=http%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D9780316508827"
+          },
+          {
+            "name": "Amazon",
+            "url": "https://www.amazon.com/People-vs-Alex-Cross/dp/0316273902?tag=NYTBS-20"
+          }
+        ]
+      },
+      {
+        "rank": 2,
+        "rank_last_week": 4,
+        "weeks_on_list": 3,
+        "asterisk": 0,
+        "dagger": 0,
+        "primary_isbn10": "0399593497",
+        "primary_isbn13": "9780399593499",
+        "publisher": "Delacorte",
+        "description": "Jack Reacher tracks down the owner of a pawned West Point class ring and stumbles upon a large criminal enterprise.",
+        "price": 0,
+        "title": "THE MIDNIGHT LINE",
+        "author": "Lee Child",
+        "contributor": "by Lee Child",
+        "contributor_note": "",
+        "book_image": "https://s1.nyt.com/du/books/images/9780399593499.jpg",
+        "book_image_width": 320,
+        "book_image_height": 495,
+        "amazon_product_url": "https://www.amazon.com/Midnight-Line-Jack-Reacher-Novel-ebook/dp/B06WP486XH?tag=NYTBS-20",
+        "age_group": "",
+        "book_review_link": "https://www.nytimes.com/2017/11/08/books/review-midnight-line-jack-reacher-lee-child.html",
+        "first_chapter_link": "",
+        "sunday_review_link": "",
+        "article_chapter_link": "",
+        "isbns": [
+          {
+            "isbn10": "0399593489",
+            "isbn13": "9780399593482"
+          },
+          {
+            "isbn10": "0399593497",
+            "isbn13": "9780399593499"
+          }
+        ],
+        "buy_links": [
+          {
+            "name": "Local Booksellers",
+            "url": "http://www.indiebound.org/book/9780399593499?aff=NYT"
+          },
+          {
+            "name": "Barnes and Noble",
+            "url": "http://www.anrdoezrs.net/click-7990613-11819508?url=http%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D9780399593499"
+          },
+          {
+            "name": "Amazon",
+            "url": "https://www.amazon.com/Midnight-Line-Jack-Reacher-Novel-ebook/dp/B06WP486XH?tag=NYTBS-20"
+          }
+        ]
+      },
+      {
+        "rank": 3,
+        "rank_last_week": 5,
+        "weeks_on_list": 5,
+        "asterisk": 0,
+        "dagger": 0,
+        "primary_isbn10": "0385541171",
+        "primary_isbn13": "9780385541176",
+        "publisher": "Doubleday",
+        "description": "Three students at a sleazy for-profit law school hope to expose the student-loan banker who runs it.",
+        "price": 0,
+        "title": "THE ROOSTER BAR",
+        "author": "John Grisham",
+        "contributor": "by John Grisham",
+        "contributor_note": "",
+        "book_image": "https://s1.nyt.com/du/books/images/9780385541183.jpg",
+        "book_image_width": 326,
+        "book_image_height": 495,
+        "amazon_product_url": "https://www.amazon.com/Rooster-Bar-John-Grisham-ebook/dp/B01N6YQAPS?tag=NYTBS-20",
+        "age_group": "",
+        "book_review_link": "",
+        "first_chapter_link": "",
+        "sunday_review_link": "",
+        "article_chapter_link": "",
+        "isbns": [
+          {
+            "isbn10": "0385541171",
+            "isbn13": "9780385541176"
+          },
+          {
+            "isbn10": "038554118X",
+            "isbn13": "9780385541183"
+          }
+        ],
+        "buy_links": [
+          {
+            "name": "Local Booksellers",
+            "url": "http://www.indiebound.org/book/9780385541176?aff=NYT"
+          },
+          {
+            "name": "Barnes and Noble",
+            "url": "http://www.anrdoezrs.net/click-7990613-11819508?url=http%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D9780385541176"
+          },
+          {
+            "name": "Amazon",
+            "url": "https://www.amazon.com/Rooster-Bar-John-Grisham-ebook/dp/B01N6YQAPS?tag=NYTBS-20"
+          }
+        ]
+      },
+      {
+        "rank": 4,
+        "rank_last_week": 7,
+        "weeks_on_list": 8,
+        "asterisk": 0,
+        "dagger": 0,
+        "primary_isbn10": "0385514239",
+        "primary_isbn13": "9780385514231",
+        "publisher": "Doubleday",
+        "description": "A symbology professor goes on a perilous quest with a beautiful museum director.",
+        "price": 0,
+        "title": "ORIGIN",
+        "author": "Dan Brown",
+        "contributor": "by Dan Brown",
+        "contributor_note": "",
+        "book_image": "https://s1.nyt.com/du/books/images/9780385542692.jpg",
+        "book_image_width": 327,
+        "book_image_height": 495,
+        "amazon_product_url": "https://www.amazon.com/Origin-Novel-Dan-Brown-ebook/dp/B01LY7FD0D?tag=NYTBS-20",
+        "age_group": "",
+        "book_review_link": "",
+        "first_chapter_link": "",
+        "sunday_review_link": "",
+        "article_chapter_link": "",
+        "isbns": [
+          {
+            "isbn10": "0385514239",
+            "isbn13": "9780385514231"
+          },
+          {
+            "isbn10": "0385542690",
+            "isbn13": "9780385542692"
+          },
+          {
+            "isbn10": "0525434305",
+            "isbn13": "9780525434306"
+          }
+        ],
+        "buy_links": [
+          {
+            "name": "Local Booksellers",
+            "url": "http://www.indiebound.org/book/9780385514231?aff=NYT"
+          },
+          {
+            "name": "Barnes and Noble",
+            "url": "http://www.anrdoezrs.net/click-7990613-11819508?url=http%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D9780385514231"
+          },
+          {
+            "name": "Amazon",
+            "url": "https://www.amazon.com/Origin-Novel-Dan-Brown-ebook/dp/B01LY7FD0D?tag=NYTBS-20"
+          }
+        ]
+      },
+      {
+        "rank": 5,
+        "rank_last_week": 1,
+        "weeks_on_list": 2,
+        "asterisk": 0,
+        "dagger": 0,
+        "primary_isbn10": "0399179194",
+        "primary_isbn13": "9780399179198",
+        "publisher": "Putnam",
+        "description": "When a homeless man is murdered, the bounty hunter Stephanie Plum searches for the killer.",
+        "price": 0,
+        "title": "HARDCORE TWENTY-FOUR",
+        "author": "Janet Evanovich",
+        "contributor": "by Janet Evanovich",
+        "contributor_note": "",
+        "book_image": "https://s1.nyt.com/du/books/images/9780399179204.jpg",
+        "book_image_width": 326,
+        "book_image_height": 495,
+        "amazon_product_url": "https://www.amazon.com/Hardcore-Twenty-Four-Stephanie-Plum-Book-ebook/dp/B01N3KJB3E?tag=NYTBS-20",
+        "age_group": "",
+        "book_review_link": "",
+        "first_chapter_link": "",
+        "sunday_review_link": "",
+        "article_chapter_link": "",
+        "isbns": [
+          {
+            "isbn10": "0399179194",
+            "isbn13": "9780399179198"
+          },
+          {
+            "isbn10": "0399179208",
+            "isbn13": "9780399179204"
+          }
+        ],
+        "buy_links": [
+          {
+            "name": "Local Booksellers",
+            "url": "http://www.indiebound.org/book/9780399179198?aff=NYT"
+          },
+          {
+            "name": "Barnes and Noble",
+            "url": "http://www.anrdoezrs.net/click-7990613-11819508?url=http%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D9780399179198"
+          },
+          {
+            "name": "Amazon",
+            "url": "https://www.amazon.com/Hardcore-Twenty-Four-Stephanie-Plum-Book-ebook/dp/B01N3KJB3E?tag=NYTBS-20"
+          }
+        ]
+      },
+      {
+        "rank": 6,
+        "rank_last_week": 3,
+        "weeks_on_list": 2,
+        "asterisk": 0,
+        "dagger": 0,
+        "primary_isbn10": "1455586633",
+        "primary_isbn13": "9781455586639",
+        "publisher": "Grand Central",
+        "description": "Jessica Reel and Will Robie fight a dangerous adversary in Colorado.",
+        "price": 0,
+        "title": "END GAME",
+        "author": "David Baldacci",
+        "contributor": "by David Baldacci",
+        "contributor_note": "",
+        "book_image": "https://s1.nyt.com/du/books/images/9781455586639.jpg",
+        "book_image_width": 323,
+        "book_image_height": 495,
+        "amazon_product_url": "https://www.amazon.com/Game-Will-Robie-David-Baldacci-ebook/dp/B06WGTZXG7?tag=NYTBS-20",
+        "age_group": "",
+        "book_review_link": "",
+        "first_chapter_link": "",
+        "sunday_review_link": "",
+        "article_chapter_link": "",
+        "isbns": [
+          {
+            "isbn10": "1455586609",
+            "isbn13": "9781455586608"
+          },
+          {
+            "isbn10": "1538760282",
+            "isbn13": "9781538760284"
+          },
+          {
+            "isbn10": "1455586633",
+            "isbn13": "9781455586639"
+          }
+        ],
+        "buy_links": [
+          {
+            "name": "Local Booksellers",
+            "url": "http://www.indiebound.org/book/9781455586639?aff=NYT"
+          },
+          {
+            "name": "Barnes and Noble",
+            "url": "http://www.anrdoezrs.net/click-7990613-11819508?url=http%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D9781455586639"
+          },
+          {
+            "name": "Amazon",
+            "url": "https://www.amazon.com/Game-Will-Robie-David-Baldacci-ebook/dp/B06WGTZXG7?tag=NYTBS-20"
+          }
+        ]
+      },
+      {
+        "rank": 7,
+        "rank_last_week": 10,
+        "weeks_on_list": 8,
+        "asterisk": 0,
+        "dagger": 0,
+        "primary_isbn10": "1449486797",
+        "primary_isbn13": "9781449486792",
+        "publisher": "Andrews McMeel",
+        "description": "A new collection of poetry from the author of \"Milk and Honey.\"",
+        "price": 0,
+        "title": "THE SUN AND HER FLOWERS",
+        "author": "Rupi Kaur",
+        "contributor": "by Rupi Kaur",
+        "contributor_note": "",
+        "book_image": "https://s1.nyt.com/du/books/images/9781449486792.jpg",
+        "book_image_width": 319,
+        "book_image_height": 495,
+        "amazon_product_url": "https://www.amazon.com/Sun-Her-Flowers-Rupi-Kaur/dp/1449486797?tag=NYTBS-20",
+        "age_group": "",
+        "book_review_link": "",
+        "first_chapter_link": "",
+        "sunday_review_link": "",
+        "article_chapter_link": "",
+        "isbns": [
+          {
+            "isbn10": "1449486797",
+            "isbn13": "9781449486792"
+          },
+          {
+            "isbn10": "1449488897",
+            "isbn13": "9781449488895"
+          }
+        ],
+        "buy_links": [
+          {
+            "name": "Local Booksellers",
+            "url": "http://www.indiebound.org/book/9781449486792?aff=NYT"
+          },
+          {
+            "name": "Barnes and Noble",
+            "url": "http://www.anrdoezrs.net/click-7990613-11819508?url=http%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D9781449486792"
+          },
+          {
+            "name": "Amazon",
+            "url": "https://www.amazon.com/Sun-Her-Flowers-Rupi-Kaur/dp/1449486797?tag=NYTBS-20"
+          }
+        ]
+      },
+      {
+        "rank": 8,
+        "rank_last_week": 8,
+        "weeks_on_list": 4,
+        "asterisk": 0,
+        "dagger": 0,
+        "primary_isbn10": "0316225916",
+        "primary_isbn13": "9780316225915",
+        "publisher": "Little, Brown",
+        "description": "While he investigates the murder of two pharmacists, an old case comes back to haunt Harry Bosch.",
+        "price": 0,
+        "title": "TWO KINDS OF TRUTH",
+        "author": "Michael Connelly",
+        "contributor": "by Michael Connelly",
+        "contributor_note": "",
+        "book_image": "https://s1.nyt.com/du/books/images/9780316225915.jpg",
+        "book_image_width": 319,
+        "book_image_height": 495,
+        "amazon_product_url": "https://www.amazon.com/Kinds-Truth-Harry-Bosch-Novel-ebook/dp/B06W9NKRXG?tag=NYTBS-20",
+        "age_group": "",
+        "book_review_link": "",
+        "first_chapter_link": "",
+        "sunday_review_link": "",
+        "article_chapter_link": "",
+        "isbns": [
+          {
+            "isbn10": "0316225908",
+            "isbn13": "9780316225908"
+          },
+          {
+            "isbn10": "0316476676",
+            "isbn13": "9780316476676"
+          },
+          {
+            "isbn10": "0316225916",
+            "isbn13": "9780316225915"
+          }
+        ],
+        "buy_links": [
+          {
+            "name": "Local Booksellers",
+            "url": "http://www.indiebound.org/book/9780316225915?aff=NYT"
+          },
+          {
+            "name": "Barnes and Noble",
+            "url": "http://www.anrdoezrs.net/click-7990613-11819508?url=http%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D9780316225915"
+          },
+          {
+            "name": "Amazon",
+            "url": "https://www.amazon.com/Kinds-Truth-Harry-Bosch-Novel-ebook/dp/B06W9NKRXG?tag=NYTBS-20"
+          }
+        ]
+      },
+      {
+        "rank": 9,
+        "rank_last_week": 6,
+        "weeks_on_list": 2,
+        "asterisk": 0,
+        "dagger": 0,
+        "primary_isbn10": "0553448129",
+        "primary_isbn13": "9780553448122",
+        "publisher": "Crown",
+        "description": "A small-time smuggler living in a lunar colony schemes to pay off an old debt by pulling off a challenging heist.",
+        "price": 0,
+        "title": "ARTEMIS",
+        "author": "Andy Weir",
+        "contributor": "by Andy Weir",
+        "contributor_note": "",
+        "book_image": "https://s1.nyt.com/du/books/images/9780553448122.jpg",
+        "book_image_width": 326,
+        "book_image_height": 495,
+        "amazon_product_url": "https://www.amazon.com/Artemis-Novel-Andy-Weir/dp/0553448129?tag=NYTBS-20",
+        "age_group": "",
+        "book_review_link": "",
+        "first_chapter_link": "",
+        "sunday_review_link": "",
+        "article_chapter_link": "",
+        "isbns": [
+          {
+            "isbn10": "0553448129",
+            "isbn13": "9780553448122"
+          },
+          {
+            "isbn10": "0553448137",
+            "isbn13": "9780553448139"
+          }
+        ],
+        "buy_links": [
+          {
+            "name": "Local Booksellers",
+            "url": "http://www.indiebound.org/book/9780553448122?aff=NYT"
+          },
+          {
+            "name": "Barnes and Noble",
+            "url": "http://www.anrdoezrs.net/click-7990613-11819508?url=http%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D9780553448122"
+          },
+          {
+            "name": "Amazon",
+            "url": "https://www.amazon.com/Artemis-Novel-Andy-Weir/dp/0553448129?tag=NYTBS-20"
+          }
+        ]
+      },
+      {
+        "rank": 10,
+        "rank_last_week": 2,
+        "weeks_on_list": 2,
+        "asterisk": 0,
+        "dagger": 0,
+        "primary_isbn10": "076532637X",
+        "primary_isbn13": "9780765326379",
+        "publisher": "Tor",
+        "description": "The third volume of the Stormlight Archive. The War of Reckoning ends and the Voidbringers return.",
+        "price": 0,
+        "title": "OATHBRINGER",
+        "author": "Brandon Sanderson",
+        "contributor": "by Brandon Sanderson",
+        "contributor_note": "",
+        "book_image": "https://s1.nyt.com/du/books/images/9780765399830.jpg",
+        "book_image_width": 326,
+        "book_image_height": 495,
+        "amazon_product_url": "https://www.amazon.com/Oathbringer-Book-Three-Stormlight-Archive-ebook/dp/B01NAWAH85?tag=NYTBS-20",
+        "age_group": "",
+        "book_review_link": "",
+        "first_chapter_link": "",
+        "sunday_review_link": "",
+        "article_chapter_link": "",
+        "isbns": [
+          {
+            "isbn10": "076532637X",
+            "isbn13": "9780765326379"
+          },
+          {
+            "isbn10": "0765399830",
+            "isbn13": "9780765399830"
+          }
+        ],
+        "buy_links": [
+          {
+            "name": "Local Booksellers",
+            "url": "http://www.indiebound.org/book/9780765326379?aff=NYT"
+          },
+          {
+            "name": "Barnes and Noble",
+            "url": "http://www.anrdoezrs.net/click-7990613-11819508?url=http%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D9780765326379"
+          },
+          {
+            "name": "Amazon",
+            "url": "https://www.amazon.com/Oathbringer-Book-Three-Stormlight-Archive-ebook/dp/B01NAWAH85?tag=NYTBS-20"
+          }
+        ]
+      },
+      {
+        "rank": 11,
+        "rank_last_week": 0,
+        "weeks_on_list": 1,
+        "asterisk": 0,
+        "dagger": 0,
+        "primary_isbn10": "0345546814",
+        "primary_isbn13": "9780345546814",
+        "publisher": "Bantam",
+        "description": "Former F.B.I. agent and wanted fugitive Jane Hawk tracks down a group that is brainwashing people into committing suicide.",
+        "price": 0,
+        "title": "THE WHISPERING ROOM",
+        "author": "Dean Koontz",
+        "contributor": "by Dean Koontz",
+        "contributor_note": "",
+        "book_image": "https://s1.nyt.com/du/books/images/9780345546814.jpg",
+        "book_image_width": 326,
+        "book_image_height": 495,
+        "amazon_product_url": "https://www.amazon.com/Whispering-Room-Jane-Hawk-Novel-ebook/dp/B071CJBDJL?tag=NYTBS-20",
+        "age_group": "",
+        "book_review_link": "",
+        "first_chapter_link": "",
+        "sunday_review_link": "",
+        "article_chapter_link": "",
+        "isbns": [
+          {
+            "isbn10": "0345546806",
+            "isbn13": "9780345546807"
+          },
+          {
+            "isbn10": "0345546814",
+            "isbn13": "9780345546814"
+          }
+        ],
+        "buy_links": [
+          {
+            "name": "Local Booksellers",
+            "url": "http://www.indiebound.org/book/9780345546814?aff=NYT"
+          },
+          {
+            "name": "Barnes and Noble",
+            "url": "http://www.anrdoezrs.net/click-7990613-11819508?url=http%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D9780345546814"
+          },
+          {
+            "name": "Amazon",
+            "url": "https://www.amazon.com/Whispering-Room-Jane-Hawk-Novel-ebook/dp/B071CJBDJL?tag=NYTBS-20"
+          }
+        ]
+      },
+      {
+        "rank": 12,
+        "rank_last_week": 11,
+        "weeks_on_list": 41,
+        "asterisk": 0,
+        "dagger": 0,
+        "primary_isbn10": "144947425X",
+        "primary_isbn13": "9781449474256",
+        "publisher": "Andrews McMeel",
+        "description": "Poetic approaches to surviving adversity and loss.",
+        "price": 0,
+        "title": "MILK AND HONEY",
+        "author": "Rupi Kaur",
+        "contributor": "by Rupi Kaur",
+        "contributor_note": "",
+        "book_image": "https://s1.nyt.com/du/books/images/9781449474256.jpg",
+        "book_image_width": 319,
+        "book_image_height": 495,
+        "amazon_product_url": "http://www.amazon.com/Milk-Honey-Rupi-Kaur/dp/144947425X?tag=NYTBS-20",
+        "age_group": "",
+        "book_review_link": "",
+        "first_chapter_link": "",
+        "sunday_review_link": "",
+        "article_chapter_link": "",
+        "isbns": [
+          {
+            "isbn10": "144947425X",
+            "isbn13": "9781449474256"
+          }
+        ],
+        "buy_links": [
+          {
+            "name": "Local Booksellers",
+            "url": "http://www.indiebound.org/book/9781449474256?aff=NYT"
+          },
+          {
+            "name": "Barnes and Noble",
+            "url": "http://www.anrdoezrs.net/click-7990613-11819508?url=http%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D9781449474256"
+          },
+          {
+            "name": "Amazon",
+            "url": "http://www.amazon.com/Milk-Honey-Rupi-Kaur/dp/144947425X?tag=NYTBS-20"
+          }
+        ]
+      },
+      {
+        "rank": 13,
+        "rank_last_week": 0,
+        "weeks_on_list": 15,
+        "asterisk": 0,
+        "dagger": 0,
+        "primary_isbn10": "1501175467",
+        "primary_isbn13": "9781501175466",
+        "publisher": "Scribner",
+        "description": "The fears of seven teenagers are rekindled in their adult lives by the terrifying title character. Originally published in 1986.",
+        "price": 0,
+        "title": "IT",
+        "author": "Stephen King",
+        "contributor": "by Stephen King",
+        "contributor_note": "",
+        "book_image": "https://s1.nyt.com/du/books/images/9781501141232.jpg",
+        "book_image_width": 325,
+        "book_image_height": 495,
+        "amazon_product_url": "https://www.amazon.com/Stephen-King-ebook/dp/B018ER7K5I?tag=NYTBS-20",
+        "age_group": "",
+        "book_review_link": "",
+        "first_chapter_link": "",
+        "sunday_review_link": "",
+        "article_chapter_link": "",
+        "isbns": [
+          {
+            "isbn10": "1501141236",
+            "isbn13": "9781501141232"
+          },
+          {
+            "isbn10": "1501142976",
+            "isbn13": "9781501142970"
+          },
+          {
+            "isbn10": "1501156683",
+            "isbn13": "9781501156687"
+          },
+          {
+            "isbn10": "1501182099",
+            "isbn13": "9781501182099"
+          },
+          {
+            "isbn10": "1501175467",
+            "isbn13": "9781501175466"
+          }
+        ],
+        "buy_links": [
+          {
+            "name": "Local Booksellers",
+            "url": "http://www.indiebound.org/book/9781501175466?aff=NYT"
+          },
+          {
+            "name": "Barnes and Noble",
+            "url": "http://www.anrdoezrs.net/click-7990613-11819508?url=http%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D9781501175466"
+          },
+          {
+            "name": "Amazon",
+            "url": "https://www.amazon.com/Stephen-King-ebook/dp/B018ER7K5I?tag=NYTBS-20"
+          }
+        ]
+      },
+      {
+        "rank": 14,
+        "rank_last_week": 0,
+        "weeks_on_list": 9,
+        "asterisk": 0,
+        "dagger": 0,
+        "primary_isbn10": "052595497X",
+        "primary_isbn13": "9780525954972",
+        "publisher": "Viking",
+        "description": "A pair of lovers find themselves on opposite sides of a conflict while Queen Elizabeth fights to maintain her throne.",
+        "price": 0,
+        "title": "A COLUMN OF FIRE",
+        "author": "Ken Follett",
+        "contributor": "by Ken Follett",
+        "contributor_note": "",
+        "book_image": "https://s1.nyt.com/du/books/images/9780735224476.jpg",
+        "book_image_width": 328,
+        "book_image_height": 495,
+        "amazon_product_url": "https://www.amazon.com/Column-Fire-Kingsbridge-Ken-Follett-ebook/dp/B01N1U8IB3?tag=NYTBS-20",
+        "age_group": "",
+        "book_review_link": "",
+        "first_chapter_link": "",
+        "sunday_review_link": "",
+        "article_chapter_link": "",
+        "isbns": [
+          {
+            "isbn10": "052595497X",
+            "isbn13": "9780525954972"
+          },
+          {
+            "isbn10": "0735224471",
+            "isbn13": "9780735224476"
+          }
+        ],
+        "buy_links": [
+          {
+            "name": "Local Booksellers",
+            "url": "http://www.indiebound.org/book/9780525954972?aff=NYT"
+          },
+          {
+            "name": "Barnes and Noble",
+            "url": "http://www.anrdoezrs.net/click-7990613-11819508?url=http%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D9780525954972"
+          },
+          {
+            "name": "Amazon",
+            "url": "https://www.amazon.com/Column-Fire-Kingsbridge-Ken-Follett-ebook/dp/B01N1U8IB3?tag=NYTBS-20"
+          }
+        ]
+      },
+      {
+        "rank": 15,
+        "rank_last_week": 0,
+        "weeks_on_list": 5,
+        "asterisk": 0,
+        "dagger": 0,
+        "primary_isbn10": "0735224307",
+        "primary_isbn13": "9780735224308",
+        "publisher": "Penguin Press",
+        "description": "An artist upends a quiet town outside Cleveland.",
+        "price": 0,
+        "title": "LITTLE FIRES EVERYWHERE",
+        "author": "Celeste Ng",
+        "contributor": "by Celeste Ng",
+        "contributor_note": "",
+        "book_image": "https://s1.nyt.com/du/books/images/9780735224308.jpg",
+        "book_image_width": 328,
+        "book_image_height": 495,
+        "amazon_product_url": "https://www.amazon.com/Little-Fires-Everywhere-Celeste-Ng-ebook/dp/B01N4VW75U?tag=NYTBS-20",
+        "age_group": "",
+        "book_review_link": "https://www.nytimes.com/2017/09/25/books/review/little-fires-everywhere-celeste-ng.html",
+        "first_chapter_link": "",
+        "sunday_review_link": "",
+        "article_chapter_link": "",
+        "isbns": [
+          {
+            "isbn10": "0735224293",
+            "isbn13": "9780735224292"
+          },
+          {
+            "isbn10": "0735224307",
+            "isbn13": "9780735224308"
+          }
+        ],
+        "buy_links": [
+          {
+            "name": "Local Booksellers",
+            "url": "http://www.indiebound.org/book/9780735224308?aff=NYT"
+          },
+          {
+            "name": "Barnes and Noble",
+            "url": "http://www.anrdoezrs.net/click-7990613-11819508?url=http%3A%2F%2Fwww.barnesandnoble.com%2Fw%2F%3Fean%3D9780735224308"
+          },
+          {
+            "name": "Amazon",
+            "url": "https://www.amazon.com/Little-Fires-Everywhere-Celeste-Ng-ebook/dp/B01N4VW75U?tag=NYTBS-20"
+          }
+        ]
+      }
+    ],
+    "corrections": []
+  }
+}

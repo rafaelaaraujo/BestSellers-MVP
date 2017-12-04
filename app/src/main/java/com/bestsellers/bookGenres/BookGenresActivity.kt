@@ -13,7 +13,7 @@ import com.bestsellers.bestSellers.R
 import com.bestsellers.bookDetails.BookGenresContract
 import com.bestsellers.common.BaseActivity
 import com.bestsellers.model.Genre
-import com.bestsellers.util.Constants.Companion.GENRE_NAME
+import com.bestsellers.util.GENRE_NAME
 import com.bestsellers.util.launchActivity
 import kotlinx.android.synthetic.main.activity_genre.*
 

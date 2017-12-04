@@ -9,9 +9,8 @@ import android.support.v7.widget.RecyclerView
 import android.support.test.espresso.action.ViewActions.pressImeActionButton
 import android.support.test.espresso.action.ViewActions.typeText
 import android.widget.EditText
-import android.support.test.espresso.Espresso.onView
-
-
+import com.bestsellers.util.BASE_URL
+import com.squareup.okhttp.mockwebserver.MockWebServer
 
 
 /**
@@ -19,7 +18,6 @@ import android.support.test.espresso.Espresso.onView
  * on 15/11/2017.
  */
 abstract class BaseRobot {
-
 
     protected fun clickItem(itemId: Int) {
         onView(withId(itemId)).perform(click())

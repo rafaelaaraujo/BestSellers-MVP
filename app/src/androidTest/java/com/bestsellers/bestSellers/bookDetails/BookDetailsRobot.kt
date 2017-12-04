@@ -11,6 +11,5 @@ import com.bestsellers.bestSellers.base.BaseRobot
 class BookDetailsRobot : BaseRobot() {
 
 
-    
 
 }

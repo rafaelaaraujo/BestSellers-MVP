@@ -1,32 +1,47 @@
 package com.bestsellers.bestSellers.bestSellers
 
-import android.support.test.rule.ActivityTestRule
-import android.support.test.runner.AndroidJUnit4
 import com.bestsellers.bestSellers.BestSellersActivity
-import org.junit.Rule
+import com.bestsellers.bestSellers.base.BaseTest
+import org.junit.Before
 import org.junit.Test
-import org.junit.runner.RunWith
 
 /**
  * Created by Rafaela Araujo
  * on 15/11/2017.
  */
 
-@RunWith(AndroidJUnit4::class)
-class BestSellersActivityTest {
+class BestSellersActivityTest : BaseTest() {
 
-    @get:Rule
-    val activityRule = ActivityTestRule(BestSellersActivity::class.java)
-    private val robot:BestSellersRobot = BestSellersRobot()
+    private val robot: BestSellersRobot = BestSellersRobot()
+
+    @Before
+    fun init() {
+        robot.initBestSellersView()
+    }
 
     @Test
-    fun testScroll(){
+    fun testScroll_scrollToTopAndBottom() {
         robot.scrolltoBottom().scrolltoTop()
     }
 
     @Test
-    fun selectListItem_openDetailsView(){
-        robot.scrolltoTop().selectFirstItem().checkOpenDetailsView()
+    fun checkAndSelectFirtDisplayedItem_openDetailsView() {
+        robot
+                .scrolltoTop()
+                .checkTittleFromFirstItem()
+                .checkDescriptionFromFirstItem()
+                .selectFirstItem()
+                .checkOpenDetailsView()
+    }
+
+    @Test
+    fun checkAndSelectLastDisplayedItem_openDetailsView() {
+        robot
+                .scrolltoBottom()
+                .checkTittleFromLastItem()
+                .checkDescriptionFromLastItem()
+                .selectLastItem()
+                .checkOpenDetailsView()
     }
 
 }

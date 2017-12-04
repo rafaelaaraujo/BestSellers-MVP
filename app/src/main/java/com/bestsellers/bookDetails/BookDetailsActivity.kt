@@ -9,12 +9,12 @@ import android.view.View.VISIBLE
 import android.webkit.WebView
 import com.bestsellers.bestSellers.R
 import com.bestsellers.model.Book
-import com.bestsellers.util.Constants.Companion.BOOK
 import com.bestsellers.util.loadUrl
 import kotlinx.android.synthetic.main.activity_details.*
 import kotlinx.android.synthetic.main.best_seller_item.*
 import android.webkit.WebViewClient
 import com.bestsellers.common.BaseActivity
+import com.bestsellers.util.BOOK
 
 class BookDetailsActivity : BaseActivity(), BookDetailsContract.View {
 
