@@ -1,16 +1,12 @@
 package com.bestsellers.bestSellers.base
 
 import android.support.test.espresso.Espresso.onView
-import android.support.test.espresso.action.ViewActions.click
+import android.support.test.espresso.action.ViewActions.*
 import android.support.test.espresso.assertion.ViewAssertions.matches
 import android.support.test.espresso.contrib.RecyclerViewActions
 import android.support.test.espresso.matcher.ViewMatchers.*
 import android.support.v7.widget.RecyclerView
-import android.support.test.espresso.action.ViewActions.pressImeActionButton
-import android.support.test.espresso.action.ViewActions.typeText
 import android.widget.EditText
-import com.bestsellers.util.BASE_URL
-import com.squareup.okhttp.mockwebserver.MockWebServer
 
 
 /**

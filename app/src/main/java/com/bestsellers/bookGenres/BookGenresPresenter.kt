@@ -1,5 +1,6 @@
 package com.bestsellers.bookGenres
 
+import android.util.Log
 import com.bestsellers.bookDetails.BookGenresContract
 import com.bestsellers.connection.BestSellersService
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -26,9 +27,12 @@ class BookGenresPresenter(
                 .subscribe(
                         { retrieveGenres ->
                             view.showGenreList(retrieveGenres.results)
+                            Log.e("RESULT",retrieveGenres.toString())
                         },
-                        {
+                        { error ->
                             view.showErrorMessage()
+                            Log.e("ERROR",error.toString())
+
                         }
                 )
     }

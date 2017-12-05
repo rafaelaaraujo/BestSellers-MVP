@@ -28,7 +28,7 @@ open class BaseTest {
     fun setup(){
         mockWebServer.start()
         BASE_URL = mockWebServer.getUrl("/").toString()
-        mockWebServer.setDispatcher(RestServiceTestHelper.dispatcher)
+        mockWebServer.setDispatcher(RestMockServer.dispatcher)
 
         val grouchyIntent = Intent()
         activityRule.launchActivity(grouchyIntent)

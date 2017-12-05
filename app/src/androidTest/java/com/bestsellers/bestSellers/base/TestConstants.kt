@@ -20,7 +20,7 @@ const val LAST_ITEM_TITLE_BEST_SELLERS = "LITTLE FIRES EVERYWHERE"
 const val LAST_ITEM_DESCRIPTION_BEST_SELLERS = "An artist upends a quiet town outside Cleveland."
 
 const val LIST_ID_GENRE = R.id.genreGrid
-const val FIRST_ITEM_GENRE = 0
+const val FIRST_ITEM_GENRE = 1
 const val LAST_ITEM_GENRE = 15
 const val SEARCH_TEXT_GENRE = "Hardcover Advice"
 const val FIRST_ITEM_TEXT_GENRE = "Combined Print & E-Book Fiction"

@@ -45,7 +45,7 @@ class BookGenresRobot : BaseRobot() {
     }
 
     fun waitTime(): BookGenresRobot {
-        sleepTime(3000)
+        sleepTime(2000)
         return this
     }
 
