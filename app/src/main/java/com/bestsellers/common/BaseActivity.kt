@@ -9,15 +9,16 @@ import android.view.MenuItem
  */
 abstract class BaseActivity: AppCompatActivity() {
 
-    fun configureActionBar(title: String) {
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setHomeButtonEnabled(true)
-        supportActionBar?.title = title
+    fun configureActionBar(newTitle: String) {
+        supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            setHomeButtonEnabled(true)
+            title = newTitle
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) onBackPressed()
         return super.onOptionsItemSelected(item)
     }
-
 }

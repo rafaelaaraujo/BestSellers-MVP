@@ -41,7 +41,6 @@ class BookGenresAdapter(
             genreUpdated.text = context.getString(R.string.update_date, item.updated)
             setOnClickListener { listener(item) }
         }
-
     }
 
     override fun getFilter(): Filter = filter

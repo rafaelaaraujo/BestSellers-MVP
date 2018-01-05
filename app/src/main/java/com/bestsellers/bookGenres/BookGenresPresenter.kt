@@ -27,11 +27,10 @@ class BookGenresPresenter(
                 .subscribe(
                         { retrieveGenres ->
                             view.showGenreList(retrieveGenres.results)
-                            Log.e("RESULT",retrieveGenres.toString())
                         },
-                        { error ->
+
+                        {
                             view.showErrorMessage()
-                            Log.e("ERROR",error.toString())
 
                         }
                 )

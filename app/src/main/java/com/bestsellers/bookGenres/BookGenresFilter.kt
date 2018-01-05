@@ -10,19 +10,21 @@ import com.bestsellers.model.Genre
 class BookGenresFilter(private val genreList:List<Genre>, private val listener: (List<Genre>) -> Unit) : Filter() {
 
     override fun performFiltering(constraint: CharSequence): FilterResults {
-        val filterResults = android.widget.Filter.FilterResults()
+        val filterResults = FilterResults()
+        filterResults.count = genreList.size
+        filterResults.values = genreList
+
         if (constraint.isNotEmpty()) {
             val tempList = ArrayList<Genre>()
-            genreList.forEach({
+
+            genreList.forEach {
                 if (it.display_name.contains(constraint, true)) {
                     tempList.add(it)
                 }
-            })
+            }
+
             filterResults.count = tempList.size
             filterResults.values = tempList
-        }else{
-            filterResults.count = genreList.size
-            filterResults.values = genreList
         }
 
         return filterResults

@@ -19,9 +19,9 @@ import kotlinx.android.synthetic.main.activity_genre.*
 
 
 /**
-* Created by rafaela.araujo
-* on 07/11/17.
-*/
+ * Created by rafaela.araujo
+ * on 07/11/17.
+ */
 
 class BookGenresActivity : BaseActivity(), BookGenresContract.View, SearchView.OnQueryTextListener {
 
@@ -81,12 +81,15 @@ class BookGenresActivity : BaseActivity(), BookGenresContract.View, SearchView.O
     }
 
     override fun onQueryTextSubmit(query: String): Boolean {
-        adapter.filter.filter(query)
-        return true
+        return submitQuery(query)
     }
 
     override fun onQueryTextChange(query: String): Boolean {
+        return submitQuery(query)
+    }
+
+    private fun submitQuery(query: String): Boolean {
         adapter.filter.filter(query)
-        return false
+        return true
     }
 }

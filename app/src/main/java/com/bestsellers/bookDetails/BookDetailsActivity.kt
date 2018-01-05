@@ -32,10 +32,12 @@ class BookDetailsActivity : BaseActivity(), BookDetailsContract.View {
     }
 
     private fun setBookInformations() {
-        bookTittle.text = book.title
-        bookAuthor.text = book.contributor
-        bookDescription.text = book.description
-        bookImage.loadUrl(book.book_image)
+        book.apply {
+            bookTittle.text = title
+            bookAuthor.text = contributor
+            bookDescription.text = description
+            bookImage.loadUrl(book_image)
+        }
     }
 
     fun openAmazonProductUrl(v: View) {

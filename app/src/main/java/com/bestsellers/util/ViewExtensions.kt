@@ -17,7 +17,7 @@ fun Context.showSnackBar(view: View, text: String) {
     Snackbar.make(view, text, Snackbar.LENGTH_LONG).show()
 }
 
-fun Context.toast(text: String) {
+fun Context.showToast(text: String) {
     Toast.makeText(this, text, Toast.LENGTH_LONG).show()
 }
 
