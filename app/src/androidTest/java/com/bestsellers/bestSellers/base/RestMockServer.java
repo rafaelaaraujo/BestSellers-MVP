@@ -1,7 +1,6 @@
 package com.bestsellers.bestSellers.base;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.squareup.okhttp.mockwebserver.Dispatcher;
 import com.squareup.okhttp.mockwebserver.MockResponse;
@@ -14,8 +13,12 @@ import java.io.InputStreamReader;
 import static android.support.test.InstrumentationRegistry.getInstrumentation;
 import static com.bestsellers.bestSellers.base.TestConstantsKt.BEST_SELLERS_JSON;
 import static com.bestsellers.bestSellers.base.TestConstantsKt.NAMES_JSON;
-import static com.bestsellers.util.ConstantsKt.URL_BEST_SELLERS;
+import static com.bestsellers.bestSellers.base.TestConstantsKt.NO_REVIEW_JSON;
+import static com.bestsellers.bestSellers.base.TestConstantsKt.URL_BEST_SELLERS;
+import static com.bestsellers.bestSellers.base.TestConstantsKt.URL_NO_REVIEW_FIRST_ITEM;
+import static com.bestsellers.bestSellers.base.TestConstantsKt.URL_NO_REVIEW_LAST_ITEM;
 import static com.bestsellers.util.ConstantsKt.URL_NAMES;
+import static com.bestsellers.util.ConstantsKt.URL_REVIEWS;
 
 /**
  * Created by Rafaela Araujo
@@ -51,8 +54,13 @@ public class RestMockServer {
                 switch (request.getPath()) {
                     case URL_NAMES:
                         return new MockResponse().setResponseCode(200).setBody(getStringFromFile(getInstrumentation().getContext(), NAMES_JSON));
+
                     case URL_BEST_SELLERS:
                         return new MockResponse().setResponseCode(200).setBody(getStringFromFile(getInstrumentation().getContext(), BEST_SELLERS_JSON));
+
+                    case URL_NO_REVIEW_LAST_ITEM:
+                    case URL_NO_REVIEW_FIRST_ITEM:
+                        return new MockResponse().setResponseCode(200).setBody(getStringFromFile(getInstrumentation().getContext(), NO_REVIEW_JSON));
 
                 }
 

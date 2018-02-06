@@ -1,0 +1,20 @@
+{
+  "status": "OK",
+  "copyright": "Copyright (c) 2018 The New York Times Company.  All Rights Reserved.",
+  "num_results": 1,
+  "results": [
+    {
+      "url": "http://www.nytimes.com/1986/08/21/books/books-of-the-times-547486.html",
+      "publication_dt": "1986-08-21",
+      "byline": "CHRISTOPHER LEHMANN-HAUPT",
+      "book_title": "It",
+      "book_author": "Stephen King",
+      "summary": "",
+      "uuid": "00000000-0000-0000-0000-000000000000",
+      "uri": "nyt://book/00000000-0000-0000-0000-000000000000",
+      "isbn13": [
+        "9780451169518"
+      ]
+    }
+  ]
+}

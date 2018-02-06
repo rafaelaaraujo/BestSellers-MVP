@@ -1,63 +1,72 @@
 package com.bestsellers.bestSellers.base;
 
-/**
- * Created by rafaela on 01/07/2017.
- */
-
-import android.support.test.espresso.UiController;
-import android.support.test.espresso.ViewAction;
+import android.content.res.Resources;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.view.ViewGroup;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
 
-import static android.support.test.espresso.Espresso.onView;
-import static android.support.test.espresso.assertion.ViewAssertions.matches;
-import static android.support.test.espresso.matcher.ViewMatchers.withId;
-
-
+/**
+ * Fork of the RecyclerViewMatcher from https://github.com/dannyroa/espresso-samples
+ */
 public class RecyclerViewMatcher {
 
-    public static ViewAction clickChildViewWithId(final int id) {
-        return new ViewAction() {
-            @Override
-            public Matcher<View> getConstraints() {
-                return null;
-            }
+    private final int recyclerViewId;
 
-            @Override
-            public String getDescription() {
-                return "Click on a child view with specified id.";
-            }
-
-            @Override
-            public void perform(UiController uiController, View view) {
-                View v = view.findViewById(id);
-                v.performClick();
-            }
-        };
+    public RecyclerViewMatcher(int recyclerViewId) {
+        this.recyclerViewId = recyclerViewId;
     }
 
-    public static Matcher<View> nthChildOf(final Matcher<View> parentMatcher, final int childPosition) {
-        return new TypeSafeMatcher<View>() {
-            @Override
-            public void describeTo(Description description) {
-                description.appendText("with " + childPosition + " child view of type parentMatcher");
-            }
+    public Matcher<View> atPosition(final int position) {
+        return atPositionOnView(position, -1);
+    }
 
-            @Override
-            public boolean matchesSafely(View view) {
-                if (!(view.getParent() instanceof ViewGroup)) {
-                    return parentMatcher.matches(view.getParent());
+    public Matcher<View> atPositionOnView(final int position, final int targetViewId) {
+
+        return new TypeSafeMatcher<View>() {
+            Resources resources = null;
+            View childView;
+
+            public void describeTo(Description description) {
+                String idDescription = Integer.toString(recyclerViewId);
+                if (this.resources != null) {
+                    try {
+                        idDescription = this.resources.getResourceName(recyclerViewId);
+                    } catch (Resources.NotFoundException var4) {
+                        idDescription = String.format("%s (resource name not found)", recyclerViewId);
+                    }
                 }
 
-                ViewGroup group = (ViewGroup) view.getParent();
-                return parentMatcher.matches(view.getParent()) && group.getChildAt(childPosition).equals(view);
+                description.appendText("RecyclerView with id: " + idDescription + " at position: " + position);
+            }
+
+            public boolean matchesSafely(View view) {
+
+                this.resources = view.getResources();
+
+                if (childView == null) {
+                    RecyclerView recyclerView =
+                        (RecyclerView) view.getRootView().findViewById(recyclerViewId);
+                    if (recyclerView != null && recyclerView.getId() == recyclerViewId) {
+                        RecyclerView.ViewHolder viewHolder = recyclerView.findViewHolderForAdapterPosition(position);
+                        if (viewHolder != null) {
+                            childView = viewHolder.itemView;
+                        }
+                    }
+                    else {
+                        return false;
+                    }
+                }
+
+                if (targetViewId == -1) {
+                    return view == childView;
+                } else {
+                    View targetView = childView.findViewById(targetViewId);
+                    return view == targetView;
+                }
             }
         };
     }
-
 }

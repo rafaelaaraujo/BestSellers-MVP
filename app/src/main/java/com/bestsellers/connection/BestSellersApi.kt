@@ -4,7 +4,6 @@ import com.bestsellers.model.BestSellersResult
 import com.bestsellers.model.BookGenresResult
 import com.bestsellers.model.HistoryBestSellersResult
 import com.bestsellers.model.ReviewsResult
-import com.bestsellers.util.URL_BEST_SELLERS
 import com.bestsellers.util.URL_HISTORY
 import com.bestsellers.util.URL_NAMES
 import com.bestsellers.util.URL_REVIEWS
@@ -25,10 +24,10 @@ interface BestSellersApi {
     @GET(URL_NAMES)
     fun getBookGenresList(): Observable<BookGenresResult>
 
-    @GET(URL_BEST_SELLERS)
-    fun getBestSellerByNameList(@Path("list") list:String ): Observable<BestSellersResult>
+    @GET("/svc/books/v3/lists/{data}/{list}.json")
+    fun getBestSellerByNameList(@Path("list") list:String): Observable<BestSellersResult>
 
-    @GET(URL_REVIEWS)
-    fun getReviews(@Query("title") tittle:String ): Observable<ReviewsResult>
+    @GET("/svc/books/v3/reviews.json")
+    fun getReviews(@Query("title") tittle:String): Observable<ReviewsResult>
 
 }

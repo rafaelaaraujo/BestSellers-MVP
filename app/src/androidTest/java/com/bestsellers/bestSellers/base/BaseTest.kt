@@ -24,7 +24,6 @@ open class BaseTest {
     @get:Rule
     private val activityRule = ActivityTestRule(BookGenresActivity::class.java, true, false)
 
-    @Before
     fun setup(){
         mockWebServer.start()
         BASE_URL = mockWebServer.getUrl("/").toString()

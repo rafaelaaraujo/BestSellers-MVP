@@ -10,27 +10,27 @@ import com.bestsellers.bestSellers.base.*
 
 class BestSellersRobot : BaseRobot() {
 
-    fun initBestSellersView(){
-        clickItemAtPosition(LIST_ID_GENRE,FIRST_ITEM_GENRE)
+    fun initBestSellersView() {
+        clickItemAtPosition(ID_GENRE_LIST, FIRST_ITEM_GENRE)
     }
 
     fun scrolltoBottom(): BestSellersRobot {
-        scrollListAtPosition(LIST_ID_BEST_SELLERS, LAST_ITEM_POSITION_BEST_SELLERS)
+        scrollListAtPosition(ID_BOOKS_LIST, LAST_BOOK_POSITION)
         return this
     }
 
     fun scrolltoTop(): BestSellersRobot {
-        scrollListAtPosition(LIST_ID_BEST_SELLERS, FIRST_ITEM_POSITION_BEST_SELLERS)
+        scrollListAtPosition(ID_BOOKS_LIST, FIRST_BOOK_POSITION)
         return this
     }
 
     fun selectFirstItem(): BestSellersRobot {
-        clickItemAtPosition(LIST_ID_BEST_SELLERS, FIRST_ITEM_POSITION_BEST_SELLERS)
+        clickItemAtPosition(ID_BOOKS_LIST, FIRST_BOOK_POSITION)
         return this
     }
 
     fun selectLastItem(): BestSellersRobot {
-        clickItemAtPosition(LIST_ID_BEST_SELLERS, LAST_ITEM_POSITION_BEST_SELLERS)
+        clickItemAtPosition(ID_BOOKS_LIST, LAST_BOOK_POSITION)
         return this
     }
 
@@ -39,23 +39,23 @@ class BestSellersRobot : BaseRobot() {
     }
 
     fun checkTittleFromFirstItem(): BestSellersRobot {
-        checkTextFromRecicleViewItem(LIST_ID_BEST_SELLERS, FIRST_ITEM_POSITION_BEST_SELLERS, FIRST_ITEM_TITLE_BEST_SELLERS)
+        checkTextFromRecicleViewItem(ID_BOOKS_LIST, FIRST_BOOK_POSITION, FIRST_BOOK_TITLE)
         return this
     }
 
     fun checkDescriptionFromFirstItem(): BestSellersRobot {
-        checkTextFromRecicleViewItem(LIST_ID_BEST_SELLERS, FIRST_ITEM_POSITION_BEST_SELLERS, FIRST_ITEM_DESCRIPTION_BEST_SELLERS)
+        checkTextFromRecicleViewItem(ID_BOOKS_LIST, FIRST_BOOK_POSITION, FIRST_BOOK_DESCRIPTION)
         return this
     }
 
 
     fun checkTittleFromLastItem(): BestSellersRobot {
-        checkTextFromRecicleViewItem(LIST_ID_BEST_SELLERS, LAST_ITEM_POSITION_BEST_SELLERS, LAST_ITEM_TITLE_BEST_SELLERS)
+        checkTextFromRecicleViewItem(ID_BOOKS_LIST, LAST_BOOK_POSITION, LAST_BOOK_TITLE)
         return this
     }
 
     fun checkDescriptionFromLastItem(): BestSellersRobot {
-        checkTextFromRecicleViewItem(LIST_ID_BEST_SELLERS, LAST_ITEM_POSITION_BEST_SELLERS, LAST_ITEM_DESCRIPTION_BEST_SELLERS)
+        checkTextFromRecicleViewItem(ID_BOOKS_LIST, LAST_BOOK_POSITION, LAST_BOOK_DESCRIPTION)
         return this
     }
 

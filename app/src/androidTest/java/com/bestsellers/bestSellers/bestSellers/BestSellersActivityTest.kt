@@ -1,6 +1,5 @@
 package com.bestsellers.bestSellers.bestSellers
 
-import com.bestsellers.bestSellers.BestSellersActivity
 import com.bestsellers.bestSellers.base.BaseTest
 import org.junit.Before
 import org.junit.Test
@@ -16,6 +15,7 @@ class BestSellersActivityTest : BaseTest() {
 
     @Before
     fun init() {
+        setup()
         robot.initBestSellersView()
     }
 

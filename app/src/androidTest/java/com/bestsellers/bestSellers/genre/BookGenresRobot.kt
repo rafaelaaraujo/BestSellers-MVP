@@ -12,12 +12,12 @@ import com.bestsellers.bestSellers.base.*
 class BookGenresRobot : BaseRobot() {
 
     fun selectListFirstItem(): BookGenresRobot {
-        clickItemAtPosition(LIST_ID_GENRE, FIRST_ITEM_GENRE)
+        clickItemAtPosition(ID_GENRE_LIST, FIRST_ITEM_GENRE)
         return this
     }
 
     fun selectListLastItem(): BookGenresRobot {
-        clickItemAtPosition(LIST_ID_GENRE, LAST_ITEM_GENRE)
+        clickItemAtPosition(ID_GENRE_LIST, LAST_ITEM_GENRE)
         return this
     }
 
@@ -31,16 +31,16 @@ class BookGenresRobot : BaseRobot() {
     }
 
     fun scrolltoTop() {
-        scrollListAtPosition(LIST_ID_GENRE, FIRST_ITEM_GENRE)
+        scrollListAtPosition(ID_GENRE_LIST, FIRST_ITEM_GENRE)
     }
 
     fun checkFirstItemText(): BookGenresRobot {
-        checkTextFromRecicleViewItem(LIST_ID_GENRE, FIRST_ITEM_GENRE, FIRST_ITEM_TEXT_GENRE)
+        checkTextFromRecicleViewItem(ID_GENRE_LIST, FIRST_ITEM_GENRE, FIRST_ITEM_TEXT_GENRE)
         return this
     }
 
     fun checkLastItemText(): BookGenresRobot {
-        checkTextFromRecicleViewItem(LIST_ID_GENRE, LAST_ITEM_GENRE, LAST_ITEM_TEXT_GENRE)
+        checkTextFromRecicleViewItem(ID_GENRE_LIST, LAST_ITEM_GENRE, LAST_ITEM_TEXT_GENRE)
         return this
     }
 
@@ -60,7 +60,7 @@ class BookGenresRobot : BaseRobot() {
     }
 
     fun checkFirstItemSearchText() {
-        checkTextFromRecicleViewItem(LIST_ID_GENRE, FIRST_ITEM_GENRE,  SEARCH_TEXT_GENRE)
+        checkTextFromRecicleViewItem(ID_GENRE_LIST, FIRST_ITEM_GENRE,  SEARCH_TEXT_GENRE)
     }
 
 }

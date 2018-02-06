@@ -1,17 +1,12 @@
 package com.bestsellers.bestSellers.base
 
-import android.support.test.espresso.Espresso.onData
 import android.support.test.espresso.Espresso.onView
 import android.support.test.espresso.action.ViewActions.*
 import android.support.test.espresso.assertion.ViewAssertions.matches
 import android.support.test.espresso.contrib.RecyclerViewActions
 import android.support.test.espresso.matcher.ViewMatchers.*
 import android.support.v7.widget.RecyclerView
-import android.view.View
 import android.widget.EditText
-import com.bestsellers.bestSellers.R
-import org.hamcrest.CoreMatchers.equalTo
-import org.hamcrest.Matcher
 
 
 /**
@@ -41,18 +36,16 @@ abstract class BaseRobot {
     }
 
     protected fun checkTextFromRecicleViewItem(listId: Int, itemPosition: Int, text: String) {
-        onData(withItemContent(text))
-                .inAdapterView(withId(listId))
-                .atPosition(itemPosition)
-                .check(matches(isDisplayed()))
+        onView(withRecyclerView(listId).atPosition(itemPosition))
+                .check(matches(hasDescendant(withText(text))))
     }
 
-    fun withItemContent(expectedText: String): Matcher<Any> {
-        checkNotNull(expectedText)
-        return withItemContent(equalTo(expectedText).toString())
+    fun withRecyclerView(recyclerViewId: Int): RecyclerViewMatcher {
+        return RecyclerViewMatcher(recyclerViewId)
     }
 
     fun sleepTime(time: Long) {
+
         Thread.sleep(time)
     }
 

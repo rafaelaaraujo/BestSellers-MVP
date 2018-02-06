@@ -1,6 +1,7 @@
 package com.bestsellers.bestSellers.genre
 
 import com.bestsellers.bestSellers.base.BaseTest
+import org.junit.Before
 import org.junit.Test
 
 
@@ -12,6 +13,11 @@ import org.junit.Test
 class BookGenresActivityTest : BaseTest(){
 
     private val robot: BookGenresRobot = BookGenresRobot()
+
+    @Before
+    fun init() {
+        setup()
+    }
 
     @Test
     fun selectedFirstItem_displayBestSellersList() {
