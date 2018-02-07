@@ -1,7 +1,7 @@
 language: android
 android:
   components:
-    - build-tools-19.0.3
+    - build-tools-26.0.2
     - $ANDROID_TARGET
     - sys-img-armeabi-v7a-$ANDROID_TARGET
     - extra-android-support

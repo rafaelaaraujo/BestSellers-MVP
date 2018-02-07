@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.main.best_seller_item.*
 import android.webkit.WebViewClient
 import com.bestsellers.common.BaseActivity
 import com.bestsellers.util.BOOK
+import com.bestsellers.util.launchActivity
 
 class BookDetailsActivity : BaseActivity(), BookDetailsContract.View {
 
