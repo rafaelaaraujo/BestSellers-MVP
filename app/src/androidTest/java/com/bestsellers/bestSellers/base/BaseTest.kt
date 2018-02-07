@@ -16,7 +16,6 @@ import org.junit.runner.RunWith
  * on 04/12/2017.
  */
 
-@RunWith(AndroidJUnit4::class)
 open class BaseTest {
 
     private val mockWebServer = MockWebServer()

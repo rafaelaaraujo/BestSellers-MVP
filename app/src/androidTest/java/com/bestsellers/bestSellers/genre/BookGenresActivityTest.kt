@@ -1,8 +1,10 @@
 package com.bestsellers.bestSellers.genre
 
+import android.support.test.runner.AndroidJUnit4
 import com.bestsellers.bestSellers.base.BaseTest
 import org.junit.Before
 import org.junit.Test
+import org.junit.runner.RunWith
 
 
 /**
@@ -10,7 +12,8 @@ import org.junit.Test
  * on 15/11/2017.
  */
 
-class BookGenresActivityTest : BaseTest(){
+@RunWith(AndroidJUnit4::class)
+class BookGenresActivityTest : BaseTest() {
 
     private val robot: BookGenresRobot = BookGenresRobot()
 
@@ -21,35 +24,38 @@ class BookGenresActivityTest : BaseTest(){
 
     @Test
     fun selectedFirstItem_displayBestSellersList() {
-        robot
-                .checkFirstItemText()
-                .selectListFirstItem()
-                .checkDisplayBestSellersList()
+        with(robot) {
+            checkFirstItemText()
+            selectListFirstItem()
+            checkDisplayBestSellersList()
+        }
     }
 
     @Test
     fun scrollToBottom_scrollToTop() {
-        robot
-                .scrolltoBottom()
-                .scrolltoTop()
+        with(robot) {
+            scrolltoBottom()
+            scrolltoTop()
+        }
     }
 
     @Test
     fun selectLastItem_displayBestSellersList() {
-        robot
-                .scrolltoBottom()
-                .waitTime()
-                .checkLastItemText()
-                .selectListLastItem()
-                .checkDisplayBestSellersList()
+        with(robot) {
+            scrolltoBottom()
+            checkLastItemText()
+            selectLastItem()
+            checkDisplayBestSellersList()
+        }
     }
 
     @Test
     fun selectSearchButtonAndMakeSearch_filterList() {
-        robot
-                .selectSearchButton()
-                .addTextToSearchView()
-                .checkFirstItemSearchText()
+        with(robot) {
+            selectSearchButton()
+            addTextToSearchView()
+            checkItemSearchDisplayed()
+        }
     }
 
 }

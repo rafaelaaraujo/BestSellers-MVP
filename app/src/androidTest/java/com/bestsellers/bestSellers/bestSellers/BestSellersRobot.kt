@@ -14,49 +14,41 @@ class BestSellersRobot : BaseRobot() {
         clickItemAtPosition(ID_GENRE_LIST, FIRST_ITEM_GENRE)
     }
 
-    fun scrolltoBottom(): BestSellersRobot {
+    fun scrolltoBottom() {
         scrollListAtPosition(ID_BOOKS_LIST, LAST_BOOK_POSITION)
-        return this
     }
 
-    fun scrolltoTop(): BestSellersRobot {
+    fun scrolltoTop() {
         scrollListAtPosition(ID_BOOKS_LIST, FIRST_BOOK_POSITION)
-        return this
     }
 
-    fun selectFirstItem(): BestSellersRobot {
+    fun selectFirstItem() {
         clickItemAtPosition(ID_BOOKS_LIST, FIRST_BOOK_POSITION)
-        return this
     }
 
-    fun selectLastItem(): BestSellersRobot {
+    fun selectLastItem() {
         clickItemAtPosition(ID_BOOKS_LIST, LAST_BOOK_POSITION)
-        return this
     }
 
     fun checkOpenDetailsView() {
         checkItemIsVisible(R.id.detailsView)
     }
 
-    fun checkTittleFromFirstItem(): BestSellersRobot {
+    fun checkTittleFromFirstItem() {
         checkTextFromRecicleViewItem(ID_BOOKS_LIST, FIRST_BOOK_POSITION, FIRST_BOOK_TITLE)
-        return this
     }
 
-    fun checkDescriptionFromFirstItem(): BestSellersRobot {
+    fun checkDescriptionFromFirstItem() {
         checkTextFromRecicleViewItem(ID_BOOKS_LIST, FIRST_BOOK_POSITION, FIRST_BOOK_DESCRIPTION)
-        return this
     }
 
 
-    fun checkTittleFromLastItem(): BestSellersRobot {
+    fun checkTittleFromLastItem() {
         checkTextFromRecicleViewItem(ID_BOOKS_LIST, LAST_BOOK_POSITION, LAST_BOOK_TITLE)
-        return this
     }
 
-    fun checkDescriptionFromLastItem(): BestSellersRobot {
+    fun checkDescriptionFromLastItem() {
         checkTextFromRecicleViewItem(ID_BOOKS_LIST, LAST_BOOK_POSITION, LAST_BOOK_DESCRIPTION)
-        return this
     }
 
 }

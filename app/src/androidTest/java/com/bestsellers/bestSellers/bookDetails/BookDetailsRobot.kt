@@ -1,6 +1,7 @@
 package com.bestsellers.bestSellers.bookDetails
 
-import com.bestsellers.bestSellers.base.BaseRobot
+import com.bestsellers.bestSellers.R
+import com.bestsellers.bestSellers.base.*
 
 /**
  * Created by Rafaela Araujo
@@ -10,6 +11,41 @@ import com.bestsellers.bestSellers.base.BaseRobot
 
 class BookDetailsRobot : BaseRobot() {
 
+    fun selectGenreItem(){
+        clickItemAtPosition(ID_GENRE_LIST, FIRST_ITEM_GENRE)
+    }
 
+    fun selectNoReviewBook(){
+        clickItemAtPosition(ID_BOOKS_LIST, FIRST_BOOK_POSITION)
+    }
 
+    fun selectReviewBook(){
+        clickItemAtPosition(ID_BOOKS_LIST, ITEM_REVIEW_BOOK_POSITION)
+    }
+
+    fun clickTobuyNoReviewBook(){
+        checkItemIsVisible(R.id.buyButton)
+        clickItem(R.id.buyButton)
+    }
+
+    fun clickTobuyReviewBook(){
+        checkItemIsVisible(R.id.btnBuyBook)
+        clickItem(R.id.btnBuyBook)
+    }
+
+    fun checkReviewIsVisible(){
+        checkItemIsVisible(R.id.reviewWebView)
+    }
+
+    fun checkDataBookIsVisible(){
+        checkItemIsVisible(R.id.llBookData)
+    }
+
+    fun scrolltoBottom() {
+        scrollListAtPosition(ID_BOOKS_LIST, LAST_ITEM_GENRE)
+    }
+
+    fun waitTime(time: Long){
+        sleepTime(time)
+    }
 }

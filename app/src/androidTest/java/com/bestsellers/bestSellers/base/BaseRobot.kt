@@ -27,6 +27,10 @@ abstract class BaseRobot {
         onView(withId(itemId)).check(matches(isDisplayed()))
     }
 
+    protected fun checkItemGone(itemId: Int) {
+        onView(withId(itemId)).check(matches(isDisplayed()))
+    }
+
     protected fun clickItemAtPosition(itemId: Int, position: Int) {
         onView(withId(itemId)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(position, click()));
     }
@@ -45,7 +49,6 @@ abstract class BaseRobot {
     }
 
     fun sleepTime(time: Long) {
-
         Thread.sleep(time)
     }
 

@@ -11,55 +11,47 @@ import com.bestsellers.bestSellers.base.*
 
 class BookGenresRobot : BaseRobot() {
 
-    fun selectListFirstItem(): BookGenresRobot {
+    fun selectListFirstItem() {
         clickItemAtPosition(ID_GENRE_LIST, FIRST_ITEM_GENRE)
-        return this
     }
 
-    fun selectListLastItem(): BookGenresRobot {
+    fun selectLastItem() {
         clickItemAtPosition(ID_GENRE_LIST, LAST_ITEM_GENRE)
-        return this
     }
 
     fun checkDisplayBestSellersList() {
         checkItemIsVisible(R.id.bestSellersList)
     }
 
-    fun scrolltoBottom(): BookGenresRobot {
-        scrollListAtPosition(FIRST_ITEM_GENRE, LAST_ITEM_GENRE)
-        return this
+    fun scrolltoBottom() {
+        scrollListAtPosition(ID_GENRE_LIST, LAST_ITEM_GENRE)
     }
 
     fun scrolltoTop() {
         scrollListAtPosition(ID_GENRE_LIST, FIRST_ITEM_GENRE)
     }
 
-    fun checkFirstItemText(): BookGenresRobot {
+    fun checkFirstItemText() {
         checkTextFromRecicleViewItem(ID_GENRE_LIST, FIRST_ITEM_GENRE, FIRST_ITEM_TEXT_GENRE)
-        return this
     }
 
-    fun checkLastItemText(): BookGenresRobot {
+    fun checkLastItemText() {
         checkTextFromRecicleViewItem(ID_GENRE_LIST, LAST_ITEM_GENRE, LAST_ITEM_TEXT_GENRE)
-        return this
     }
 
-    fun waitTime(): BookGenresRobot {
+    fun waitTime() {
         sleepTime(2000)
-        return this
     }
 
-    fun selectSearchButton(): BookGenresRobot {
+    fun selectSearchButton() {
         clickItem(R.id.search)
-        return this
     }
 
-    fun addTextToSearchView(): BookGenresRobot {
+    fun addTextToSearchView() {
         putTextInEditText(SEARCH_TEXT_GENRE)
-        return this
     }
 
-    fun checkFirstItemSearchText() {
+    fun checkItemSearchDisplayed() {
         checkTextFromRecicleViewItem(ID_GENRE_LIST, FIRST_ITEM_GENRE,  SEARCH_TEXT_GENRE)
     }
 
