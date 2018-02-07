@@ -1,0 +1,44 @@
+language: android
+jdk: oraclejdk8
+sudo: false
+
+env:
+  global:
+    # switch glibc to a memory conserving mode
+    - MALLOC_ARENA_MAX=2
+    # wait up to 10 minutes for adb to connect to emulator
+    - ADB_INSTALL_TIMEOUT=10
+    
+  matrix:
+    - ANDROID_TARGET=android-22 ANDROID_ABI=armeabi-v7a
+
+before_install:
+ - chmod +x gradlew
+ - mkdir "$ANDROID_HOME/licenses" || true
+ - echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"
+ - echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"
+
+android:
+  components:
+    - platform-tools
+    - tools
+    - build-tools-25.0.3
+    - android-25
+    - android-25
+    - extra-android-m2repository
+    - extra-google-m2repository
+    - sys-img-armeabi-v7a-android-22
+  licenses:
+    - 'android-sdk-preview-license-52d11cd2'
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
+    - '.+'
+
+before_script:
+    - echo no | android create avd --force -n test -t $ANDROID_TARGET --abi $ANDROID_ABI
+    - emulator -avd test -no-skin -no-audio -no-window &
+    - android-wait-for-emulator
+    - adb shell input keyevent 82 &
+    
+script:
+    - ./gradlew connectedAndroidTest coveralls
