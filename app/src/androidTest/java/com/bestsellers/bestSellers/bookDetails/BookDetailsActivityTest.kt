@@ -31,12 +31,12 @@ class BookDetailsActivityTest : BaseTest() {
         }
     }
 
-//    @Test TODO: verify webview
+    @Test
     fun selectReviewBookAndClickToBuy_OpenUrlInBrowser() {
         with(robot) {
             scrolltoBottom()
             selectReviewBook()
-            sleepTime(5000)
+            sleepTime(2000)
             checkReviewIsVisible()
             clickTobuyReviewBook()
         }

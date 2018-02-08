@@ -10,6 +10,7 @@ import com.bestsellers.bestSellers.R
 const val NAMES_JSON = "names_list.json"
 const val BEST_SELLERS_JSON = "best_sellers_list.json"
 const val NO_REVIEW_JSON = "no_reviews.json"
+const val REVIEW_JSON = "reviews.json"
 
 const val ID_BOOKS_LIST = R.id.bestSellersList
 const val FIRST_BOOK_POSITION = 0
@@ -32,3 +33,4 @@ const val LAST_ITEM_TEXT_GENRE = "Children’s Middle Grade E-Book"
 const val URL_BEST_SELLERS = "/svc/books/v3/lists/%7Bdata%7D/Combined%20Print%20and%20E-Book%20Fiction.json"
 const val URL_NO_REVIEW_LAST_ITEM= "/svc/books/v3/reviews.json?title=LITTLE%20FIRES%20EVERYWHERE"
 const val URL_NO_REVIEW_FIRST_ITEM= "/svc/books/v3/reviews.json?title=THE%20PEOPLE%20VS.%20ALEX%20CROSS"
+const val URL_REVIEW_ITEM= "/svc/books/v3/reviews.json?title=IT"
