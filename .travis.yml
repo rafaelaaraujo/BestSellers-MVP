@@ -1,9 +1,15 @@
+language: android
+
+env:
+  global:
+    - ADB_INSTALL_TIMEOUT=16 # 16 minutes (2 minutes by default)
+
 android:
   components:
     - tools
     - platform-tools
-    - build-tools-26.0.2
-    - android-26
+    - build-tools-25.0.3
+    - android-24
     - android-22
     - extra-google-google_play_services
     - extra-google-m2repository
