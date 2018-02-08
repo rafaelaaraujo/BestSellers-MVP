@@ -1,5 +1,8 @@
 language: android
-sudo: true
+
+env:
+  global:
+    - ADB_INSTALL_TIMEOUT=16 # 16 minutes (2 minutes by default)
 
 android:
   components:
@@ -8,6 +11,9 @@ android:
     - build-tools-26.0.2
     - android-26
     - android-22
+    - extra-google-google_play_services
+    - extra-google-m2repository
+    - extra-android-m2repository
     - sys-img-armeabi-v7a-android-22
 
 before_script:
@@ -19,4 +25,4 @@ before_script:
   - adb shell input keyevent 82 &
 
 script:
-   - ./gradlew build checkstyle connectedCheck -PdisablePreDex
+   - chmod +x ./gradlew build checkstyle connectedCheck -PdisablePreDex
