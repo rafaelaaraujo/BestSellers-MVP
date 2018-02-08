@@ -26,3 +26,9 @@ before_script:
 
 script:
    - chmod +x ./gradlew build checkstyle connectedCheck -PdisablePreDex
+
+
+before_install:
+ - chmod +x gradlew
+
+
