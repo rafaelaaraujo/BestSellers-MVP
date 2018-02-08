@@ -24,3 +24,5 @@ before_script:
   - adb devices
   - adb shell input keyevent 82 &
 
+before_install:
+ - chmod +x gradlew
