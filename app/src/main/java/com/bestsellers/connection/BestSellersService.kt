@@ -20,7 +20,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
  */
 
 
-class BestSellersService {
+open class BestSellersService {
 
     private val bestSellersApi: BestSellersApi
 
