@@ -8,7 +8,20 @@ import com.bestsellers.model.Book
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.verify
 import junit.framework.Assert.assertNotNull
+import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
+import org.mockito.Mock
+import org.mockito.junit.MockitoJUnit
+import org.mockito.Mockito.`when`
+import com.squareup.okhttp.mockwebserver.MockWebServer
+import org.bouncycastle.crypto.tls.ConnectionEnd.server
+
+
+
+
+
+
 
 /**
  * Created by rafaela.araujo on 08/02/18.
@@ -16,19 +29,28 @@ import org.junit.Test
 
 class BestSellersPresenterTest {
 
+    @JvmField @Rule var mockitoRule = MockitoJUnit.rule()
+    @Mock private lateinit var mockView: BestSellersContract.View
+    private lateinit var presenter: BestSellersPresenter
+    private lateinit var server: MockWebServer
+
+
+    @Before
+    fun setup() {
+        server = MockWebServer()
+        server.start()
+        presenter = BestSellersPresenter(mockView)
+    }
+
     @Test
     fun testAttach() {
-        val bestSellersPresenter = BestSellersPresenter(mock())
-        assertNotNull(bestSellersPresenter.view)
+        assertNotNull(presenter.view)
     }
 
     @Test
     fun searchBestSellersWithoutGenre() {
-        val bestSellersPresenter = BestSellersPresenter(mock())
-        val bestSellersView = mock<BestSellersContract.View>()
-
-        bestSellersPresenter.requestBestSellers("")
-        verify(bestSellersView).showErrorMessage()
+        presenter.requestBestSellers("")
+        verify(mockView).showErrorMessage()
     }
 
     @Test
