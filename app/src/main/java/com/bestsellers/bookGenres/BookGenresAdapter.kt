@@ -1,6 +1,7 @@
 package com.bestsellers.bookGenres
 
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,6 +22,8 @@ class BookGenresAdapter(
     val filter: BookGenresFilter = BookGenresFilter(genreList, this::updateGenreList)
 
     private fun updateGenreList(it: List<Genre>) {
+        Log.d("GENRE_FILTER",it.toString())
+
         this.genreList = it
         notifyDataSetChanged()
     }

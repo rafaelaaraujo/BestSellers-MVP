@@ -31,7 +31,7 @@ class BestSellersActivityTest : BaseTest() {
     }
 
     @Test
-    fun checkAndSelectFirtDisplayedItem_openDetailsView() {
+    fun checkAndSelectFirstDisplayedItem_openDetailsView() {
         with(robot) {
             scrolltoTop()
             checkTittleFromFirstItem()
