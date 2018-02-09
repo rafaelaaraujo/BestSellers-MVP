@@ -26,9 +26,11 @@ before_script:
 
 script:
   - chmod +x ./gradlew
+  - ./gradlew test
+  - ./gradlew connectedAndroidTest
 
 after_success:
-  - chmod +x ./gradlew cobertura coveralls
+  - ./gradlew cobertura coveralls
 
 
 
