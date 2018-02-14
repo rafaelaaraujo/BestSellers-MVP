@@ -30,7 +30,7 @@ script:
   - ./gradlew connectedAndroidTest
 
 after_success:
-  - ./gradlew cobertura coveralls
+  - bash <(curl -s https://codecov.io/bash)
 
 
 

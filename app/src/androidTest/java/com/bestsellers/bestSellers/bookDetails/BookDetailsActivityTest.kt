@@ -23,22 +23,20 @@ class BookDetailsActivityTest : BaseTest() {
     }
 
     @Test
-    fun selectNoReviewBookAndClickToBuy_OpenUrlInBrowser() {
+    fun selectNoReviewBook_checkDataBookIsVisible() {
         with(robot) {
             selectNoReviewBook()
             checkDataBookIsVisible()
-            clickTobuyNoReviewBook()
         }
     }
 
     @Test
-    fun selectReviewBookAndClickToBuy_OpenUrlInBrowser() {
+    fun selectReviewBook_checkReviewIsVisible() {
         with(robot) {
             scrolltoBottom()
             selectReviewBook()
             sleepTime(2000)
             checkReviewIsVisible()
-            clickTobuyReviewBook()
         }
     }
 
