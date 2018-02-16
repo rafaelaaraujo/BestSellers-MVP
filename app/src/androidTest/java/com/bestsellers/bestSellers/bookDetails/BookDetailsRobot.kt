@@ -1,6 +1,6 @@
 package com.bestsellers.bestSellers.bookDetails
 
-import com.bestsellers.bestSellers.R
+import com.bestsellers.R
 import com.bestsellers.bestSellers.base.*
 
 /**

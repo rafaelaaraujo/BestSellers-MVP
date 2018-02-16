@@ -4,19 +4,19 @@ import android.app.SearchManager
 import android.content.Context
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.RecyclerView.AdapterDataObserver
 import android.view.Menu
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.SearchView
+import com.bestsellers.R
 import com.bestsellers.bestSellers.BestSellersActivity
-import com.bestsellers.bestSellers.R
 import com.bestsellers.bookDetails.BookGenresContract
 import com.bestsellers.common.BaseActivity
 import com.bestsellers.model.Genre
 import com.bestsellers.util.GENRE_NAME
 import com.bestsellers.util.launchActivity
 import kotlinx.android.synthetic.main.activity_genre.*
-
 
 /**
  * Created by rafaela.araujo
@@ -28,6 +28,7 @@ class BookGenresActivity : BaseActivity(), BookGenresContract.View, SearchView.O
     override lateinit var presenter: BookGenresContract.Presenter
     private lateinit var adapter: BookGenresAdapter
     private var genreList = ArrayList<Genre>()
+    private lateinit var searchView: SearchView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +41,19 @@ class BookGenresActivity : BaseActivity(), BookGenresContract.View, SearchView.O
     private fun configureGridView() {
         genreGrid.layoutManager = GridLayoutManager(this, 2)
         adapter = BookGenresAdapter(genreList, this::openListByGenre)
+        adapter.registerAdapterDataObserver(observer)
         genreGrid.adapter = adapter
+    }
+
+    val observer: AdapterDataObserver = object : AdapterDataObserver() {
+        override fun onChanged() {
+            super.onChanged()
+            checkAdapterIsEmpty()
+        }
+    }
+
+    private fun checkAdapterIsEmpty() {
+        genreNotFoundMessge.visibility = if(adapter.itemCount == 0)  VISIBLE else GONE
     }
 
     private fun openListByGenre(genre: Genre) {
@@ -75,12 +88,13 @@ class BookGenresActivity : BaseActivity(), BookGenresContract.View, SearchView.O
 
     private fun configureSearchManager(menu: Menu) {
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        val searchView = menu.findItem(R.id.search).actionView as SearchView
+        searchView = menu.findItem(R.id.search).actionView as SearchView
         searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
         searchView.setOnQueryTextListener(this)
     }
 
     override fun onQueryTextSubmit(query: String): Boolean {
+        searchView.clearFocus()
         return submitQuery(query)
     }
 

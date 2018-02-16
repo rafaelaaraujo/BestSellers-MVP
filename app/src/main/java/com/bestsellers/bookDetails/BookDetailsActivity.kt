@@ -7,12 +7,12 @@ import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.webkit.WebView
-import com.bestsellers.bestSellers.R
 import com.bestsellers.model.Book
 import com.bestsellers.util.loadUrl
 import kotlinx.android.synthetic.main.activity_details.*
 import kotlinx.android.synthetic.main.best_seller_item.*
 import android.webkit.WebViewClient
+import com.bestsellers.R
 import com.bestsellers.common.BaseActivity
 import com.bestsellers.util.BOOK
 import com.bestsellers.util.launchActivity

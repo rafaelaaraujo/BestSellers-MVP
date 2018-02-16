@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
-import com.bestsellers.bestSellers.R
+import com.bestsellers.R
 import com.bestsellers.model.Genre
 import kotlinx.android.synthetic.main.genre_item.view.*
 
@@ -22,8 +22,6 @@ class BookGenresAdapter(
     val filter: BookGenresFilter = BookGenresFilter(genreList, this::updateGenreList)
 
     private fun updateGenreList(it: List<Genre>) {
-        Log.d("GENRE_FILTER",it.toString())
-
         this.genreList = it
         notifyDataSetChanged()
     }

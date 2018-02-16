@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import com.bestsellers.R
 import com.bestsellers.bookDetails.BookDetailsActivity
 import com.bestsellers.common.BaseActivity
 import com.bestsellers.model.Book

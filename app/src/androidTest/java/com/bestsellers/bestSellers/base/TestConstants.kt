@@ -1,6 +1,6 @@
 package com.bestsellers.bestSellers.base
 
-import com.bestsellers.bestSellers.R
+import com.bestsellers.R
 
 /**
  * Created by Rafaela Araujo
