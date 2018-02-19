@@ -20,6 +20,7 @@ class BookGenresActivityTest : BaseTest() {
     @Before
     fun init() {
         setup()
+        robot.waitTime()
     }
 
     @Test

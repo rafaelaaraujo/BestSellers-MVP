@@ -12,6 +12,7 @@ import com.bestsellers.bestSellers.base.*
 class BookDetailsRobot : BaseRobot() {
 
     fun selectGenreItem(){
+        sleepTime(2000);
         clickItemAtPosition(ID_GENRE_LIST, FIRST_ITEM_GENRE)
     }
 

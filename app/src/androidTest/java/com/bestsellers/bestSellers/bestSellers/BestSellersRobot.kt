@@ -12,6 +12,7 @@ class BestSellersRobot : BaseRobot() {
 
     fun initBestSellersView() {
         clickItemAtPosition(ID_GENRE_LIST, FIRST_ITEM_GENRE)
+        sleepTime(2000);
     }
 
     fun scrolltoBottom() {
