@@ -11,12 +11,21 @@ import com.bestsellers.model.BookReview
 class BookDetailsContract {
 
     interface View : BaseView<Presenter> {
+
+        /**
+         * show review from selected book
+         * @param reviewUrl
+         */
         fun loadBookReview(reviewUrl: String)
 
+        /**
+         * show user message that the book has no reviews
+         */
         fun showNoReviewsView()
     }
 
     interface Presenter : BasePresenter {
-        fun getBookReview(tittle:String)
+
+        fun getBookReview(tittle: String)
     }
 }

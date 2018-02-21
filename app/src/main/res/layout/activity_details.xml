@@ -36,7 +36,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:layout_margin="5dp"
-                android:onClick="openAmazonProductUrl"
                 android:text="BUY" />
         </LinearLayout>
 
@@ -65,7 +64,6 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:layout_margin="20dp"
-            android:onClick="openAmazonProductUrl"
             android:visibility="gone"
             app:srcCompat="@drawable/ic_shopping_cart" />
 

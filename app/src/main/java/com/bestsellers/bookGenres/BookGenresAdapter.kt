@@ -37,7 +37,7 @@ class BookGenresAdapter(
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(item: Genre, listener: (Genre) -> Unit) = with(itemView) {
+       internal fun bind(item: Genre, listener: (Genre) -> Unit) = with(itemView) {
             genreTittle.text = item.display_name
             genreUpdated.text = context.getString(R.string.update_date, item.updated)
             setOnClickListener { listener(item) }

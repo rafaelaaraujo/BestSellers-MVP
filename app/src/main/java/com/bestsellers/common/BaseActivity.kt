@@ -8,9 +8,9 @@ import com.bestsellers.R
  * Created by Rafaela Araujo
  * on 09/11/2017.
  */
-abstract class BaseActivity: AppCompatActivity() {
+abstract class BaseActivity : AppCompatActivity() {
 
-    fun configureActionBar(newTitle: String) {
+    internal fun configureActionBar(newTitle: String) {
         supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
             setHomeButtonEnabled(true)
@@ -18,8 +18,8 @@ abstract class BaseActivity: AppCompatActivity() {
         }
     }
 
-    fun setToolbarIcon(){
-        supportActionBar?.apply{
+    internal fun setToolbarIcon() {
+        supportActionBar?.apply {
             setDisplayShowHomeEnabled(true);
             setDisplayUseLogoEnabled(true);
             setLogo(R.drawable.ic_ny)

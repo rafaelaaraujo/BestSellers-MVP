@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.activity_best_sellers.*
  */
 class BestSellersActivity : BaseActivity(), BestSellersContract.View {
 
-    override lateinit var presenter: BestSellersContract.Presenter
+    override var presenter: BestSellersContract.Presenter = BestSellersPresenter(this)
     private var booksList = ArrayList<Book>()
 
     override fun onCreate(savedInstanceState: Bundle?) {

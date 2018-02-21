@@ -17,32 +17,34 @@ import com.bestsellers.common.BaseActivity
 import com.bestsellers.util.BOOK
 import com.bestsellers.util.launchActivity
 
-class BookDetailsActivity : BaseActivity(), BookDetailsContract.View {
+class BookDetailsActivity : BaseActivity(), BookDetailsContract.View, View.OnClickListener {
 
-    override lateinit var presenter: BookDetailsContract.Presenter
-    private lateinit var book: Book
+    override var presenter: BookDetailsContract.Presenter = BookDetailsPresenter(this)
+    private var book: Book? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
-        book = intent.extras.getSerializable(BOOK) as Book
         presenter = BookDetailsPresenter(this)
-        presenter.getBookReview(book.title)
-        configureActionBar(book.title)
+
+        book = intent.extras.getSerializable(BOOK) as? Book
+        book?.title?.let {
+            presenter.getBookReview(it)
+            configureActionBar(it)
+        }
         setBookInformations()
     }
 
     private fun setBookInformations() {
-        book.apply {
+        book?.apply {
             bookTittle.text = title
             bookAuthor.text = contributor
             bookDescription.text = description
             bookImage.loadUrl(book_image)
         }
-    }
 
-    fun openAmazonProductUrl(v: View) {
-        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(book.amazon_product_url)))
+        btnBuyBook.setOnClickListener(this)
+        buyButton.setOnClickListener(this)
     }
 
     override fun loadBookReview(reviewUrl: String) {
@@ -75,5 +77,7 @@ class BookDetailsActivity : BaseActivity(), BookDetailsContract.View {
     override fun hideLoading() {
         pgReview.visibility = GONE
     }
+
+    override fun onClick(view: View?) = startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(book?.amazon_product_url)))
 
 }

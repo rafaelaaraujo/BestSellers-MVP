@@ -28,7 +28,7 @@ class BestSellersAdapter(
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(item: Book, listener: (Book) -> Unit) = with(itemView) {
+        internal fun bind(item: Book, listener: (Book) -> Unit) = with(itemView) {
             bookTimeInList.text = getWeeksOnTheList(item.weeks_on_list)
             bookTittle.text = item.title
             bookAuthor.text = item.contributor

@@ -25,18 +25,17 @@ import kotlinx.android.synthetic.main.activity_genre.*
 
 class BookGenresActivity : BaseActivity(), BookGenresContract.View, SearchView.OnQueryTextListener {
 
-    override lateinit var presenter: BookGenresContract.Presenter
+    override var presenter: BookGenresContract.Presenter = BookGenresPresenter(this)
     private lateinit var adapter: BookGenresAdapter
     private var genreList = ArrayList<Genre>()
-    private lateinit var searchView: SearchView
+    private var searchView: SearchView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_genre)
-        setToolbarIcon()
-        presenter = BookGenresPresenter(this)
-        configureGridView()
         presenter.requestGenreList()
+        setToolbarIcon()
+        configureGridView()
     }
 
     private fun configureGridView() {
@@ -54,7 +53,7 @@ class BookGenresActivity : BaseActivity(), BookGenresContract.View, SearchView.O
     }
 
     private fun checkAdapterIsEmpty() {
-        genreNotFoundMessge.visibility = if(adapter.itemCount == 0)  VISIBLE else GONE
+        genreNotFoundMessge.visibility = if (adapter.itemCount == 0) VISIBLE else GONE
     }
 
     private fun openListByGenre(genre: Genre) {
@@ -87,15 +86,16 @@ class BookGenresActivity : BaseActivity(), BookGenresContract.View, SearchView.O
         return true
     }
 
+
     private fun configureSearchManager(menu: Menu) {
-        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        searchView = menu.findItem(R.id.search).actionView as SearchView
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
-        searchView.setOnQueryTextListener(this)
+        val searchManager = getSystemService(Context.SEARCH_SERVICE) as? SearchManager
+        searchView = menu.findItem(R.id.search).actionView as? SearchView
+        searchView?.setSearchableInfo(searchManager?.getSearchableInfo(componentName))
+        searchView?.setOnQueryTextListener(this)
     }
 
     override fun onQueryTextSubmit(query: String): Boolean {
-        searchView.clearFocus()
+        searchView?.clearFocus()
         return submitQuery(query)
     }
 

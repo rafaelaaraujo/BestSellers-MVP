@@ -13,9 +13,6 @@ class BookDetailsPresenter(
         private val service: BestSellersService = BestSellersService()) :
         BookDetailsContract.Presenter {
 
-    init {
-        view.presenter = this
-    }
 
     override fun getBookReview(tittle: String) {
         view.showLoading()
