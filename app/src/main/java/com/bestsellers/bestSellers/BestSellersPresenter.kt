@@ -13,10 +13,6 @@ class BestSellersPresenter(
         private val service: BestSellersService = BestSellersService()) :
         BestSellersContract.Presenter {
 
-    init {
-        view.presenter = this
-    }
-
     override fun requestBestSellers(name:String) {
         view.showLoading()
         service.getBestSeller(name)

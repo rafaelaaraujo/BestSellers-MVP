@@ -10,14 +10,23 @@ import com.bestsellers.model.Book
  */
 class BestSellersContract {
 
+
     interface View : BaseView<Presenter> {
 
+        /**
+         * load list of books by genre
+         * @param bestSeller list of books
+         */
        fun showBestSellers(bestSeller: List<Book>)
 
     }
 
     interface Presenter : BasePresenter {
 
+        /**
+         * request list of books by genre
+         * @param name of genre selected
+         */
         fun requestBestSellers(name: String)
 
     }

@@ -11,10 +11,20 @@ import com.bestsellers.model.Genre
 open class BookGenresContract {
 
     interface View : BaseView<Presenter> {
+
+        /**
+         * load list with book genres
+         * @param genreList
+         */
         fun showGenreList(genreList: List<Genre>)
     }
 
+
     interface Presenter : BasePresenter {
+
+        /**
+         * get genres from server
+         */
         fun requestGenreList()
     }
 }

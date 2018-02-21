@@ -26,6 +26,10 @@ class BookDetailsContract {
 
     interface Presenter : BasePresenter {
 
+        /**
+         * request book review from server
+         * @param tittle from book
+         */
         fun getBookReview(tittle: String)
     }
 }
