@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/background_gray"
     tools:context="com.bestsellers.bookGenres.BookGenresActivity">
 
     <RelativeLayout
@@ -23,16 +24,16 @@
             android:id="@+id/progressGenre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"/>
+            android:layout_centerInParent="true" />
 
         <TextView
             android:id="@+id/genreNotFoundMessge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:visibility="gone"
             android:layout_centerInParent="true"
+            android:text="@string/genre_not_found"
             android:textColor="@android:color/black"
-            android:text="@string/genre_not_found"/>
+            android:textSize="16sp"
+            android:visibility="gone" />
     </RelativeLayout>
 </LinearLayout>

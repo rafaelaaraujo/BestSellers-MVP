@@ -32,7 +32,6 @@ class BestSellersAdapter(
             bookTimeInList.text = getWeeksOnTheList(item.weeks_on_list)
             bookTittle.text = item.title
             bookAuthor.text = item.contributor
-            bookDescription.text = item.description
             bookImage.loadUrl(item.book_image)
             setOnClickListener { listener(item) }
         }

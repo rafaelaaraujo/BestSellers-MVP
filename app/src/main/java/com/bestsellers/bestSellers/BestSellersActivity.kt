@@ -12,6 +12,10 @@ import com.bestsellers.util.BOOK
 import com.bestsellers.util.GENRE_NAME
 import com.bestsellers.util.launchActivity
 import kotlinx.android.synthetic.main.activity_best_sellers.*
+import com.yarolegovich.discretescrollview.transform.Pivot
+import com.yarolegovich.discretescrollview.transform.ScaleTransformer
+
+
 
 /**
  * Created by Rafaela
@@ -35,7 +39,10 @@ class BestSellersActivity : BaseActivity(), BestSellersContract.View {
     }
 
     private fun configureRecicleView() {
-        bestSellersList.layoutManager = LinearLayoutManager(this)
+        bestSellersList.setItemTransformer(ScaleTransformer.Builder()
+                .setMaxScale(1.05f)
+                .setMinScale(0.8f)
+                .build())
         bestSellersList.adapter = BestSellersAdapter(booksList) {
             showBookDetails(it)
         }

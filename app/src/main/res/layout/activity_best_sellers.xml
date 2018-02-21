@@ -1,29 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_gray"
     tools:context="com.bestsellers.bestSellers.BestSellersActivity">
 
-    <android.support.v7.widget.RecyclerView
+    <com.yarolegovich.discretescrollview.DiscreteScrollView
         android:id="@+id/bestSellersList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        app:dsv_orientation="horizontal" />
 
     <ProgressBar
         android:id="@+id/progressBestSellers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true" />
 
 
     <TextView
         android:id="@+id/errorMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Error loading Books"
         android:layout_centerInParent="true"
-        android:visibility="gone"
-        android:textColor="@android:color/black"/>
+        android:text="Error loading Books"
+        android:textColor="@android:color/black"
+        android:visibility="gone" />
 
 </RelativeLayout>

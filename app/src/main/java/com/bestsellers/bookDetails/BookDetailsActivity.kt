@@ -39,7 +39,6 @@ class BookDetailsActivity : BaseActivity(), BookDetailsContract.View, View.OnCli
         book?.apply {
             bookTittle.text = title
             bookAuthor.text = contributor
-            bookDescription.text = description
             bookImage.loadUrl(book_image)
         }
 
