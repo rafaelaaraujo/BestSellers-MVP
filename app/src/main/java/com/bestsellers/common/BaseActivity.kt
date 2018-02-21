@@ -10,7 +10,7 @@ import com.bestsellers.R
  */
 abstract class BaseActivity : AppCompatActivity() {
 
-    internal fun configureActionBar(newTitle: String) {
+    protected fun configureActionBar(newTitle: String) {
         supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
             setHomeButtonEnabled(true)
@@ -18,7 +18,7 @@ abstract class BaseActivity : AppCompatActivity() {
         }
     }
 
-    internal fun setToolbarIcon() {
+    protected fun setToolbarIcon() {
         supportActionBar?.apply {
             setDisplayShowHomeEnabled(true);
             setDisplayUseLogoEnabled(true);

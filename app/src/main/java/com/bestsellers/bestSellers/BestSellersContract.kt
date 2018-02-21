@@ -12,7 +12,7 @@ class BestSellersContract {
 
     interface View : BaseView<Presenter> {
 
-        fun showBestSellers(bestSeller: List<Book>)
+       fun showBestSellers(bestSeller: List<Book>)
 
     }
 
