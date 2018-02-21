@@ -33,6 +33,7 @@ class BookGenresActivity : BaseActivity(), BookGenresContract.View, SearchView.O
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_genre)
+        setToolbarIcon()
         presenter = BookGenresPresenter(this)
         configureGridView()
         presenter.requestGenreList()

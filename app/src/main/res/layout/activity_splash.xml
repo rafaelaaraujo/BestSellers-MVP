@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    tools:context="com.bestsellers.common.Splash"
+    android:background="@color/colorPrimaryDark"
+    tools:context="com.bestsellers.Splash"
     android:orientation="vertical"
     android:gravity="center">
 
@@ -18,13 +18,18 @@
         app:pathWidth="2dp"
         app:svg="@raw/open_book" />
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        app:srcCompat="@drawable/ic_newyorktimes"
+        android:layout_marginTop="20dp"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="The New York Times \nBest Sellers"
-        android:textSize="25sp"
+        android:text="Best Sellers"
+        android:textSize="20sp"
         android:gravity="center"
-        android:layout_margin="20dp"
         android:fontFamily="sans-serif-thin"
         android:textStyle="bold"
         android:textColor="@android:color/white"/>

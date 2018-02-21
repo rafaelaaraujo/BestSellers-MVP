@@ -1,8 +1,7 @@
-package com.bestsellers.common
+package com.bestsellers
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import com.bestsellers.R
 import com.bestsellers.bookGenres.BookGenresActivity
 import com.bestsellers.util.launchActivity
 import kotlinx.android.synthetic.main.activity_splash.*

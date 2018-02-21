@@ -2,6 +2,7 @@ package com.bestsellers.common
 
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
+import com.bestsellers.R
 
 /**
  * Created by Rafaela Araujo
@@ -14,6 +15,14 @@ abstract class BaseActivity: AppCompatActivity() {
             setDisplayHomeAsUpEnabled(true)
             setHomeButtonEnabled(true)
             title = newTitle
+        }
+    }
+
+    fun setToolbarIcon(){
+        supportActionBar?.apply{
+            setDisplayShowHomeEnabled(true);
+            setDisplayUseLogoEnabled(true);
+            setLogo(R.drawable.ic_ny)
         }
     }
 
