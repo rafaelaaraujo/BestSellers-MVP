@@ -1,7 +1,7 @@
 <resources>
     <dimen name="app_bar_height">180dp</dimen>
-    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="fab_margin">25dp</dimen>
     <dimen name="text_margin">16dp</dimen>
-    <dimen name="book_card_height">350dp</dimen>
-    <dimen name="book_card_width">260dp</dimen>
+    <dimen name="book_card_height">300dp</dimen>
+    <dimen name="book_card_width">240dp</dimen>
 </resources>

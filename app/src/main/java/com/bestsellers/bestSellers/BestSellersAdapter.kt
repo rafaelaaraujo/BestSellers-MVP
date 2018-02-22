@@ -8,6 +8,7 @@ import com.bestsellers.R
 import com.bestsellers.model.Book
 import com.bestsellers.util.loadUrl
 import kotlinx.android.synthetic.main.best_seller_item.view.*
+import kotlinx.android.synthetic.main.book_card_options.view.*
 
 /**
  * Created by rafaela.araujo on 07/11/17.
@@ -29,20 +30,20 @@ class BestSellersAdapter(
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         internal fun bind(item: Book, listener: (Book) -> Unit) = with(itemView) {
-            bookTimeInList.text = getWeeksOnTheList(item.weeks_on_list)
+//            bookTimeInList.text = getWeeksOnTheList(item.weeks_on_list)
             bookTittle.text = item.title
             bookAuthor.text = item.contributor
             bookImage.loadUrl(item.book_image)
-            setOnClickListener { listener(item) }
+            reviewButton.setOnClickListener { listener(item) }
         }
 
-        private fun getWeeksOnTheList(weeks_on_list: Int): String {
-            return if(weeks_on_list <= 1){
-                "NEW THIS WEEK"
-            }else{
-                "$weeks_on_list WEEKS ON THE LIST"
-            }
-
-        }
+//        private fun getWeeksOnTheList(weeks_on_list: Int): String {
+//            return if(weeks_on_list <= 1){
+//                "NEW THIS WEEK"
+//            }else{
+//                "$weeks_on_list WEEKS ON THE LIST"
+//            }
+//
+//        }
     }
 }
