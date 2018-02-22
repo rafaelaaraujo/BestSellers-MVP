@@ -1,20 +1,18 @@
 package com.bestsellers.bestSellers
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import com.bestsellers.R
 import com.bestsellers.bookDetails.BookDetailsActivity
 import com.bestsellers.common.BaseActivity
 import com.bestsellers.model.Book
-import com.bestsellers.util.BOOK
-import com.bestsellers.util.GENRE_NAME
-import com.bestsellers.util.launchActivity
+import com.bestsellers.util.*
 import kotlinx.android.synthetic.main.activity_best_sellers.*
-import com.yarolegovich.discretescrollview.transform.Pivot
 import com.yarolegovich.discretescrollview.transform.ScaleTransformer
-
+import kotlinx.android.synthetic.main.book_card_options.*
 
 
 /**
@@ -25,34 +23,44 @@ class BestSellersActivity : BaseActivity(), BestSellersContract.View {
 
     override var presenter: BestSellersContract.Presenter = BestSellersPresenter(this)
     private var booksList = ArrayList<Book>()
+    private val MAX_SCALE = 1.05f
+    private val MIN_SCALE = 0.8f
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val listName = intent.extras.getString(GENRE_NAME)
-
         setContentView(R.layout.activity_best_sellers)
-        configureActionBar(listName)
-        configureRecicleView()
+
+        val listName = intent.extras.getString(GENRE_NAME)
+        configureView(listName)
 
         presenter = BestSellersPresenter(this)
         presenter.requestBestSellers(listName)
     }
 
-    private fun configureRecicleView() {
-        bestSellersList.setItemTransformer(ScaleTransformer.Builder()
-                .setMaxScale(1.05f)
-                .setMinScale(0.8f)
-                .build())
-        bestSellersList.adapter = BestSellersAdapter(booksList) {
-            showBookDetails(it)
-        }
+    private fun configureView(listName: String) {
+        configureActionBar(listName, null)
+        configureRecicleView()
+        reviewButton.setOnClickListener { showBookDetails() }
+        fabbuyButton.setOnClickListener { openBuyLink() }
     }
 
-    private fun showBookDetails(book: Book) {
-        launchActivity<BookDetailsActivity> {
-            putExtra(BOOK, book)
-        }
+    private fun configureRecicleView() {
+        bestSellersList.setItemTransformer(getScaleTransformation())
+        bestSellersList.adapter = BestSellersAdapter(booksList)
     }
+
+    private fun getScaleTransformation() =
+            ScaleTransformer.Builder().apply {
+                setMaxScale(MAX_SCALE)
+                setMinScale(MIN_SCALE)
+            }.build()
+
+
+    private fun openBuyLink() = startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(getCurrentBook().amazon_product_url)))
+
+    private fun showBookDetails() =
+            launchActivity<BookDetailsActivity> { putExtra(BOOK, getCurrentBook()) }
+
 
     override fun showErrorMessage() {
         hideLoading()
@@ -70,6 +78,9 @@ class BestSellersActivity : BaseActivity(), BestSellersContract.View {
     override fun showBestSellers(bestSeller: List<Book>) {
         booksList.addAll(bestSeller)
         bestSellersList.adapter.notifyDataSetChanged()
+        cardOptions.visibility = VISIBLE
     }
+
+    private fun getCurrentBook() = booksList.get(bestSellersList.currentItem)
 
 }

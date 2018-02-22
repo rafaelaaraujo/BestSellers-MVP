@@ -1,8 +1,10 @@
 package com.bestsellers.common
 
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.Toolbar
 import android.view.MenuItem
 import com.bestsellers.R
+import kotlinx.android.synthetic.main.activity_scrolling.*
 
 /**
  * Created by Rafaela Araujo
@@ -10,7 +12,10 @@ import com.bestsellers.R
  */
 abstract class BaseActivity : AppCompatActivity() {
 
-    protected fun configureActionBar(newTitle: String) {
+    protected fun configureActionBar(newTitle: String, toolbar: Toolbar?) {
+        if (toolbar != null)
+            setSupportActionBar(toolbar);
+
         supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
             setHomeButtonEnabled(true)

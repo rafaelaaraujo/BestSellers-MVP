@@ -1,9 +1,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.bestsellers.ScrollingActivity" >
-    <item android:id="@+id/action_settings"
-        android:title="@string/action_settings"
+    tools:context="com.bestsellers.bookDetails.ScrollingActivity">
+
+    <item
+        android:id="@+id/favorite"
         android:orderInCategory="100"
-        app:showAsAction="never" />
+        android:icon="@drawable/ic_star_unselected_white"
+        app:showAsAction="always" />
+
 </menu>

@@ -3,6 +3,8 @@ package com.bestsellers.bookDetails
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
@@ -10,12 +12,12 @@ import android.webkit.WebView
 import com.bestsellers.model.Book
 import com.bestsellers.util.loadUrl
 import kotlinx.android.synthetic.main.activity_details.*
-import kotlinx.android.synthetic.main.best_seller_item.*
 import android.webkit.WebViewClient
 import com.bestsellers.R
 import com.bestsellers.common.BaseActivity
 import com.bestsellers.util.BOOK
-import com.bestsellers.util.launchActivity
+import kotlinx.android.synthetic.main.activity_scrolling.*
+import kotlinx.android.synthetic.main.content_scrolling.*
 
 class BookDetailsActivity : BaseActivity(), BookDetailsContract.View, View.OnClickListener {
 
@@ -24,26 +26,29 @@ class BookDetailsActivity : BaseActivity(), BookDetailsContract.View, View.OnCli
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_details)
+        setContentView(R.layout.activity_scrolling)
         presenter = BookDetailsPresenter(this)
 
         book = intent.extras.getSerializable(BOOK) as? Book
-        book?.title?.let {
-            presenter.getBookReview(it)
-            configureActionBar(it)
-        }
         setBookInformations()
     }
 
     private fun setBookInformations() {
         book?.apply {
-            bookTittle.text = title
-            bookAuthor.text = contributor
-            bookImage.loadUrl(book_image)
+            configureActionBar(title, toolbar)
+            expandedImage.loadUrl(book_image)
+            weeksOnList.text = getWeeksOnTheList(weeks_on_list)
+            writer.text = contributor
+            desc.text = description
         }
+    }
 
-        btnBuyBook.setOnClickListener(this)
-        buyButton.setOnClickListener(this)
+    private fun getWeeksOnTheList(weeks_on_list: Int): String {
+        return if (weeks_on_list <= 1) {
+            "NEW THIS WEEK"
+        } else {
+            "$weeks_on_list WEEKS ON THE LIST"
+        }
     }
 
     override fun loadBookReview(reviewUrl: String) {
@@ -79,4 +84,17 @@ class BookDetailsActivity : BaseActivity(), BookDetailsContract.View, View.OnCli
 
     override fun onClick(view: View?) = startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(book?.amazon_product_url)))
 
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.menu_scrolling, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> onBackPressed()
+            R.id.favorite -> onBackPressed()
+        }
+        return super.onOptionsItemSelected(item)
+    }
 }

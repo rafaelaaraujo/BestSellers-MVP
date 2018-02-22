@@ -16,4 +16,7 @@ const val URL_HISTORY = "/svc/books/v3/lists/best-sellers/history.json"
 const val URL_NAMES = "/svc/books/v3/lists/names.json"
 const val URL_REVIEWS = "/svc/books/v3/reviews.json"
 
+const val REVIEW_OPTION = 1
+const val BUY_OPTION = 2
+
 

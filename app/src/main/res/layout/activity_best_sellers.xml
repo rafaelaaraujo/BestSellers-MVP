@@ -7,11 +7,28 @@
     android:background="@color/background_gray"
     tools:context="com.bestsellers.bestSellers.BestSellersActivity">
 
-    <com.yarolegovich.discretescrollview.DiscreteScrollView
-        android:id="@+id/bestSellersList"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:dsv_orientation="horizontal" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_centerInParent="true">
+
+        <com.yarolegovich.discretescrollview.DiscreteScrollView
+            android:id="@+id/bestSellersList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:dsv_orientation="horizontal" />
+
+        <include
+            android:id="@+id/cardOptions"
+            layout="@layout/book_card_options"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bestSellersList"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"/>
+    </LinearLayout>
 
     <ProgressBar
         android:id="@+id/progressBestSellers"
