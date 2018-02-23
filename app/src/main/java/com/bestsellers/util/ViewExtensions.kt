@@ -3,6 +3,7 @@ package com.bestsellers.util
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.support.design.widget.Snackbar
 import android.view.View
 import android.view.animation.AnimationUtils
@@ -30,12 +31,16 @@ inline fun <reified T : Activity> Activity.launchActivity(noinline init: Intent.
 
 inline fun <reified T : Any> newIntent(context: Context): Intent = Intent(context, T::class.java)
 
-fun View.startBounceAnimation(){
+fun View.startBounceAnimation() {
     val myAnim = AnimationUtils.loadAnimation(context, R.anim.bounce)
     val interpolator = BounceInterpolator(0.2, 20.0)
     myAnim.interpolator = interpolator
 
     this.startAnimation(myAnim)
+}
+
+fun Activity.openUrlInBrowser(url: String?) {
+    if (url != null) this.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
 }
 
 

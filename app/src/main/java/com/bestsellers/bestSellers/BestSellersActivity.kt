@@ -1,8 +1,6 @@
 package com.bestsellers.bestSellers
 
-import android.content.Intent
 import android.graphics.drawable.Drawable
-import android.net.Uri
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.view.View.GONE
@@ -12,8 +10,8 @@ import com.bestsellers.bookDetails.BookDetailsActivity
 import com.bestsellers.common.BaseActivity
 import com.bestsellers.model.Book
 import com.bestsellers.util.*
-import kotlinx.android.synthetic.main.activity_best_sellers.*
 import com.yarolegovich.discretescrollview.transform.ScaleTransformer
+import kotlinx.android.synthetic.main.activity_best_sellers.*
 import kotlinx.android.synthetic.main.book_card_options.*
 
 /**
@@ -42,18 +40,17 @@ class BestSellersActivity : BaseActivity(), BestSellersContract.View {
         configureActionBar(listName, null)
         configureRecicleView()
         reviewButton.setOnClickListener { showBookDetails() }
-        fabbuyButton.setOnClickListener { openBuyLink() }
+        fabbuyButton.setOnClickListener { openUrlInBrowser(getCurrentBook().amazon_product_url) }
         favoriteButton.setOnClickListener { favoriteBook() }
     }
 
     private fun favoriteBook() {
-        favoriteButton.setImageDrawable(getFavoriteCorrectIcon())
         favoriteButton.startBounceAnimation()
     }
 
-    private fun getFavoriteCorrectIcon() : Drawable? {
-//        if (getCurrentBook().amazon_product_url))
-        return ContextCompat.getDrawable(this, R.drawable.ic_favorite_selected)
+    private fun getFavoriteCorrectIcon(): Drawable? {
+
+            return ContextCompat.getDrawable(this, R.drawable.ic_favorite_selected)
     }
 
     private fun configureRecicleView() {
@@ -66,9 +63,6 @@ class BestSellersActivity : BaseActivity(), BestSellersContract.View {
                 setMaxScale(MAX_SCALE)
                 setMinScale(MIN_SCALE)
             }.build()
-
-
-    private fun openBuyLink() = startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(getCurrentBook().amazon_product_url)))
 
     private fun showBookDetails() =
             launchActivity<BookDetailsActivity> { putExtra(BOOK, getCurrentBook()) }

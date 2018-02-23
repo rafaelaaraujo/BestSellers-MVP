@@ -3,6 +3,7 @@ package com.bestsellers.common
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.MenuItem
+import android.view.WindowManager
 import com.bestsellers.R
 import kotlinx.android.synthetic.main.activity_details.*
 
@@ -34,5 +35,10 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) onBackPressed()
         return super.onOptionsItemSelected(item)
+    }
+
+    protected fun hideStatusBar(){
+        window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN);
     }
 }

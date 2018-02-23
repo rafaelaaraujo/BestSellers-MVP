@@ -25,6 +25,7 @@ data class Book(
         val rank_last_week: Int,
         val weeks_on_list: Int,
         val publisher: String,
+        val published_date: String,
         val description: String,
         val price: Float,
         val title: String,
@@ -34,5 +35,11 @@ data class Book(
         val book_image: String,
         val amazon_product_url: String,
         val book_review_link: String,
-        val first_chapter_link: String
+        val first_chapter_link: String,
+        val isbns: List<Isbn>
+) : Serializable
+
+data class Isbn(
+        val isbn10: String,
+        val isbn13: String
 ) : Serializable
