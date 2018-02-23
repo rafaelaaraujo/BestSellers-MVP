@@ -4,6 +4,7 @@ import android.app.SearchManager
 import android.content.Context
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView.AdapterDataObserver
 import android.view.Menu
 import android.view.View.GONE
@@ -39,13 +40,13 @@ class BookGenresActivity : BaseActivity(), BookGenresContract.View, SearchView.O
     }
 
     private fun configureGridView() {
-        genreGrid.layoutManager = GridLayoutManager(this, 2)
+        genreGrid.layoutManager = LinearLayoutManager(this)
         adapter = BookGenresAdapter(genreList, this::openListByGenre)
         adapter.registerAdapterDataObserver(observer)
         genreGrid.adapter = adapter
     }
 
-    val observer: AdapterDataObserver = object : AdapterDataObserver() {
+    private val observer: AdapterDataObserver = object : AdapterDataObserver() {
         override fun onChanged() {
             super.onChanged()
             checkAdapterIsEmpty()

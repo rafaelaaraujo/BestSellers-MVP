@@ -2,7 +2,6 @@ package com.bestsellers.bestSellers
 
 import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import com.bestsellers.R
@@ -48,12 +47,8 @@ class BestSellersActivity : BaseActivity(), BestSellersContract.View {
         favoriteButton.startBounceAnimation()
     }
 
-    private fun getFavoriteCorrectIcon(): Drawable? {
-
-            return ContextCompat.getDrawable(this, R.drawable.ic_favorite_selected)
-    }
-
     private fun configureRecicleView() {
+        bestSellersList.setItemTransformer(getScaleTransformation())
         bestSellersList.setItemTransformer(getScaleTransformation())
         bestSellersList.adapter = BestSellersAdapter(booksList)
     }
