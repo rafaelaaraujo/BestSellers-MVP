@@ -1,8 +1,10 @@
 package com.bestsellers.bestSellers
 
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
+import android.support.v4.content.ContextCompat
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import com.bestsellers.R
@@ -13,7 +15,6 @@ import com.bestsellers.util.*
 import kotlinx.android.synthetic.main.activity_best_sellers.*
 import com.yarolegovich.discretescrollview.transform.ScaleTransformer
 import kotlinx.android.synthetic.main.book_card_options.*
-
 
 /**
  * Created by Rafaela
@@ -42,6 +43,17 @@ class BestSellersActivity : BaseActivity(), BestSellersContract.View {
         configureRecicleView()
         reviewButton.setOnClickListener { showBookDetails() }
         fabbuyButton.setOnClickListener { openBuyLink() }
+        favoriteButton.setOnClickListener { favoriteBook() }
+    }
+
+    private fun favoriteBook() {
+        favoriteButton.setImageDrawable(getFavoriteCorrectIcon())
+        favoriteButton.startBounceAnimation()
+    }
+
+    private fun getFavoriteCorrectIcon() : Drawable? {
+//        if (getCurrentBook().amazon_product_url))
+        return ContextCompat.getDrawable(this, R.drawable.ic_favorite_selected)
     }
 
     private fun configureRecicleView() {
@@ -81,6 +93,6 @@ class BestSellersActivity : BaseActivity(), BestSellersContract.View {
         cardOptions.visibility = VISIBLE
     }
 
-    private fun getCurrentBook() = booksList.get(bestSellersList.currentItem)
+    private fun getCurrentBook() = booksList[bestSellersList.currentItem]
 
 }

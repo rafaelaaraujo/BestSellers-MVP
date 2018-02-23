@@ -6,7 +6,7 @@
     <item
         android:id="@+id/favorite"
         android:orderInCategory="100"
-        android:icon="@drawable/ic_star_unselected_white"
+        android:icon="@drawable/ic_favorite_unselected"
         app:showAsAction="always" />
 
 </menu>

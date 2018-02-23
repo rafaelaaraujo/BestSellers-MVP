@@ -10,25 +10,28 @@
         android:id="@+id/reviewButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_preview" />
+        app:srcCompat="@drawable/ic_preview"
+        android:layout_marginRight="10dp" />
 
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fabbuyButton"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="@dimen/fab_margin"
-        android:layout_marginRight="@dimen/fab_margin"
+        android:layout_margin="@dimen/fab_margin"
         app:fabSize="normal"
         android:scaleType="centerInside"
         android:background="@color/colorAccent"
-        app:srcCompat="@drawable/ic_shopping_cart" />
+        app:srcCompat="@drawable/ic_shopping_cart"
+        app:rippleColor="@color/colorAccentdark"
+        android:clickable="true"/>
 
 
     <ImageView
         android:id="@+id/favoriteButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_star_unselected" />
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        app:srcCompat="@drawable/ic_favorite_unselected"
+        />
 
 </LinearLayout>

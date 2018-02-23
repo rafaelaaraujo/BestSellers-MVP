@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
+import android.view.WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
 import android.webkit.WebView
 import com.bestsellers.model.Book
 import com.bestsellers.util.loadUrl
@@ -16,12 +17,13 @@ import android.webkit.WebViewClient
 import com.bestsellers.R
 import com.bestsellers.common.BaseActivity
 import com.bestsellers.util.BOOK
+import com.bestsellers.util.startBounceAnimation
 import kotlinx.android.synthetic.main.activity_scrolling.*
 import kotlinx.android.synthetic.main.content_scrolling.*
 
-class BookDetailsActivity : BaseActivity(), BookDetailsContract.View, View.OnClickListener {
+class BookDetailsActivity(private var menuFavorite: MenuItem) : BaseActivity(), BookDetailsContract.View, View.OnClickListener {
 
-    override var presenter: BookDetailsContract.Presenter = BookDetailsPresenter(this)
+    override lateinit var presenter: BookDetailsContract.Presenter
     private var book: Book? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +32,7 @@ class BookDetailsActivity : BaseActivity(), BookDetailsContract.View, View.OnCli
         presenter = BookDetailsPresenter(this)
 
         book = intent.extras.getSerializable(BOOK) as? Book
+        window.setFlags(FLAG_LAYOUT_NO_LIMITS, FLAG_LAYOUT_NO_LIMITS)
         setBookInformations()
     }
 
@@ -87,14 +90,18 @@ class BookDetailsActivity : BaseActivity(), BookDetailsContract.View, View.OnCli
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_scrolling, menu)
+        menuFavorite = menu.getItem(0)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> onBackPressed()
-            R.id.favorite -> onBackPressed()
+            R.id.favorite -> favoriteItem()
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun favoriteItem() {
     }
 }
