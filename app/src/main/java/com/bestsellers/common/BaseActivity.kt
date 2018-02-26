@@ -1,11 +1,9 @@
 package com.bestsellers.common
 
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.Toolbar
 import android.view.MenuItem
 import android.view.WindowManager
 import com.bestsellers.R
-import kotlinx.android.synthetic.main.activity_details.*
 
 /**
  * Created by Rafaela Araujo
@@ -13,10 +11,7 @@ import kotlinx.android.synthetic.main.activity_details.*
  */
 abstract class BaseActivity : AppCompatActivity() {
 
-    protected fun configureActionBar(newTitle: String, toolbar: Toolbar?) {
-        if (toolbar != null)
-            setSupportActionBar(toolbar);
-
+    protected fun configureActionBar(newTitle: String) {
         supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
             setHomeButtonEnabled(true)
@@ -26,8 +21,8 @@ abstract class BaseActivity : AppCompatActivity() {
 
     protected fun setToolbarIcon() {
         supportActionBar?.apply {
-            setDisplayShowHomeEnabled(true);
-            setDisplayUseLogoEnabled(true);
+            setDisplayShowHomeEnabled(true)
+            setDisplayUseLogoEnabled(true)
             setLogo(R.drawable.ic_ny)
         }
     }

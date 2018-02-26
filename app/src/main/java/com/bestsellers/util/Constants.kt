@@ -7,6 +7,7 @@ package com.bestsellers.util
 
 
 const val GENRE_NAME = "genteName"
+const val DISPLAY_NAME = "displayName"
 const val BOOK = "book"
 
 var BASE_URL = "https://api.nytimes.com/"

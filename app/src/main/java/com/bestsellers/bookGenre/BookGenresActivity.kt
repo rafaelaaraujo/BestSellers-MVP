@@ -1,9 +1,8 @@
-package com.bestsellers.bookGenres
+package com.bestsellers.bookGenre
 
 import android.app.SearchManager
 import android.content.Context
 import android.os.Bundle
-import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView.AdapterDataObserver
 import android.view.Menu
@@ -15,6 +14,7 @@ import com.bestsellers.bestSellers.BestSellersActivity
 import com.bestsellers.bookDetails.BookGenresContract
 import com.bestsellers.common.BaseActivity
 import com.bestsellers.model.Genre
+import com.bestsellers.util.DISPLAY_NAME
 import com.bestsellers.util.GENRE_NAME
 import com.bestsellers.util.launchActivity
 import kotlinx.android.synthetic.main.activity_genre.*
@@ -60,6 +60,7 @@ class BookGenresActivity : BaseActivity(), BookGenresContract.View, SearchView.O
     private fun openListByGenre(genre: Genre) {
         launchActivity<BestSellersActivity> {
             putExtra(GENRE_NAME, genre.list_name)
+            putExtra(DISPLAY_NAME, genre.display_name)
         }
     }
 
@@ -86,7 +87,6 @@ class BookGenresActivity : BaseActivity(), BookGenresContract.View, SearchView.O
         configureSearchManager(menu)
         return true
     }
-
 
     private fun configureSearchManager(menu: Menu) {
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as? SearchManager

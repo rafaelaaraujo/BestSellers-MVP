@@ -1,4 +1,4 @@
-package com.bestsellers.bookGenres
+package com.bestsellers.bookGenre
 
 import com.bestsellers.bookDetails.BookGenresContract
 import com.bestsellers.connection.BestSellersService

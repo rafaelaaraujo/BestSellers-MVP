@@ -1,4 +1,4 @@
-package com.bestsellers.bookGenres
+package com.bestsellers.bookGenre
 
 import android.widget.Filter
 import com.bestsellers.model.Genre

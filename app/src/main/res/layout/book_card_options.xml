@@ -27,13 +27,6 @@
         android:clickable="true"/>
 
 
-    <!--<ImageView-->
-        <!--android:id="@+id/favoriteButton"-->
-        <!--android:layout_width="45dp"-->
-        <!--android:layout_height="45dp"-->
-        <!--app:srcCompat="@drawable/ic_favorite_unselected"-->
-        <!--/>-->
-
     <CheckBox
         android:id="@+id/favoriteButton"
         android:layout_width="wrap_content"

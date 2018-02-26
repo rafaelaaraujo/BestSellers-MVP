@@ -12,5 +12,5 @@
     <string name="publisher">Publisher: %s</string>
     <string name="published">Published: %s</string>
     <string name="new_this_week">NEW THIS WEEK</string>
-    <string name="weeks_on_list">%s WEEKS ON THE LIST</string>
+    <string name="weeks_on_list">%d WEEKS ON THE LIST</string>
 </resources>

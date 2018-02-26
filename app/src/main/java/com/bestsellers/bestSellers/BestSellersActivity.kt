@@ -1,6 +1,5 @@
 package com.bestsellers.bestSellers
 
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.View.GONE
 import android.view.View.VISIBLE
@@ -28,15 +27,14 @@ class BestSellersActivity : BaseActivity(), BestSellersContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_best_sellers)
 
-        val listName = intent.extras.getString(GENRE_NAME)
-        configureView(listName)
+        configureView(intent.extras.getString(DISPLAY_NAME))
 
         presenter = BestSellersPresenter(this)
-        presenter.requestBestSellers(listName)
+        presenter.requestBestSellers(intent.extras.getString(GENRE_NAME))
     }
 
     private fun configureView(listName: String) {
-        configureActionBar(listName, null)
+        configureActionBar(listName)
         configureRecicleView()
         reviewButton.setOnClickListener { showBookDetails() }
         fabbuyButton.setOnClickListener { openUrlInBrowser(getCurrentBook().amazon_product_url) }

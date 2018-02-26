@@ -2,13 +2,10 @@ package com.bestsellers.bestSellers.base
 
 import android.content.Intent
 import android.support.test.rule.ActivityTestRule
-import android.support.test.runner.AndroidJUnit4
-import com.bestsellers.bookGenres.BookGenresActivity
+import com.bestsellers.bookGenre.BookGenresActivity
 import com.bestsellers.util.BASE_URL
 import com.squareup.okhttp.mockwebserver.MockWebServer
-import org.junit.Before
 import org.junit.Rule
-import org.junit.runner.RunWith
 
 
 /**

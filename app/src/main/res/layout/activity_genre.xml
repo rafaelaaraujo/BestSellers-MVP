@@ -1,38 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/background_gray"
-    tools:context="com.bestsellers.bookGenres.BookGenresActivity">
+    tools:context="com.bestsellers.bookGenre.BookGenresActivity">
 
-    <RelativeLayout
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/genreGrid"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center">
+        android:layout_marginTop="10dp"
+        android:gravity="center" />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/genreGrid"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_marginTop="10dp" />
+    <ProgressBar
+        android:id="@+id/progressGenre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
 
-        <ProgressBar
-            android:id="@+id/progressGenre"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true" />
-
-        <TextView
-            android:id="@+id/genreNotFoundMessge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="@string/genre_not_found"
-            android:textColor="@android:color/black"
-            android:textSize="16sp"
-            android:visibility="gone" />
-    </RelativeLayout>
-</LinearLayout>
+    <TextView
+        android:id="@+id/genreNotFoundMessge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/genre_not_found"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:visibility="gone" />
+</RelativeLayout>
