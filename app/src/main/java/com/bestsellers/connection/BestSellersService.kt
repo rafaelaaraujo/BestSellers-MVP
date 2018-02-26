@@ -1,12 +1,7 @@
 package com.bestsellers.connection
 
-import com.bestsellers.model.BestSellersResult
-import com.bestsellers.model.BookGenresResult
-import com.bestsellers.model.HistoryBestSellersResult
-import com.bestsellers.model.ReviewsResult
-import com.bestsellers.util.API_KEY
-import com.bestsellers.util.AUTORIZATION
-import com.bestsellers.util.BASE_URL
+import com.bestsellers.model.*
+import com.bestsellers.util.*
 import io.reactivex.Observable
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -22,32 +17,37 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 
 open class BestSellersService {
 
-    private val bestSellersApi: BestSellersApi
+    private val nyApi: NyApi
+    private val goodReadsApi: GoodReadsApi
 
     init {
-        val defaultHttpClient = OkHttpClient.Builder().addInterceptor { chain ->
-            val request = chain.request().newBuilder().addHeader(API_KEY, AUTORIZATION).build()
-            chain.proceed(request)
-        }.build()
-
-
-        val retrofit = Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(MoshiConverterFactory.create())
-                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                .client(defaultHttpClient)
-                .build()
-
-        bestSellersApi = retrofit.create(BestSellersApi::class.java)
+        nyApi = getRetrofit(NY_BASE_URL, NY_AUTORIZATION).create(NyApi::class.java)
+        goodReadsApi = getRetrofit(GOODREADS_BASE_URL).create(GoodReadsApi::class.java)
     }
 
-    fun getHistoryBestSellers(): Observable<HistoryBestSellersResult> =
-            bestSellersApi.getHistoryBestSellers()
+    private fun getRetrofit(baseUrl: String, autorization: String? = null): Retrofit {
+        val retrofit = Retrofit.Builder()
+                .baseUrl(baseUrl)
+                .addConverterFactory(MoshiConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
 
-    fun getGenreList(): Observable<BookGenresResult> = bestSellersApi.getBookGenresList()
+        if (autorization != null) {
+            val defaultHttpClient = OkHttpClient.Builder().addInterceptor { chain ->
+                val request = chain.request().newBuilder().addHeader(API_KEY, autorization).build()
+                chain.proceed(request)
+            }.build()
 
-    fun getBestSeller(name:String): Observable<BestSellersResult> =
-            bestSellersApi.getBestSellerByNameList(name)
+            retrofit.client(defaultHttpClient)
+        }
 
-    fun getBookReview(tittle:String): Observable<ReviewsResult> = bestSellersApi.getReviews(tittle)
+        return  retrofit.build()
+    }
+
+    fun getGenreList(): Observable<BookGenresResult> = nyApi.getBookGenresList()
+
+    fun getBestSeller(name: String): Observable<BestSellersResult> = nyApi.getBestSellerByNameList(name)
+
+    fun getBookReview(tittle: String): Observable<ReviewsResult> = nyApi.getReviews(tittle)
+
+    fun getBookReviewsCount(isbn: String): Observable<ReviewCountResult> = goodReadsApi.getBookReviewCount(isbn)
 }

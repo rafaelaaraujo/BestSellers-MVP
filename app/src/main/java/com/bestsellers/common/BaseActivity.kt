@@ -33,7 +33,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     protected fun hideStatusBar(){
-        window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN);
+        window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN)
     }
 }

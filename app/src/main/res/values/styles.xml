@@ -24,4 +24,9 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="reviewsRating" parent="@style/Widget.AppCompat.RatingBar.Small">
+        <item name="colorAccent">#6200ea</item>
+        <item name="android:colorControlNormal">#f9a825</item>
+    </style>
+
 </resources>

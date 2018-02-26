@@ -10,14 +10,11 @@ const val GENRE_NAME = "genteName"
 const val DISPLAY_NAME = "displayName"
 const val BOOK = "book"
 
-var BASE_URL = "https://api.nytimes.com/"
-const val AUTORIZATION = "f60617ae371d44d898018a1e77a89a8d"
+var NY_BASE_URL = "https://api.nytimes.com/"
+var GOODREADS_BASE_URL = "https://www.goodreads.com/"
+const val NY_AUTORIZATION = "f60617ae371d44d898018a1e77a89a8d"
 const val API_KEY = "api-key"
-const val URL_HISTORY = "/svc/books/v3/lists/best-sellers/history.json"
 const val URL_NAMES = "/svc/books/v3/lists/names.json"
 const val URL_REVIEWS = "/svc/books/v3/reviews.json"
-
-const val REVIEW_OPTION = 1
-const val BUY_OPTION = 2
 
 

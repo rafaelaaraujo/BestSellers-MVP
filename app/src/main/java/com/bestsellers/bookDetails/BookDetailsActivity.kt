@@ -6,6 +6,7 @@ import android.view.MenuItem
 import com.bestsellers.R
 import com.bestsellers.common.BaseActivity
 import com.bestsellers.model.Book
+import com.bestsellers.model.BookReviewCount
 import com.bestsellers.util.BOOK
 import com.bestsellers.util.loadUrl
 import com.bestsellers.util.openUrlInBrowser
@@ -28,6 +29,7 @@ class BookDetailsActivity : BaseActivity(), BookDetailsContract.View {
 
     private fun setBookInformation() {
         book?.apply {
+            presenter.getBookReviewCount(isbns[0].isbn10)
             configureActionBar(title)
             weeksOnList.text = getWeeksOnTheList(weeks_on_list)
             titleBook.text = title
@@ -78,7 +80,8 @@ class BookDetailsActivity : BaseActivity(), BookDetailsContract.View {
     override fun hideLoading() {
     }
 
-    override fun loadBookReview(reviewUrl: String) {
+    override fun loadBookReviewCount(bookReviewCount: BookReviewCount) {
+        reviewsRatingBar.rating = bookReviewCount.average_rating
     }
 
     override fun showNoReviewsView() {

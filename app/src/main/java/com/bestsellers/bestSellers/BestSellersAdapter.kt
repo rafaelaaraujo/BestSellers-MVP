@@ -1,20 +1,13 @@
 package com.bestsellers.bestSellers
 
-import android.content.Context
-import android.content.Intent
-import android.net.Uri
-import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bestsellers.R
 import com.bestsellers.model.Book
-import com.bestsellers.util.BUY_OPTION
-import com.bestsellers.util.REVIEW_OPTION
 import com.bestsellers.util.loadUrl
 import kotlinx.android.synthetic.main.best_seller_item.view.*
-import kotlinx.android.synthetic.main.book_card_options.view.*
 
 /**
  * Created by rafaela.araujo on 07/11/17.

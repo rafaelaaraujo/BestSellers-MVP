@@ -2,7 +2,8 @@ package com.bestsellers.bookDetails
 
 import com.bestsellers.common.BasePresenter
 import com.bestsellers.common.BaseView
-import com.bestsellers.model.BookReview
+import com.bestsellers.model.BookReviewCount
+import com.bestsellers.model.Isbn
 
 /**
  * Created by Rafaela Araujo
@@ -14,9 +15,8 @@ class BookDetailsContract {
 
         /**
          * show review from selected book
-         * @param reviewUrl
          */
-        fun loadBookReview(reviewUrl: String)
+        fun loadBookReviewCount(bookReviewCount: BookReviewCount)
 
         /**
          * show user message that the book has no reviews
@@ -28,8 +28,8 @@ class BookDetailsContract {
 
         /**
          * request book review from server
-         * @param tittle from book
+         * @param isbn from selected book
          */
-        fun getBookReview(tittle: String)
+        fun getBookReviewCount(isbn: String)
     }
 }

@@ -13,15 +13,15 @@ class BookDetailsPresenter(
         private val service: BestSellersService = BestSellersService()) :
         BookDetailsContract.Presenter {
 
-    override fun getBookReview(tittle: String) {
+    override fun getBookReviewCount(isbn: String) {
         view.showLoading()
-        service.getBookReview(tittle)
+        service.getBookReviewsCount(isbn)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         { retrieveReviews ->
-                            if (retrieveReviews.num_results > 0)
-                                view.loadBookReview(retrieveReviews.results[0].url)
+                            if (retrieveReviews != null)
+                                view.loadBookReviewCount(retrieveReviews.books[0])
                             else
                                 view.showNoReviewsView()
                         },

@@ -82,7 +82,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/publisher"
                     android:textColor="@color/gray"
-                    android:textSize="13sp" />
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/txtIsbn13"
@@ -90,7 +90,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/isbn13"
                     android:textColor="@color/gray"
-                    android:textSize="13sp" />
+                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/txtIsbn10"
@@ -98,8 +98,28 @@
                     android:layout_height="wrap_content"
                     android:text="@string/isbn10"
                     android:textColor="@color/gray"
-                    android:textSize="13sp" />
+                    android:textSize="12sp" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:text="GoodReads Rating"
+                        android:textSize="8sp" />
+
+                    <RatingBar
+                        android:id="@+id/reviewsRatingBar"
+                        style="@style/reviewsRating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:numStars="5" />
+                </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>
@@ -120,15 +140,15 @@
         android:id="@+id/shopButton"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_margin="@dimen/fab_margin"
-        app:fabSize="normal"
-        android:scaleType="centerInside"
-        android:background="@color/colorAccent"
-        app:srcCompat="@drawable/ic_shopping_cart"
-        app:rippleColor="@color/colorAccentdark"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:clickable="true"/>
+        android:layout_margin="@dimen/fab_margin"
+        android:background="@color/colorAccent"
+        android:clickable="true"
+        android:scaleType="centerInside"
+        app:fabSize="normal"
+        app:rippleColor="@color/colorAccentdark"
+        app:srcCompat="@drawable/ic_shopping_cart" />
 </RelativeLayout>
 
 
