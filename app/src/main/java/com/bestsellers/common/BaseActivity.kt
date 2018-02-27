@@ -2,7 +2,6 @@ package com.bestsellers.common
 
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
-import android.view.WindowManager
 import com.bestsellers.R
 
 /**
@@ -32,8 +31,4 @@ abstract class BaseActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    protected fun hideStatusBar(){
-        window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
-        window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN)
-    }
 }

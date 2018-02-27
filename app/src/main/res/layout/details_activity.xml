@@ -40,7 +40,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="20dp"
             android:orientation="vertical">
@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:text="titulo teste"
                 android:textColor="@color/gray"
-                android:textSize="22sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -84,13 +84,6 @@
                     android:textColor="@color/gray"
                     android:textSize="12sp" />
 
-                <TextView
-                    android:id="@+id/txtIsbn13"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/isbn13"
-                    android:textColor="@color/gray"
-                    android:textSize="12sp" />
 
                 <TextView
                     android:id="@+id/txtIsbn10"
@@ -100,26 +93,34 @@
                     android:textColor="@color/gray"
                     android:textSize="12sp" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="15dp"
-                    android:orientation="vertical">
+            </LinearLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="2dp"
-                        android:text="GoodReads Rating"
-                        android:textSize="8sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="bottom"
+                android:layout_marginTop="10dp">
 
-                    <RatingBar
-                        android:id="@+id/reviewsRatingBar"
-                        style="@style/reviewsRating"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:numStars="5" />
-                </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/goodreads_rating"
+                    android:layout_marginLeft="3dp"
+                    android:textSize="9sp" />
+
+                <RatingBar
+                    android:id="@+id/reviewsRatingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="?android:attr/ratingBarStyleIndicator"
+                    android:theme="@style/reviewsRating"
+                    android:scaleX=".6"
+                    android:scaleY=".56"
+                    android:layout_marginBottom="-10dp"
+                    android:transformPivotX="0dp"
+                    android:transformPivotY="0dp"
+                    android:max="5" />
             </LinearLayout>
 
         </LinearLayout>

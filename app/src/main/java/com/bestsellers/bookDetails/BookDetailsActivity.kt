@@ -21,7 +21,6 @@ class BookDetailsActivity : BaseActivity(), BookDetailsContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.details_activity)
-        hideStatusBar()
         presenter = BookDetailsPresenter(this)
         book = intent.extras.getSerializable(BOOK) as? Book
         setBookInformation()
@@ -35,7 +34,6 @@ class BookDetailsActivity : BaseActivity(), BookDetailsContract.View {
             titleBook.text = title
             writer.text = contributor
             desc.text = description
-            txtIsbn13.text = getString(R.string.isbn13, isbns[0].isbn13)
             txtIsbn10.text = getString(R.string.isbn10, isbns[0].isbn10)
             txtPublisher.text = getString(R.string.publisher, publisher)
             rankPosition.text = rank.toString()

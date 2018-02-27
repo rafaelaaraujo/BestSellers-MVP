@@ -1,46 +1,52 @@
 package com.bestsellers.bookGenre
 
-import android.app.SearchManager
-import android.content.Context
+import android.support.v4.app.Fragment
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView.AdapterDataObserver
+import android.support.v7.widget.SearchView
+import android.view.LayoutInflater
 import android.view.Menu
+import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import android.widget.SearchView
+import android.view.ViewGroup
 import com.bestsellers.R
 import com.bestsellers.bestSellers.BestSellersActivity
 import com.bestsellers.bookDetails.BookGenresContract
-import com.bestsellers.common.BaseActivity
 import com.bestsellers.model.Genre
 import com.bestsellers.util.DISPLAY_NAME
 import com.bestsellers.util.GENRE_NAME
 import com.bestsellers.util.launchActivity
 import kotlinx.android.synthetic.main.activity_genre.*
+import android.view.MenuInflater
+
 
 /**
  * Created by rafaela.araujo
  * on 07/11/17.
  */
 
-class BookGenresActivity : BaseActivity(), BookGenresContract.View, SearchView.OnQueryTextListener {
+class BookGenresActivity : Fragment(), BookGenresContract.View, SearchView.OnQueryTextListener {
 
     override var presenter: BookGenresContract.Presenter = BookGenresPresenter(this)
     private lateinit var adapter: BookGenresAdapter
     private var genreList = ArrayList<Genre>()
     private var searchView: SearchView? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_genre)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        setHasOptionsMenu(true)
+        return inflater.inflate(R.layout.activity_genre, container, false)
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
         presenter.requestGenreList()
-        setToolbarIcon()
         configureGridView()
     }
 
     private fun configureGridView() {
-        genreGrid.layoutManager = LinearLayoutManager(this)
+        genreGrid.layoutManager = LinearLayoutManager(activity)
         adapter = BookGenresAdapter(genreList, this::openListByGenre)
         adapter.registerAdapterDataObserver(observer)
         genreGrid.adapter = adapter
@@ -58,7 +64,7 @@ class BookGenresActivity : BaseActivity(), BookGenresContract.View, SearchView.O
     }
 
     private fun openListByGenre(genre: Genre) {
-        launchActivity<BestSellersActivity> {
+        activity?.launchActivity<BestSellersActivity> {
             putExtra(GENRE_NAME, genre.list_name)
             putExtra(DISPLAY_NAME, genre.display_name)
         }
@@ -82,17 +88,16 @@ class BookGenresActivity : BaseActivity(), BookGenresContract.View, SearchView.O
         adapter.notifyDataSetChanged()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.search_menu, menu)
-        configureSearchManager(menu)
-        return true
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.search_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+        configureSearchView(menu)
     }
 
-    private fun configureSearchManager(menu: Menu) {
-        val searchManager = getSystemService(Context.SEARCH_SERVICE) as? SearchManager
+    private fun configureSearchView(menu: Menu) {
         searchView = menu.findItem(R.id.search).actionView as? SearchView
-        searchView?.setSearchableInfo(searchManager?.getSearchableInfo(componentName))
         searchView?.setOnQueryTextListener(this)
+        searchView?.clearFocus()
     }
 
     override fun onQueryTextSubmit(query: String): Boolean {
@@ -107,5 +112,10 @@ class BookGenresActivity : BaseActivity(), BookGenresContract.View, SearchView.O
     private fun submitQuery(query: String): Boolean {
         adapter.filter.filter(query)
         return true
+    }
+
+    override fun onPause() {
+        super.onPause()
+        searchView?.clearFocus()
     }
 }

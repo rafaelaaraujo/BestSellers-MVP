@@ -6,12 +6,14 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:screenOrientation">portrait</item>
 
     </style>
 
     <style name="AppTheme.NoActionBar">
         <item name="windowNoTitle">true</item>
         <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:screenOrientation">portrait</item>
 
     </style>
 
@@ -24,9 +26,9 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="reviewsRating" parent="@style/Widget.AppCompat.RatingBar.Small">
-        <item name="colorAccent">#6200ea</item>
-        <item name="android:colorControlNormal">#f9a825</item>
+    <style name="reviewsRating"  parent="Theme.AppCompat">
+        <item name="colorControlNormal">#999999</item>
+        <item name="colorControlActivated">@color/yellow_rating</item>
     </style>
 
 </resources>
