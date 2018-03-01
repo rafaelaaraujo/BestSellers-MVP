@@ -2,7 +2,7 @@ package com.bestsellers.bestSellers.base
 
 import android.content.Intent
 import android.support.test.rule.ActivityTestRule
-import com.bestsellers.bookGenre.BookGenresActivity
+import com.bestsellers.bookGenre.BookGenresFragment
 import com.bestsellers.util.BASE_URL
 import com.squareup.okhttp.mockwebserver.MockWebServer
 import org.junit.Rule
@@ -18,7 +18,7 @@ open class BaseTest {
     private val mockWebServer = MockWebServer()
 
     @get:Rule
-    private val activityRule = ActivityTestRule(BookGenresActivity::class.java, true, false)
+    private val activityRule = ActivityTestRule(BookGenresFragment::class.java, true, false)
 
     /**
      * configures the mock server to return the expected values

@@ -1,5 +1,7 @@
 package com.bestsellers.model
 
+import android.arch.persistence.room.Entity
+import android.arch.persistence.room.PrimaryKey
 import java.io.Serializable
 
 /**
@@ -19,27 +21,30 @@ data class Results(
         val updated: String,
         val books: List<Book>)
 
-
+@Entity
 data class Book(
-        val rank: Int,
-        val rank_last_week: Int,
-        val weeks_on_list: Int,
-        val publisher: String,
-        val published_date: String,
-        val description: String,
-        val price: Float,
-        val title: String,
-        val author: String,
-        val contributor: String,
-        val contributor_note: String,
-        val book_image: String,
-        val amazon_product_url: String,
-        val book_review_link: String,
-        val first_chapter_link: String,
-        val isbns: List<Isbn>
+        @PrimaryKey(autoGenerate = true)
+        var id: Int = 0,
+        var rank: Int = 0,
+        var rank_last_week: Int = 0,
+        var weeks_on_list: Int = 0,
+        var publisher: String = "",
+        var published_date: String = "",
+        var description: String = "",
+        var price: Float = 0f,
+        var title: String = "",
+        var author: String = "",
+        var contributor: String = "",
+        var contributor_note: String = "",
+        var book_image: String = "",
+        var amazon_product_url: String = "",
+        var book_review_link: String = "",
+        var first_chapter_link: String = "",
+        var isbns: List<Isbn> = ArrayList()
 ) : Serializable
 
 data class Isbn(
+        @PrimaryKey
         val isbn10: String,
         val isbn13: String
 ) : Serializable

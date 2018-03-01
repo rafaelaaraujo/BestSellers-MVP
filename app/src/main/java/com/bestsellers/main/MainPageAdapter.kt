@@ -3,6 +3,8 @@ package com.bestsellers.main
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
+import com.bestsellers.bookGenre.BookGenresFragment
+import com.bestsellers.favorite.FavoriteFragment
 
 /**
  * Created by Rafaela Araujo
@@ -13,6 +15,11 @@ class MainPageAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
     private val mFragmentList: ArrayList<Fragment> = ArrayList()
     private val mFragmentTitleList: ArrayList<String> = ArrayList()
 
+    init{
+        addFragment(BookGenresFragment(), "Best Sellers")
+        addFragment(FavoriteFragment(), "Favorites")
+    }
+
     override fun getItem(position: Int): Fragment {
         return mFragmentList[position]
     }
@@ -21,13 +28,13 @@ class MainPageAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
         return mFragmentList.size
     }
 
-    fun addFragment(fragment: Fragment, title: String) {
+    private fun addFragment(fragment: Fragment, title: String) {
         mFragmentList.add(fragment)
         mFragmentTitleList.add(title)
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
-        return mFragmentTitleList.get(position)
+        return mFragmentTitleList[position]
     }
 
 

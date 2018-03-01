@@ -13,7 +13,7 @@ import org.junit.runner.RunWith
  */
 
 @RunWith(AndroidJUnit4::class)
-class BookGenresActivityTest : BaseTest() {
+class BookGenresFragmentTest : BaseTest() {
 
     private val robot: BookGenresRobot = BookGenresRobot()
 

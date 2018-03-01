@@ -6,6 +6,7 @@ import android.view.View.VISIBLE
 import com.bestsellers.R
 import com.bestsellers.bookDetails.BookDetailsActivity
 import com.bestsellers.common.BaseActivity
+import com.bestsellers.dao.AppDatabase
 import com.bestsellers.model.Book
 import com.bestsellers.util.*
 import com.yarolegovich.discretescrollview.transform.ScaleTransformer
@@ -38,11 +39,12 @@ class BestSellersActivity : BaseActivity(), BestSellersContract.View {
         configureRecicleView()
         reviewButton.setOnClickListener { showBookDetails() }
         fabbuyButton.setOnClickListener { openUrlInBrowser(getCurrentBook().amazon_product_url) }
-        favoriteButton.setOnClickListener { favoriteBook() }
+        favoriteButton.setOnClickListener { favoriteBook(getCurrentBook()) }
     }
 
-    private fun favoriteBook() {
+    private fun favoriteBook(currentBook: Book) {
         favoriteButton.startBounceAnimation()
+        AppDatabase.getInstance(this)?.BookDao()?.insertBook(currentBook)
     }
 
     private fun configureRecicleView() {

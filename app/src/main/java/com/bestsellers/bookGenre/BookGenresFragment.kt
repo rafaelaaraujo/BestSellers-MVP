@@ -27,7 +27,7 @@ import android.view.MenuInflater
  * on 07/11/17.
  */
 
-class BookGenresActivity : Fragment(), BookGenresContract.View, SearchView.OnQueryTextListener {
+class BookGenresFragment : Fragment(), BookGenresContract.View, SearchView.OnQueryTextListener {
 
     override var presenter: BookGenresContract.Presenter = BookGenresPresenter(this)
     private lateinit var adapter: BookGenresAdapter

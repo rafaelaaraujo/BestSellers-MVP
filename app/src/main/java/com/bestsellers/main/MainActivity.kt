@@ -2,8 +2,9 @@ package com.bestsellers.main
 
 import android.os.Bundle
 import com.bestsellers.R
-import com.bestsellers.bookGenre.BookGenresActivity
+import com.bestsellers.bookGenre.BookGenresFragment
 import com.bestsellers.common.BaseActivity
+import com.bestsellers.favorite.FavoriteFragment
 import kotlinx.android.synthetic.main.main_activity.*
 
 /**
@@ -22,11 +23,7 @@ class MainActivity : BaseActivity() {
     }
 
     private fun setupViewPager() {
-        val adapter = MainPageAdapter(supportFragmentManager)
-        adapter.addFragment(BookGenresActivity(), "Best Sellers")
-        adapter.addFragment(BlankFragment(), "Favorites")
-        pager.adapter = adapter
-
+        pager.adapter = MainPageAdapter(supportFragmentManager)
         tab_layout.setupWithViewPager(pager)
     }
 }
