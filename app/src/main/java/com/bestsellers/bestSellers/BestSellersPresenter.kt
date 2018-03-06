@@ -22,7 +22,18 @@ class BestSellersPresenter(
         })
     }
 
-    override fun saveBookfavorite(book: Book){
-        data.favoriteBook(book)
+    override fun changeBookStatus(book: Book, favorite: Boolean) {
+        if (favorite){
+            data.favoriteBook(book)
+            view.showFavoritedBookMessage()
+        } else {
+            data.removeFavoriteBook(book)
+            view.showUnfavoritedBookMessage()
+        }
+    }
+
+    override fun verifyIsFavoriteBook(book: Book) {
+        val b = data.getBookFavorite(book.title)
+        view.changeFavoriteButton(b != null)
     }
 }

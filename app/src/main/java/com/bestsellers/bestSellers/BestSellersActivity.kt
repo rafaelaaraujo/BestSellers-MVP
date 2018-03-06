@@ -7,9 +7,9 @@ import com.bestsellers.R
 import com.bestsellers.bookDetails.BookDetailsActivity
 import com.bestsellers.common.BaseActivity
 import com.bestsellers.data.BestSellersData
-import com.bestsellers.data.local.AppDatabase
 import com.bestsellers.model.Book
 import com.bestsellers.util.*
+import com.yarolegovich.discretescrollview.DiscreteScrollView
 import com.yarolegovich.discretescrollview.transform.ScaleTransformer
 import kotlinx.android.synthetic.main.activity_best_sellers.*
 import kotlinx.android.synthetic.main.book_card_options.*
@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.book_card_options.*
  * Created by Rafaela
  * on 03/11/2017.
  */
-class BestSellersActivity : BaseActivity(), BestSellersContract.View {
+class BestSellersActivity : BaseActivity(), BestSellersContract.View, DiscreteScrollView.OnItemChangedListener<BestSellersAdapter.ViewHolder> {
 
     override lateinit var presenter: BestSellersContract.Presenter
     private var booksList = ArrayList<Book>()
@@ -28,16 +28,15 @@ class BestSellersActivity : BaseActivity(), BestSellersContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_best_sellers)
-
-        configureView(intent.extras.getString(DISPLAY_NAME))
-
         presenter = BestSellersPresenter(this, BestSellersData(context = this))
         presenter.requestBestSellers(intent.extras.getString(GENRE_NAME))
+
+        configureView(intent.extras.getString(DISPLAY_NAME))
     }
 
     private fun configureView(listName: String) {
         configureActionBar(listName)
-        configureRecicleView()
+        configureBestSellersList()
         reviewButton.setOnClickListener { showBookDetails() }
         fabbuyButton.setOnClickListener { openUrlInBrowser(getCurrentBook().amazon_product_url) }
         favoriteButton.setOnClickListener { favoriteBook(getCurrentBook()) }
@@ -45,13 +44,13 @@ class BestSellersActivity : BaseActivity(), BestSellersContract.View {
 
     private fun favoriteBook(currentBook: Book) {
         favoriteButton.startBounceAnimation()
-        presenter.saveBookfavorite(currentBook)
+        presenter.changeBookStatus(currentBook, favoriteButton.isChecked)
     }
 
-    private fun configureRecicleView() {
-        bestSellersList.setItemTransformer(getScaleTransformation())
+    private fun configureBestSellersList() {
         bestSellersList.setItemTransformer(getScaleTransformation())
         bestSellersList.adapter = BestSellersAdapter(booksList)
+        bestSellersList.addOnItemChangedListener(this)
     }
 
     private fun getScaleTransformation() =
@@ -84,5 +83,24 @@ class BestSellersActivity : BaseActivity(), BestSellersContract.View {
     }
 
     private fun getCurrentBook() = booksList[bestSellersList.currentItem]
+
+    override fun onCurrentItemChanged(viewHolder: BestSellersAdapter.ViewHolder?, position: Int) {
+        if (position != -1)
+            presenter.verifyIsFavoriteBook(booksList[position])
+    }
+
+    override fun changeFavoriteButton(favorite: Boolean) {
+        favoriteButton.isChecked = favorite
+    }
+
+    override fun showFavoritedBookMessage() {
+        showSnackBar(window.decorView,getString(R.string.favorite_message))
+    }
+
+    override fun showUnfavoritedBookMessage() {
+        showSnackBar(window.decorView,getString(R.string.unfavorable_message))
+    }
+
+
 
 }

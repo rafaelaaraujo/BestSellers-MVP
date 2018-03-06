@@ -19,5 +19,5 @@ interface FavoriteBookDao {
     fun loadAllFavoriteBooks(): List<Book>
 
     @Query("SELECT * FROM Book WHERE title = :title")
-    fun getFavoriteBook(title: String): Book
+    fun getFavoriteBook(title: String?): Book
 }

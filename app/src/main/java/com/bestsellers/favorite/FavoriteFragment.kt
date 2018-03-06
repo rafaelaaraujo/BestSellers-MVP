@@ -2,13 +2,16 @@ package com.bestsellers.favorite
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.GridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bestsellers.R
+import com.bestsellers.bookDetails.BookDetailsActivity
 import com.bestsellers.data.BestSellersData
 import com.bestsellers.model.Book
+import com.bestsellers.util.BOOK
+import com.bestsellers.util.launchActivity
 import kotlinx.android.synthetic.main.activity_favorite.*
 
 /**
@@ -17,7 +20,7 @@ import kotlinx.android.synthetic.main.activity_favorite.*
 class FavoriteFragment : Fragment(), FavoriteContract.View {
 
     override lateinit var presenter: FavoriteContract.Presenter
-    private val favoriteList: ArrayList<Book> = ArrayList()
+    private var favoriteList: List<Book> = ArrayList()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         setHasOptionsMenu(true)
@@ -28,12 +31,16 @@ class FavoriteFragment : Fragment(), FavoriteContract.View {
         super.onActivityCreated(savedInstanceState)
         presenter = FavoritePresenter(this, BestSellersData(context = activity))
         loadRecyclerView()
+    }
+
+    override fun onStart() {
+        super.onStart()
         presenter.getFavoriteBooks()
     }
 
     private fun loadRecyclerView() {
-        recyclerFavorite.layoutManager = LinearLayoutManager(context)
-        recyclerFavorite.adapter = FavoriteAdapter(favoriteList)
+        recyclerFavorite.layoutManager = GridLayoutManager(context, 2)
+        recyclerFavorite.adapter = FavoriteAdapter(favoriteList, this::showBookDetails)
     }
 
     override fun showErrorMessage() {
@@ -46,7 +53,11 @@ class FavoriteFragment : Fragment(), FavoriteContract.View {
     }
 
     override fun showFavoriteBooks(list: List<Book>) {
-        favoriteList.addAll(list)
-        recyclerFavorite.adapter.notifyDataSetChanged()
+        favoriteList = list
+        loadRecyclerView()
+    }
+
+    private fun showBookDetails(book: Book) {
+        activity?.launchActivity<BookDetailsActivity> { putExtra(BOOK, book) }
     }
 }

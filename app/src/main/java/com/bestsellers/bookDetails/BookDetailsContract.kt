@@ -2,6 +2,7 @@ package com.bestsellers.bookDetails
 
 import com.bestsellers.common.BasePresenter
 import com.bestsellers.common.BaseView
+import com.bestsellers.model.Book
 import com.bestsellers.model.BookReviewCount
 import com.bestsellers.model.Isbn
 
@@ -22,6 +23,8 @@ class BookDetailsContract {
          * show user message that the book has no reviews
          */
         fun showNoReviewsView()
+
+        fun updateStatus(isBookFavorite: Boolean)
     }
 
     interface Presenter : BasePresenter {
@@ -31,5 +34,9 @@ class BookDetailsContract {
          * @param isbn from selected book
          */
         fun getBookReviewCount(isbn: String)
+
+        fun verifyIsFavoriteBook(title: String?)
+
+        fun changeBookStatus(book: Book, favorite: Boolean)
     }
 }

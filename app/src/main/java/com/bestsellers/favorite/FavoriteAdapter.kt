@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.bestsellers.R
 import com.bestsellers.model.Book
+import com.bestsellers.model.Genre
 import com.bestsellers.util.loadUrl
 import kotlinx.android.synthetic.main.best_seller_item.view.*
 
@@ -14,7 +15,7 @@ import kotlinx.android.synthetic.main.best_seller_item.view.*
  * on 05/03/2018.
  */
 class FavoriteAdapter(
-        private val favorites: List<Book>) :
+        private val favorites: List<Book>, private val listener: (Book) -> Unit) :
         RecyclerView.Adapter<FavoriteAdapter.ViewHolder>() {
 
 
@@ -23,17 +24,17 @@ class FavoriteAdapter(
         return ViewHolder(v)
     }
 
-    override fun onBindViewHolder(holder: FavoriteAdapter.ViewHolder, position: Int) = holder.bind(favorites[position])
+    override fun onBindViewHolder(holder: FavoriteAdapter.ViewHolder, position: Int) = holder.bind(favorites[position],listener)
 
     override fun getItemCount(): Int = favorites.size
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        internal fun bind(item: Book) = with(itemView) {
+        internal fun bind(item: Book,listener: (Book) -> Unit) = with(itemView) {
             bookTittle.text = item.title
             bookAuthor.text = item.contributor
             bookImage.loadUrl(item.book_image)
+            setOnClickListener{listener(item)}
         }
     }
-
 }

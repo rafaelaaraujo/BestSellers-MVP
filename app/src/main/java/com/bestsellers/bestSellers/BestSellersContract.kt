@@ -19,7 +19,11 @@ class BestSellersContract {
          */
         fun showBestSellers(bestSeller: List<Book>)
 
+        fun changeFavoriteButton(favorite: Boolean)
 
+        fun showFavoritedBookMessage()
+
+        fun showUnfavoritedBookMessage()
     }
 
     interface Presenter : BasePresenter {
@@ -30,7 +34,9 @@ class BestSellersContract {
          */
         fun requestBestSellers(name: String)
 
-        fun saveBookfavorite(book: Book)
+        fun changeBookStatus(book: Book, favorite: Boolean)
+
+        fun verifyIsFavoriteBook(book: Book)
 
     }
 }

@@ -41,7 +41,7 @@ class BestSellersData(private val service: BestSellersService = BestSellersServi
         getFavoriteDao()?.insertBook(book)
     }
 
-    fun getBookFavorite(title:String): Book? {
+    fun getBookFavorite(title:String?): Book? {
         return getFavoriteDao()?.getFavoriteBook(title)
     }
 

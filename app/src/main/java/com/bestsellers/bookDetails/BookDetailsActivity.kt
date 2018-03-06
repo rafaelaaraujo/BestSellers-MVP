@@ -5,15 +5,14 @@ import android.view.Menu
 import android.view.MenuItem
 import com.bestsellers.R
 import com.bestsellers.common.BaseActivity
+import com.bestsellers.data.BestSellersData
 import com.bestsellers.model.Book
 import com.bestsellers.model.BookReviewCount
-import com.bestsellers.util.BOOK
-import com.bestsellers.util.loadUrl
-import com.bestsellers.util.openUrlInBrowser
+import com.bestsellers.util.*
 import kotlinx.android.synthetic.main.details_activity.*
 
 class BookDetailsActivity : BaseActivity(), BookDetailsContract.View {
-    
+
     override lateinit var presenter: BookDetailsContract.Presenter
     private var book: Book? = null
     private lateinit var menuFavorite: MenuItem
@@ -21,40 +20,42 @@ class BookDetailsActivity : BaseActivity(), BookDetailsContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.details_activity)
-        presenter = BookDetailsPresenter(this)
+        presenter = BookDetailsPresenter(this, BestSellersData(context = this))
         book = intent.extras.getSerializable(BOOK) as? Book
         setBookInformation()
     }
 
     private fun setBookInformation() {
         book?.apply {
-            presenter.getBookReviewCount(isbns[0].isbn10)
             configureActionBar(title)
-            weeksOnList.text = getWeeksOnTheList(weeks_on_list)
+            presenter.getBookReviewCount(getIsbn())
+            txtIsbn10.text = getString(R.string.isbn10, getIsbn())
+            weeksOnList.text = getWeeksOnTheList(this@BookDetailsActivity)
             titleBook.text = title
             writer.text = contributor
             desc.text = description
-            txtIsbn10.text = getString(R.string.isbn10, isbns[0].isbn10)
             txtPublisher.text = getString(R.string.publisher, publisher)
             rankPosition.text = rank.toString()
             image.loadUrl(book_image)
-        }
-
-        shopButton.setOnClickListener { openUrlInBrowser(book?.amazon_product_url) }
-    }
-
-    private fun getWeeksOnTheList(weeks_on_list: Int): String {
-        return if (weeks_on_list <= 1) {
-            getString(R.string.new_this_week)
-        } else {
-            getString(R.string.weeks_on_list, weeks_on_list)
+            shopButton.setOnClickListener { openUrlInBrowser(amazon_product_url) }
         }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_scrolling, menu)
         menuFavorite = menu.getItem(0)
+        presenter.verifyIsFavoriteBook(book?.title)
         return true
+    }
+
+    override fun updateStatus(isBookFavorite: Boolean) {
+        if (isBookFavorite) {
+            menuFavorite.setIcon(R.drawable.ic_favorite_selected)
+            menuFavorite.title = "Unfavorable"
+        } else {
+            menuFavorite.setIcon(R.drawable.ic_favorite_unselected)
+            menuFavorite.title = "favorite"
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -66,6 +67,7 @@ class BookDetailsActivity : BaseActivity(), BookDetailsContract.View {
     }
 
     private fun favoriteItem() {
+        book?.let { presenter.changeBookStatus(it, menuFavorite.title == "favorite") }
     }
 
     override fun showErrorMessage() {
