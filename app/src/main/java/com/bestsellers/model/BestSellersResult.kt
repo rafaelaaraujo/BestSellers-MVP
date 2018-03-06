@@ -2,6 +2,7 @@ package com.bestsellers.model
 
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
+import android.support.annotation.NonNull
 import java.io.Serializable
 
 /**
@@ -23,9 +24,6 @@ data class Results(
 
 @Entity
 data class Book(
-        @PrimaryKey(autoGenerate = true)
-        var id: Int = 0,
-
         var rank: Int = 0,
         var rank_last_week: Int = 0,
         var weeks_on_list: Int = 0,
@@ -33,6 +31,8 @@ data class Book(
         var published_date: String = "",
         var description: String = "",
         var price: Float = 0f,
+        @PrimaryKey
+        @NonNull
         var title: String = "",
         var author: String = "",
         var contributor: String = "",
