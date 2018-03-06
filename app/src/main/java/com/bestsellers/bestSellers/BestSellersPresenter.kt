@@ -1,8 +1,7 @@
 package com.bestsellers.bestSellers
 
-import com.bestsellers.connection.BestSellersService
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+import com.bestsellers.data.BestSellersData
+import com.bestsellers.model.Book
 
 /**
  * Created by Rafaela Araujo
@@ -10,23 +9,20 @@ import io.reactivex.schedulers.Schedulers
  */
 class BestSellersPresenter(
         val view: BestSellersContract.View,
-        private val service: BestSellersService = BestSellersService()) :
+        private val data: BestSellersData) :
         BestSellersContract.Presenter {
 
     override fun requestBestSellers(name:String) {
         view.showLoading()
-        service.getBestSeller(name)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                        { retrieveBestSellers ->
-                            view.hideLoading()
-                            view.showBestSellers(retrieveBestSellers.results.books)
-                        },
-                        {
-                            view.showErrorMessage()
-                        }
-                )
+        data.getBestSellers(name, {
+            view.hideLoading()
+            view.showBestSellers(it.results.books)
+        }, {
+            view.showErrorMessage()
+        })
     }
 
+    override fun saveBookfavorite(book: Book){
+        data.favoriteBook(book)
+    }
 }

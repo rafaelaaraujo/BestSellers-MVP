@@ -1,4 +1,4 @@
-package com.bestsellers.dao
+package com.bestsellers.data.local
 
 import android.arch.persistence.room.*
 import com.bestsellers.model.Book
@@ -7,9 +7,9 @@ import com.bestsellers.model.Book
  * Created by rafaela.araujo on 01/03/18.
  */
 @Dao
-interface BookDao {
+interface FavoriteBookDao {
 
-    @Insert( onConflict = OnConflictStrategy.REPLACE )
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertBook(book: Book)
 
     @Delete
@@ -17,4 +17,7 @@ interface BookDao {
 
     @Query("SELECT * FROM Book")
     fun loadAllFavoriteBooks(): List<Book>
+
+    @Query("SELECT * FROM Book WHERE title = :title")
+    fun getFavoriteBook(title: String): Book
 }

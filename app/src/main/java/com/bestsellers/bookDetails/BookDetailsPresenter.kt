@@ -1,8 +1,7 @@
 package com.bestsellers.bookDetails
 
-import com.bestsellers.connection.BestSellersService
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+import com.bestsellers.data.BestSellersData
+import com.bestsellers.model.BookReviewCount
 
 /**
  * Created by Rafaela
@@ -10,25 +9,23 @@ import io.reactivex.schedulers.Schedulers
  */
 class BookDetailsPresenter(
         val view: BookDetailsContract.View,
-        private val service: BestSellersService = BestSellersService()) :
+        private val data: BestSellersData = BestSellersData()) :
         BookDetailsContract.Presenter {
 
     override fun getBookReviewCount(isbn: String) {
         view.showLoading()
-        service.getBookReviewsCount(isbn)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(
-                        { retrieveReviews ->
-                            if (retrieveReviews != null)
-                                view.loadBookReviewCount(retrieveReviews.books[0])
-                            else
-                                view.showNoReviewsView()
-                        },
-                        {
-                            view.showErrorMessage()
-                        }
-                )
+        data.getBookReviewCount(isbn, {
+            verifyReview(it.books)
+        }, {
+            view.showErrorMessage()
+        })
+    }
+
+    private fun verifyReview(books: List<BookReviewCount>) {
+        if (books.isNotEmpty())
+            view.loadBookReviewCount(books[0])
+        else
+            view.showNoReviewsView()
     }
 
 }

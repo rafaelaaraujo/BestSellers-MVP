@@ -2,9 +2,7 @@ package com.bestsellers.main
 
 import android.os.Bundle
 import com.bestsellers.R
-import com.bestsellers.bookGenre.BookGenresFragment
 import com.bestsellers.common.BaseActivity
-import com.bestsellers.favorite.FavoriteFragment
 import kotlinx.android.synthetic.main.main_activity.*
 
 /**

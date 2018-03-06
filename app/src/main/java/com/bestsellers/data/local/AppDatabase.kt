@@ -1,4 +1,4 @@
-package com.bestsellers.dao
+package com.bestsellers.data.local
 
 import android.arch.persistence.room.Database
 import android.arch.persistence.room.Room
@@ -15,25 +15,22 @@ import com.bestsellers.model.Book
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun BookDao(): BookDao
+    abstract fun getFavoriteBookDao(): FavoriteBookDao
 
     companion object {
-        private var INSTANCE: AppDatabase? = null
+        private var instance: AppDatabase? = null
+        private val DB_NAME = "book.db"
 
         fun getInstance(context: Context): AppDatabase? {
-            if (INSTANCE == null) {
+            if (instance == null) {
                 synchronized(AppDatabase::class) {
-                    INSTANCE = Room.databaseBuilder(context.applicationContext,
-                            AppDatabase::class.java, "book.db")
+                    instance = Room.databaseBuilder(context.applicationContext,
+                            AppDatabase::class.java, DB_NAME)
                             .allowMainThreadQueries()
                             .build()
                 }
             }
-            return INSTANCE
-        }
-
-        fun destroyInstance() {
-            INSTANCE = null
+            return instance
         }
     }
 }

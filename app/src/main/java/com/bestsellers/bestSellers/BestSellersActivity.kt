@@ -6,7 +6,8 @@ import android.view.View.VISIBLE
 import com.bestsellers.R
 import com.bestsellers.bookDetails.BookDetailsActivity
 import com.bestsellers.common.BaseActivity
-import com.bestsellers.dao.AppDatabase
+import com.bestsellers.data.BestSellersData
+import com.bestsellers.data.local.AppDatabase
 import com.bestsellers.model.Book
 import com.bestsellers.util.*
 import com.yarolegovich.discretescrollview.transform.ScaleTransformer
@@ -19,7 +20,7 @@ import kotlinx.android.synthetic.main.book_card_options.*
  */
 class BestSellersActivity : BaseActivity(), BestSellersContract.View {
 
-    override var presenter: BestSellersContract.Presenter = BestSellersPresenter(this)
+    override lateinit var presenter: BestSellersContract.Presenter
     private var booksList = ArrayList<Book>()
     private val MAX_SCALE = 1.05f
     private val MIN_SCALE = 0.8f
@@ -30,7 +31,7 @@ class BestSellersActivity : BaseActivity(), BestSellersContract.View {
 
         configureView(intent.extras.getString(DISPLAY_NAME))
 
-        presenter = BestSellersPresenter(this)
+        presenter = BestSellersPresenter(this, BestSellersData(context = this))
         presenter.requestBestSellers(intent.extras.getString(GENRE_NAME))
     }
 
@@ -44,7 +45,7 @@ class BestSellersActivity : BaseActivity(), BestSellersContract.View {
 
     private fun favoriteBook(currentBook: Book) {
         favoriteButton.startBounceAnimation()
-        AppDatabase.getInstance(this)?.BookDao()?.insertBook(currentBook)
+        presenter.saveBookfavorite(currentBook)
     }
 
     private fun configureRecicleView() {

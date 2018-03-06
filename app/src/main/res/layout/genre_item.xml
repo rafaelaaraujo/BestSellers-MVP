@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginLeft="30dp"
     android:layout_marginRight="30dp"
     android:layout_marginTop="15dp"
-    app:cardCornerRadius="5dp"
-    app:cardBackgroundColor="@color/colorPrimary">
+    app:cardBackgroundColor="@android:color/white"
+    app:cardCornerRadius="5dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:gravity="center"
+        android:orientation="vertical"
         android:padding="30dp">
 
         <TextView
             android:id="@+id/genreTittle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="19sp"
-            android:textStyle="bold"
             android:layout_margin="10dp"
-            android:textColor="@android:color/white"/>
+            android:gravity="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="19sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/genreUpdated"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:layout_marginTop="5dp"
-            android:textSize="13sp"
-            android:textColor="@android:color/white"/>
+            android:gravity="center"
+            android:textColor="@color/gray"
+            android:textSize="13sp" />
 
     </LinearLayout>
 </android.support.v7.widget.CardView>

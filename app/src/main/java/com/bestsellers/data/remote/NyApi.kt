@@ -1,4 +1,4 @@
-package com.bestsellers.connection
+package com.bestsellers.data.remote
 
 import com.bestsellers.model.BestSellersResult
 import com.bestsellers.model.BookGenresResult
@@ -20,8 +20,5 @@ interface NyApi {
 
     @GET("/svc/books/v3/lists/{data}/{list}.json")
     fun getBestSellerByNameList(@Path("list") list:String): Observable<BestSellersResult>
-
-    @GET("/svc/books/v3/reviews.json")
-    fun getReviews(@Query("title") tittle:String): Observable<ReviewsResult>
 
 }

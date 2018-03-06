@@ -19,10 +19,6 @@ fun Activity.showSnackBar(view: View, text: String) {
     Snackbar.make(view, text, Snackbar.LENGTH_LONG).show()
 }
 
-fun Activity.showToast(text: String) {
-    Toast.makeText(this, text, Toast.LENGTH_LONG).show()
-}
-
 inline fun <reified T : Activity> Activity.launchActivity(noinline init: Intent.() -> Unit = {}) {
     val intent = newIntent<T>(this)
     intent.init()

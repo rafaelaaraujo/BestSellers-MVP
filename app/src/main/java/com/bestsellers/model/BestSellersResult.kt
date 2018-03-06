@@ -25,6 +25,7 @@ data class Results(
 data class Book(
         @PrimaryKey(autoGenerate = true)
         var id: Int = 0,
+
         var rank: Int = 0,
         var rank_last_week: Int = 0,
         var weeks_on_list: Int = 0,

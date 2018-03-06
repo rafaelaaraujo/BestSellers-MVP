@@ -1,4 +1,4 @@
-package com.bestsellers.connection
+package com.bestsellers.data.remote
 
 import com.bestsellers.model.ReviewCountResult
 import io.reactivex.Observable

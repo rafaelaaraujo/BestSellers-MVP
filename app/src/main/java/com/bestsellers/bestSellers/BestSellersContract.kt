@@ -17,7 +17,8 @@ class BestSellersContract {
          * load list of books by genre
          * @param bestSeller list of books
          */
-       fun showBestSellers(bestSeller: List<Book>)
+        fun showBestSellers(bestSeller: List<Book>)
+
 
     }
 
@@ -28,6 +29,8 @@ class BestSellersContract {
          * @param name of genre selected
          */
         fun requestBestSellers(name: String)
+
+        fun saveBookfavorite(book: Book)
 
     }
 }

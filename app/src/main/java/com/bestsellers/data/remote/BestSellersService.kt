@@ -1,4 +1,4 @@
-package com.bestsellers.connection
+package com.bestsellers.data.remote
 
 import com.bestsellers.model.*
 import com.bestsellers.util.*
@@ -46,8 +46,6 @@ open class BestSellersService {
     fun getGenreList(): Observable<BookGenresResult> = nyApi.getBookGenresList()
 
     fun getBestSeller(name: String): Observable<BestSellersResult> = nyApi.getBestSellerByNameList(name)
-
-    fun getBookReview(tittle: String): Observable<ReviewsResult> = nyApi.getReviews(tittle)
 
     fun getBookReviewsCount(isbn: String): Observable<ReviewCountResult> = goodReadsApi.getBookReviewCount(isbn)
 }
