@@ -26,7 +26,7 @@
             android:layout_alignParentBottom="true"
             android:layout_gravity="center"
             android:padding="10dp"
-            android:background="@color/transparent_gray"
+            android:background="@color/transparent_white"
             android:gravity="center"
             android:orientation="vertical">
 

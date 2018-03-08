@@ -1,10 +1,8 @@
 package com.bestsellers.bookDetails
 
-import com.bestsellers.common.BasePresenter
 import com.bestsellers.common.BaseView
 import com.bestsellers.model.Book
 import com.bestsellers.model.BookReviewCount
-import com.bestsellers.model.Isbn
 
 /**
  * Created by Rafaela Araujo
@@ -19,15 +17,11 @@ class BookDetailsContract {
          */
         fun loadBookReviewCount(bookReviewCount: BookReviewCount)
 
-        /**
-         * show user message that the book has no reviews
-         */
-        fun showNoReviewsView()
-
         fun updateStatus(isBookFavorite: Boolean)
+
     }
 
-    interface Presenter : BasePresenter {
+    interface Presenter {
 
         /**
          * request book review from server

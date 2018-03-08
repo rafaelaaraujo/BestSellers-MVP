@@ -46,7 +46,8 @@
             android:id="@+id/bookImage"
             android:layout_width="@dimen/book_card_width"
             android:layout_height="@dimen/book_card_height"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            android:transitionName="sharedView"/>
 
         <TextView
             android:id="@+id/rankPosition"

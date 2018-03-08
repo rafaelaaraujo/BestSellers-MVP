@@ -1,6 +1,5 @@
 package com.bestsellers.bestSellers
 
-import com.bestsellers.common.BasePresenter
 import com.bestsellers.common.BaseView
 import com.bestsellers.model.Book
 
@@ -26,7 +25,7 @@ class BestSellersContract {
         fun showUnfavoritedBookMessage()
     }
 
-    interface Presenter : BasePresenter {
+    interface Presenter {
 
         /**
          * request list of books by genre

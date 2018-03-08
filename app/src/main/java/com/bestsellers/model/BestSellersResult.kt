@@ -27,6 +27,9 @@ data class Results(
 
 @Entity
 data class Book(
+        @PrimaryKey
+        @NonNull
+        var title: String = "",
         var rank: Int = 0,
         var rank_last_week: Int = 0,
         var weeks_on_list: Int = 0,
@@ -34,9 +37,6 @@ data class Book(
         var published_date: String = "",
         var description: String = "",
         var price: Float = 0f,
-        @PrimaryKey
-        @NonNull
-        var title: String = "",
         var author: String = "",
         var contributor: String = "",
         var contributor_note: String = "",

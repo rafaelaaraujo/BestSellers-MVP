@@ -7,8 +7,9 @@ import android.net.Uri
 import android.support.design.widget.Snackbar
 import android.view.View
 import android.view.animation.AnimationUtils
-import android.widget.Toast
 import com.bestsellers.R
+import android.support.v4.app.ActivityOptionsCompat
+
 
 /**
  * Created by Rafaela Araujo
@@ -16,13 +17,20 @@ import com.bestsellers.R
  */
 
 fun Activity.showSnackBar(view: View, text: String) {
-    Snackbar.make(view, text, Snackbar.LENGTH_LONG).show()
+    Snackbar.make(view, text, Snackbar.LENGTH_SHORT).show()
 }
 
-inline fun <reified T : Activity> Activity.launchActivity(noinline init: Intent.() -> Unit = {}) {
+inline fun <reified T : Activity> Activity.launchActivity(sharedView: View? = null, noinline init: Intent.() -> Unit = {}) {
     val intent = newIntent<T>(this)
     intent.init()
-    startActivity(intent)
+
+    if (sharedView != null) {
+        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, sharedView, "sharedView")
+        startActivity(intent, options.toBundle())
+        overridePendingTransition(0,0)
+    } else {
+        startActivity(intent)
+    }
 }
 
 inline fun <reified T : Any> newIntent(context: Context): Intent = Intent(context, T::class.java)

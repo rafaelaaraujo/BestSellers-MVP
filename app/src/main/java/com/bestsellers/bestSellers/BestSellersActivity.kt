@@ -49,7 +49,9 @@ class BestSellersActivity : BaseActivity(), BestSellersContract.View, DiscreteSc
 
     private fun configureBestSellersList() {
         bestSellersList.setItemTransformer(getScaleTransformation())
-        bestSellersList.adapter = BestSellersAdapter(booksList)
+        bestSellersList.adapter = BestSellersAdapter(booksList){
+            showBookDetails()
+        }
         bestSellersList.addOnItemChangedListener(this)
     }
 
@@ -60,7 +62,9 @@ class BestSellersActivity : BaseActivity(), BestSellersContract.View, DiscreteSc
             }.build()
 
     private fun showBookDetails() =
-            launchActivity<BookDetailsActivity> { putExtra(BOOK, getCurrentBook()) }
+            launchActivity<BookDetailsActivity>(bestSellersList.rootView.findViewById(R.id.bookImage)) {
+                putExtra(BOOK, getCurrentBook())
+            }
 
 
     override fun showErrorMessage() {
@@ -86,7 +90,7 @@ class BestSellersActivity : BaseActivity(), BestSellersContract.View, DiscreteSc
 
     override fun onCurrentItemChanged(viewHolder: BestSellersAdapter.ViewHolder?, position: Int) {
         if (position != -1)
-            presenter.verifyIsFavoriteBook(booksList[position])
+            presenter.verifyIsFavoriteBook(getCurrentBook())
     }
 
     override fun changeFavoriteButton(favorite: Boolean) {
@@ -94,13 +98,17 @@ class BestSellersActivity : BaseActivity(), BestSellersContract.View, DiscreteSc
     }
 
     override fun showFavoritedBookMessage() {
-        showSnackBar(window.decorView,getString(R.string.favorite_message))
+        showSnackBar(window.decorView, getString(R.string.favorite_message))
     }
 
     override fun showUnfavoritedBookMessage() {
-        showSnackBar(window.decorView,getString(R.string.unfavorable_message))
+        showSnackBar(window.decorView, getString(R.string.unfavorable_message))
     }
 
-
+    override fun onResume() {
+        super.onResume()
+        if (booksList.isNotEmpty())
+            presenter.verifyIsFavoriteBook(getCurrentBook())
+    }
 
 }

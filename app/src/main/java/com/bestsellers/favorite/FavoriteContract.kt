@@ -1,6 +1,5 @@
 package com.bestsellers.favorite
 
-import com.bestsellers.common.BasePresenter
 import com.bestsellers.common.BaseView
 import com.bestsellers.model.Book
 
@@ -13,7 +12,7 @@ class FavoriteContract {
         fun showFavoriteBooks(list: List<Book>)
     }
 
-    interface Presenter : BasePresenter {
+    interface Presenter {
 
         fun getFavoriteBooks()
 

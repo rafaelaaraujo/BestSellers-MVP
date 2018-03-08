@@ -25,8 +25,6 @@ class BookDetailsPresenter(
     private fun verifyReview(books: List<BookReviewCount>) {
         if (books.isNotEmpty())
             view.loadBookReviewCount(books[0])
-        else
-            view.showNoReviewsView()
     }
 
     override fun verifyIsFavoriteBook(title: String?) {

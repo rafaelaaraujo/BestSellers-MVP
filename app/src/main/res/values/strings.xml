@@ -14,8 +14,12 @@
     <string name="weeks_on_list">%d WEEKS ON THE LIST</string>
     <string name="goodreads_rating">GoodReads Rating</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="favorite_message">favorite book successfully</string>
     <string name="unfavorable_message">unfavorable book successfully</string>
+    <string name="unfavorable">Unfavorable</string>
+    <string name="favorite">favorite</string>
+    <string name="error_loading_data">There was an error loading the data</string>
+    <string name="empty_favorite_book_list">You do not have any favorite \nbooks yet</string>
+    <string name="ops">Ooops…</string>
 </resources>

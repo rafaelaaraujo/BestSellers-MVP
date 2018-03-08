@@ -1,8 +1,11 @@
 package com.bestsellers.bookDetails
 
+import android.os.Build
 import android.os.Bundle
+import android.support.annotation.RequiresApi
 import android.view.Menu
 import android.view.MenuItem
+import android.view.Window
 import com.bestsellers.R
 import com.bestsellers.common.BaseActivity
 import com.bestsellers.data.BestSellersData
@@ -11,18 +14,20 @@ import com.bestsellers.model.BookReviewCount
 import com.bestsellers.util.*
 import kotlinx.android.synthetic.main.details_activity.*
 
+
 class BookDetailsActivity : BaseActivity(), BookDetailsContract.View {
 
     override lateinit var presenter: BookDetailsContract.Presenter
     private var book: Book? = null
     private lateinit var menuFavorite: MenuItem
+    private val menuItemPosition = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
         setContentView(R.layout.details_activity)
         presenter = BookDetailsPresenter(this, BestSellersData(context = this))
         book = intent.extras.getSerializable(BOOK) as? Book
         setBookInformation()
+        super.onCreate(savedInstanceState)
     }
 
     private fun setBookInformation() {
@@ -43,18 +48,15 @@ class BookDetailsActivity : BaseActivity(), BookDetailsContract.View {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_scrolling, menu)
-        menuFavorite = menu.getItem(0)
+        menuFavorite = menu.getItem(menuItemPosition)
         presenter.verifyIsFavoriteBook(book?.title)
         return true
     }
 
     override fun updateStatus(isBookFavorite: Boolean) {
-        if (isBookFavorite) {
-            menuFavorite.setIcon(R.drawable.ic_favorite_selected)
-            menuFavorite.title = "Unfavorable"
-        } else {
-            menuFavorite.setIcon(R.drawable.ic_favorite_unselected)
-            menuFavorite.title = "favorite"
+        menuFavorite.apply {
+            setIcon(if (isBookFavorite) R.drawable.ic_favorite_selected else R.drawable.ic_favorite_unselected)
+            title = if (isBookFavorite) getString(R.string.unfavorable) else getString(R.string.favorite)
         }
     }
 
@@ -67,11 +69,10 @@ class BookDetailsActivity : BaseActivity(), BookDetailsContract.View {
     }
 
     private fun favoriteItem() {
-        book?.let { presenter.changeBookStatus(it, menuFavorite.title == "favorite") }
+        book?.let { presenter.changeBookStatus(it, menuFavorite.title == getString(R.string.favorite)) }
     }
 
     override fun showErrorMessage() {
-
     }
 
     override fun showLoading() {
@@ -82,9 +83,5 @@ class BookDetailsActivity : BaseActivity(), BookDetailsContract.View {
 
     override fun loadBookReviewCount(bookReviewCount: BookReviewCount) {
         reviewsRatingBar.rating = bookReviewCount.average_rating
-    }
-
-    override fun showNoReviewsView() {
-
     }
 }

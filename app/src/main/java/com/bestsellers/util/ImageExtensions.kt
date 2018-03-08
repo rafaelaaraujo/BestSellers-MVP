@@ -10,7 +10,8 @@ import com.squareup.picasso.Picasso
  */
 
 fun ImageView.loadUrl(url: String?) {
-    Picasso.with(this.context).load(url).placeholder(ContextCompat.getDrawable(this.context, R.drawable.ic_library_books)).into(this)
+    Picasso.with(this.context).load(url)
+            .placeholder(ContextCompat.getDrawable(this.context, R.drawable.ic_library_books)).into(this)
 }
 
 

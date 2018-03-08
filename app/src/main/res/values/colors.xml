@@ -6,6 +6,6 @@
     <color name="colorAccentdark">#152b3c</color>
     <color name="background_gray">#f3f3f3</color>
     <color name="gray">#4f4f4f</color>
-    <color name="transparent_gray">#CCFFFFFF</color>
+    <color name="transparent_white">#CCFFFFFF</color>
     <color name="yellow_rating">#ffbd44</color>
 </resources>

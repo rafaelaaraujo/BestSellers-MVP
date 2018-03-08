@@ -1,6 +1,5 @@
 package com.bestsellers.bookDetails
 
-import com.bestsellers.common.BasePresenter
 import com.bestsellers.common.BaseView
 import com.bestsellers.model.Genre
 
@@ -20,7 +19,7 @@ open class BookGenresContract {
     }
 
 
-    interface Presenter : BasePresenter {
+    interface Presenter {
 
         /**
          * get genres from server
