@@ -20,9 +20,9 @@ class BestSellersContract {
 
         fun changeFavoriteButton(favorite: Boolean)
 
-        fun showFavoritedBookMessage()
+        fun showFavoriteBookMessage()
 
-        fun showUnfavoritedBookMessage()
+        fun showRemoveFavoriteBookMessage()
     }
 
     interface Presenter {

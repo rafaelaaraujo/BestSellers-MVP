@@ -2,10 +2,7 @@ package com.bestsellers.model
 
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
-import android.content.Context
 import android.support.annotation.NonNull
-import com.bestsellers.R
-import kotlinx.android.synthetic.main.details_activity.*
 import java.io.Serializable
 
 /**

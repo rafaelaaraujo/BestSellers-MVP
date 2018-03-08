@@ -2,9 +2,6 @@ package com.bestsellers.bookGenre
 
 import com.bestsellers.bookDetails.BookGenresContract
 import com.bestsellers.data.BestSellersData
-import com.bestsellers.data.remote.BestSellersService
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 
 
 /**

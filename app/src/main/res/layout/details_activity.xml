@@ -114,14 +114,12 @@
                     android:id="@+id/reviewsRatingBar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    style="?android:attr/ratingBarStyleIndicator"
                     android:theme="@style/reviewsRating"
-                    android:scaleX=".6"
-                    android:scaleY=".56"
-                    android:layout_marginBottom="-10dp"
-                    android:transformPivotX="0dp"
-                    android:transformPivotY="0dp"
-                    android:max="5" />
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:numStars="5"
+                    android:stepSize="0.1"
+                    android:isIndicator="true" />
+
             </LinearLayout>
 
         </LinearLayout>

@@ -1,7 +1,7 @@
 package com.bestsellers
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import com.bestsellers.main.MainActivity
 import com.bestsellers.util.launchActivity
 import kotlinx.android.synthetic.main.activity_splash.*

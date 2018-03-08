@@ -19,6 +19,9 @@ class BookDetailsContract {
 
         fun updateStatus(isBookFavorite: Boolean)
 
+        fun showFavoriteMessage()
+
+        fun showRemoveFavoriteBookMessage()
     }
 
     interface Presenter {

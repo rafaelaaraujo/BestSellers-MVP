@@ -1,16 +1,13 @@
 package com.bestsellers.bookGenre
 
-import android.support.v4.app.Fragment
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView.AdapterDataObserver
 import android.support.v7.widget.SearchView
-import android.view.LayoutInflater
-import android.view.Menu
-import android.view.View
+import android.view.*
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import android.view.ViewGroup
 import com.bestsellers.R
 import com.bestsellers.bestSellers.BestSellersActivity
 import com.bestsellers.bookDetails.BookGenresContract
@@ -19,7 +16,6 @@ import com.bestsellers.util.DISPLAY_NAME
 import com.bestsellers.util.GENRE_NAME
 import com.bestsellers.util.launchActivity
 import kotlinx.android.synthetic.main.activity_genre.*
-import android.view.MenuInflater
 
 
 /**

@@ -49,23 +49,23 @@ class BestSellersActivity : BaseActivity(), BestSellersContract.View, DiscreteSc
 
     private fun configureBestSellersList() {
         bestSellersList.setItemTransformer(getScaleTransformation())
-        bestSellersList.adapter = BestSellersAdapter(booksList){
+        bestSellersList.adapter = BestSellersAdapter(booksList) {
             showBookDetails()
         }
         bestSellersList.addOnItemChangedListener(this)
     }
 
     private fun getScaleTransformation() =
-            ScaleTransformer.Builder().apply {
-                setMaxScale(MAX_SCALE)
-                setMinScale(MIN_SCALE)
-            }.build()
+            ScaleTransformer.Builder()
+                    .setMaxScale(MAX_SCALE)
+                    .setMinScale(MIN_SCALE)
+                    .build()
 
-    private fun showBookDetails() =
-            launchActivity<BookDetailsActivity>(bestSellersList.rootView.findViewById(R.id.bookImage)) {
-                putExtra(BOOK, getCurrentBook())
-            }
-
+    private fun showBookDetails() {
+        launchActivity<BookDetailsActivity>(bestSellersList.rootView.findViewById(R.id.bookImage)) {
+            putExtra(BOOK, getCurrentBook())
+        }
+    }
 
     override fun showErrorMessage() {
         hideLoading()
@@ -89,6 +89,7 @@ class BestSellersActivity : BaseActivity(), BestSellersContract.View, DiscreteSc
     private fun getCurrentBook() = booksList[bestSellersList.currentItem]
 
     override fun onCurrentItemChanged(viewHolder: BestSellersAdapter.ViewHolder?, position: Int) {
+
         if (position != -1)
             presenter.verifyIsFavoriteBook(getCurrentBook())
     }
@@ -97,12 +98,12 @@ class BestSellersActivity : BaseActivity(), BestSellersContract.View, DiscreteSc
         favoriteButton.isChecked = favorite
     }
 
-    override fun showFavoritedBookMessage() {
-        showSnackBar(window.decorView, getString(R.string.favorite_message))
+    override fun showFavoriteBookMessage() {
+        showSnackBar(getString(R.string.favorite_message))
     }
 
-    override fun showUnfavoritedBookMessage() {
-        showSnackBar(window.decorView, getString(R.string.unfavorable_message))
+    override fun showRemoveFavoriteBookMessage() {
+        showSnackBar(getString(R.string.remove_favorite_message))
     }
 
     override fun onResume() {

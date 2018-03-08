@@ -1,11 +1,8 @@
 package com.bestsellers.bookDetails
 
-import android.os.Build
 import android.os.Bundle
-import android.support.annotation.RequiresApi
 import android.view.Menu
 import android.view.MenuItem
-import android.view.Window
 import com.bestsellers.R
 import com.bestsellers.common.BaseActivity
 import com.bestsellers.data.BestSellersData
@@ -56,7 +53,7 @@ class BookDetailsActivity : BaseActivity(), BookDetailsContract.View {
     override fun updateStatus(isBookFavorite: Boolean) {
         menuFavorite.apply {
             setIcon(if (isBookFavorite) R.drawable.ic_favorite_selected else R.drawable.ic_favorite_unselected)
-            title = if (isBookFavorite) getString(R.string.unfavorable) else getString(R.string.favorite)
+            title = if (isBookFavorite) getString(R.string.not_favorite) else getString(R.string.favorite)
         }
     }
 
@@ -79,6 +76,14 @@ class BookDetailsActivity : BaseActivity(), BookDetailsContract.View {
     }
 
     override fun hideLoading() {
+    }
+
+    override fun showFavoriteMessage() {
+        showSnackBar(getString(R.string.favorite_message))
+    }
+
+    override fun showRemoveFavoriteBookMessage() {
+        showSnackBar(getString(R.string.remove_favorite_message))
     }
 
     override fun loadBookReviewCount(bookReviewCount: BookReviewCount) {

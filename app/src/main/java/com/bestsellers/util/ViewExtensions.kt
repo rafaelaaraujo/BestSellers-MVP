@@ -5,10 +5,10 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.support.design.widget.Snackbar
+import android.support.v4.app.ActivityOptionsCompat
 import android.view.View
 import android.view.animation.AnimationUtils
 import com.bestsellers.R
-import android.support.v4.app.ActivityOptionsCompat
 
 
 /**
@@ -16,8 +16,8 @@ import android.support.v4.app.ActivityOptionsCompat
  * on 03/11/2017.
  */
 
-fun Activity.showSnackBar(view: View, text: String) {
-    Snackbar.make(view, text, Snackbar.LENGTH_SHORT).show()
+fun Activity.showSnackBar(text: String) {
+    Snackbar.make(window.decorView, text, Snackbar.LENGTH_SHORT).show()
 }
 
 inline fun <reified T : Activity> Activity.launchActivity(sharedView: View? = null, noinline init: Intent.() -> Unit = {}) {
@@ -25,7 +25,7 @@ inline fun <reified T : Activity> Activity.launchActivity(sharedView: View? = nu
     intent.init()
 
     if (sharedView != null) {
-        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, sharedView, "sharedView")
+        val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, sharedView, SHARED_ITEM_ID)
         startActivity(intent, options.toBundle())
         overridePendingTransition(0,0)
     } else {

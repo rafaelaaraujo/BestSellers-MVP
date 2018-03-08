@@ -35,8 +35,10 @@ class BookDetailsPresenter(
     override fun changeBookStatus(book: Book, favorite: Boolean) {
         if (favorite) {
             data.favoriteBook(book)
+            view.showFavoriteMessage()
         } else {
             data.removeFavoriteBook(book)
+            view.showRemoveFavoriteBookMessage()
         }
 
         view.updateStatus(favorite)

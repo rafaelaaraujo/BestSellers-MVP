@@ -24,7 +24,6 @@
             layout="@layout/book_card_options"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/bestSellersList"
             android:visibility="gone"/>
     </LinearLayout>
 

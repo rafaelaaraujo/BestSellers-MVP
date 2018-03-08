@@ -1,7 +1,12 @@
 package com.bestsellers.data.remote
 
-import com.bestsellers.model.*
-import com.bestsellers.util.*
+import com.bestsellers.model.BestSellersResult
+import com.bestsellers.model.BookGenresResult
+import com.bestsellers.model.ReviewCountResult
+import com.bestsellers.util.API_KEY
+import com.bestsellers.util.GOODREADS_BASE_URL
+import com.bestsellers.util.NY_AUTORIZATION
+import com.bestsellers.util.NY_BASE_URL
 import io.reactivex.Observable
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
