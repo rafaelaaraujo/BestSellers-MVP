@@ -10,43 +10,46 @@ import com.bestsellers.bestSellers.base.*
 
 
 class BookDetailsRobot : BaseRobot() {
-
-    fun selectGenreItem(){
+    
+    fun initDetailsView(){
         sleepTime(2000)
         clickItemAtPosition(ID_GENRE_LIST, FIRST_ITEM_GENRE)
+        selectBook()
     }
 
-    fun selectNoReviewBook(){
-        clickItemAtPosition(ID_BOOKS_LIST, FIRST_BOOK_POSITION)
+    private fun selectBook(){
+        clickItemAtPosition(ID_BOOKS_LIST, ITEM_BOOK_POSITION)
     }
 
-    fun selectReviewBook(){
-        clickItemAtPosition(ID_BOOKS_LIST, ITEM_REVIEW_BOOK_POSITION)
+    fun checkBookTitle(){
+        checkItemText(R.id.titleBook, FIRST_BOOK_TITLE)
     }
 
-    fun clickTobuyNoReviewBook(){
-        checkItemIsVisible(R.id.buyButton)
-        clickItem(R.id.buyButton)
+    fun checkBookDescription(){
+        checkItemText(R.id.desc, FIRST_BOOK_DESCRIPTION)
     }
 
-    fun clickTobuyReviewBook(){
-        checkItemIsVisible(R.id.btnBuyBook)
-        clickItem(R.id.btnBuyBook)
+    fun checkBookWriter(){
+        checkItemText(R.id.writer, FIRST_BOOK_AUTHOR)
     }
 
-    fun checkReviewIsVisible(){
-        checkItemIsVisible(R.id.reviewWebView)
+    fun checkBookPosition(){
+        checkItemText(R.id.rankPosition, "1")
     }
 
-    fun checkDataBookIsVisible(){
-        checkItemIsVisible(R.id.llBookData)
+    fun selectFavoriteButton(){
+        clickItem(R.id.favorite)
     }
 
-    fun scrolltoBottom() {
-        scrollListAtPosition(ID_BOOKS_LIST, LAST_ITEM_GENRE)
+    fun checkFavoriteMessageDisplayed(){
+        checkSnackBarVisible(FAVORITE_BOOK_MESSAGE)
     }
 
-    fun waitTime(time: Long){
-        sleepTime(time)
+    fun checkUnfavoriteMessageDisplayed(){
+        checkSnackBarVisible(UNFAVORITE_BOOK_MESSAGE)
+    }
+
+    fun selectBuyButton(){
+        clickItem(R.id.shopButton)
     }
 }

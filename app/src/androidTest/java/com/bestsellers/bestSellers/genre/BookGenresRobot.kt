@@ -20,7 +20,7 @@ class BookGenresRobot : BaseRobot() {
     }
 
     fun checkDisplayBestSellersList() {
-        checkItemIsVisible(R.id.bestSellersList)
+        checkItemIsVisible(R.id.bestsellersView)
     }
 
     fun scrolltoBottom() {
@@ -32,11 +32,11 @@ class BookGenresRobot : BaseRobot() {
     }
 
     fun checkFirstItemText() {
-        checkTextFromRecicleViewItem(ID_GENRE_LIST, FIRST_ITEM_GENRE, FIRST_ITEM_TEXT_GENRE)
+        checkTextFromRecyclerViewItem(ID_GENRE_LIST, FIRST_ITEM_GENRE, FIRST_ITEM_TEXT_GENRE)
     }
 
     fun checkLastItemText() {
-        checkTextFromRecicleViewItem(ID_GENRE_LIST, LAST_ITEM_GENRE, LAST_ITEM_TEXT_GENRE)
+        checkTextFromRecyclerViewItem(ID_GENRE_LIST, LAST_ITEM_GENRE, LAST_ITEM_TEXT_GENRE)
     }
 
     fun waitTime() {
@@ -52,7 +52,7 @@ class BookGenresRobot : BaseRobot() {
     }
 
     fun checkItemSearchDisplayed() {
-        checkTextFromRecicleViewItem(ID_GENRE_LIST, FIRST_ITEM_GENRE,  SEARCH_TEXT_GENRE)
+        checkTextFromRecyclerViewItem(ID_GENRE_LIST, FIRST_ITEM_GENRE,  SEARCH_TEXT_GENRE)
     }
 
 }

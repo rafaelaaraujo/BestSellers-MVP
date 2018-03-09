@@ -1,9 +1,13 @@
 package com.bestsellers.bestSellers.base
 
 import android.content.Intent
+import android.support.test.espresso.intent.Intents
 import android.support.test.rule.ActivityTestRule
 import com.bestsellers.bookGenre.BookGenresFragment
-import com.bestsellers.util.BASE_URL
+import com.bestsellers.data.local.AppDatabase
+import com.bestsellers.main.MainActivity
+import com.bestsellers.util.GOODREADS_BASE_URL
+import com.bestsellers.util.NY_BASE_URL
 import com.squareup.okhttp.mockwebserver.MockWebServer
 import org.junit.Rule
 
@@ -18,7 +22,7 @@ open class BaseTest {
     private val mockWebServer = MockWebServer()
 
     @get:Rule
-    private val activityRule = ActivityTestRule(BookGenresFragment::class.java, true, false)
+    private val activityRule = ActivityTestRule(MainActivity::class.java, true, false)
 
     /**
      * configures the mock server to return the expected values
@@ -27,12 +31,18 @@ open class BaseTest {
      */
     fun setup(){
         mockWebServer.start()
-        BASE_URL = mockWebServer.getUrl("/").toString()
+        NY_BASE_URL = mockWebServer.getUrl("/").toString()
+        GOODREADS_BASE_URL = mockWebServer.getUrl("/").toString()
         mockWebServer.setDispatcher(RestMockServer.dispatcher)
 
         val grouchyIntent = Intent()
         activityRule.launchActivity(grouchyIntent)
+        AppDatabase.getInstance(activityRule.activity)?.getFavoriteBookDao()?.removeAll()
     }
 
+
+    fun before(){
+        Intents.release()
+    }
 
 }

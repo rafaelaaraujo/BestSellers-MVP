@@ -18,6 +18,9 @@ interface FavoriteBookDao {
     @Query("SELECT * FROM Book")
     fun loadAllFavoriteBooks(): List<Book>
 
-    @Query("SELECT * FROM Book WHERE title = :title")
-    fun getFavoriteBook(title: String?): Book
+    @Query("SELECT * FROM Book WHERE title = :arg0")
+    fun getFavoriteBook(title: String?):Book?
+
+    @Query("DELETE FROM Book")
+    fun removeAll()
 }

@@ -16,8 +16,10 @@ import com.bestsellers.R
  * on 03/11/2017.
  */
 
-fun Activity.showSnackBar(text: String) {
-    Snackbar.make(window.decorView, text, Snackbar.LENGTH_SHORT).show()
+fun Activity.showSnackBar(text: String,view: View? = null) {
+    if (view == null) Snackbar.make(window.decorView, text, Snackbar.LENGTH_LONG).show()
+    else Snackbar.make(view, text, Snackbar.LENGTH_SHORT).show()
+
 }
 
 inline fun <reified T : Activity> Activity.launchActivity(sharedView: View? = null, noinline init: Intent.() -> Unit = {}) {
@@ -27,7 +29,7 @@ inline fun <reified T : Activity> Activity.launchActivity(sharedView: View? = nu
     if (sharedView != null) {
         val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, sharedView, SHARED_ITEM_ID)
         startActivity(intent, options.toBundle())
-        overridePendingTransition(0,0)
+        overridePendingTransition(0, 0)
     } else {
         startActivity(intent)
     }

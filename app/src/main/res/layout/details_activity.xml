@@ -1,147 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/llData"
+    <RelativeLayout
+        android:id="@+id/detailsView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <android.support.v7.widget.CardView
-            android:layout_width="150dp"
-            android:layout_height="200dp"
-            android:layout_margin="20dp"
-            app:cardElevation="5dp">
-
-            <ImageView
-                android:id="@+id/image"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:transitionName="sharedView"/>
-
-            <TextView
-                android:id="@+id/rankPosition"
-                android:layout_width="25dp"
-                android:layout_height="38dp"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/ic_mark"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center_horizontal"
-                android:paddingTop="3dp"
-                android:text="5"
-                android:textColor="@android:color/white"
-                android:textSize="13sp"
-                android:textStyle="bold" />
-        </android.support.v7.widget.CardView>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/llData"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/titleBook"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="titulo teste"
-                android:textColor="@color/gray"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+            <android.support.v7.widget.CardView
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:layout_margin="20dp"
+                app:cardElevation="5dp">
 
-            <TextView
-                android:id="@+id/writer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="by tafa"
-                android:textColor="@color/gray"
-                android:textSize="17sp" />
+                <ImageView
+                    android:id="@+id/image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:transitionName="sharedView" />
 
-            <TextView
-                android:id="@+id/weeksOnList"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="15 weeks"
-                android:textColor="@color/gray"
-                android:textSize="13sp" />
+                <TextView
+                    android:id="@+id/rankPosition"
+                    android:layout_width="25dp"
+                    android:layout_height="38dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/ic_mark"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center_horizontal"
+                    android:paddingTop="3dp"
+                    android:text="5"
+                    android:textColor="@android:color/white"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </android.support.v7.widget.CardView>
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtPublisher"
+                    android:id="@+id/titleBook"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/publisher"
+                    android:text="titulo teste"
                     android:textColor="@color/gray"
-                    android:textSize="12sp" />
-
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/txtIsbn10"
+                    android:id="@+id/writer"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/isbn10"
+                    android:text="by tafa"
                     android:textColor="@color/gray"
-                    android:textSize="12sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="bottom"
-                android:layout_marginTop="10dp">
+                    android:textSize="17sp" />
 
                 <TextView
+                    android:id="@+id/weeksOnList"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/goodreads_rating"
-                    android:layout_marginLeft="3dp"
-                    android:textSize="9sp" />
+                    android:text="15 weeks"
+                    android:textColor="@color/gray"
+                    android:textSize="13sp" />
 
-                <RatingBar
-                    android:id="@+id/reviewsRatingBar"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:theme="@style/reviewsRating"
-                    style="?android:attr/ratingBarStyleSmall"
-                    android:numStars="5"
-                    android:stepSize="0.1"
-                    android:isIndicator="true" />
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtPublisher"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/publisher"
+                        android:textColor="@color/gray"
+                        android:textSize="12sp" />
+
+
+                    <TextView
+                        android:id="@+id/txtIsbn10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/isbn10"
+                        android:textColor="@color/gray"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="bottom"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:text="@string/goodreads_rating"
+                        android:textSize="9sp" />
+
+                    <RatingBar
+                        android:id="@+id/reviewsRatingBar"
+                        style="?android:attr/ratingBarStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:isIndicator="true"
+                        android:numStars="5"
+                        android:stepSize="0.1"
+                        android:theme="@style/reviewsRating" />
+
+                </LinearLayout>
 
             </LinearLayout>
-
         </LinearLayout>
-    </LinearLayout>
 
-    <TextView
-        android:id="@+id/desc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/llData"
-        android:layout_margin="20dp"
-        android:layout_marginTop="25dp"
-        android:textColor="@color/gray"
-        android:textSize="16sp" />
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/llData"
+            android:layout_margin="20dp"
+            android:layout_marginTop="25dp"
+            android:textColor="@color/gray"
+            android:textSize="16sp" />
 
+
+    </RelativeLayout>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/shopButton"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
+        android:layout_gravity="bottom|right"
         android:layout_margin="@dimen/fab_margin"
         android:background="@color/colorAccent"
         android:clickable="true"
@@ -149,6 +157,6 @@
         app:fabSize="normal"
         app:rippleColor="@color/colorAccentdark"
         app:srcCompat="@drawable/ic_shopping_cart" />
-</RelativeLayout>
 
 
+</android.support.design.widget.CoordinatorLayout>

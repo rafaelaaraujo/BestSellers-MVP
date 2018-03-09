@@ -37,7 +37,7 @@ class BestSellersActivity : BaseActivity(), BestSellersContract.View, DiscreteSc
     private fun configureView(listName: String) {
         configureActionBar(listName)
         configureBestSellersList()
-        reviewButton.setOnClickListener { showBookDetails() }
+        datailsButton.setOnClickListener { showBookDetails() }
         fabbuyButton.setOnClickListener { openUrlInBrowser(getCurrentBook().amazon_product_url) }
         favoriteButton.setOnClickListener { favoriteBook(getCurrentBook()) }
     }

@@ -7,6 +7,7 @@ import android.support.test.espresso.contrib.RecyclerViewActions
 import android.support.test.espresso.matcher.ViewMatchers.*
 import android.support.v7.widget.RecyclerView
 import android.widget.EditText
+import org.hamcrest.Matchers.allOf
 
 
 /**
@@ -19,15 +20,7 @@ abstract class BaseRobot {
         onView(withId(itemId)).perform(click())
     }
 
-    protected fun clickItem(text: String) {
-        onView(withText(text)).perform(click())
-    }
-
     protected fun checkItemIsVisible(itemId: Int) {
-        onView(withId(itemId)).check(matches(isDisplayed()))
-    }
-
-    protected fun checkItemGone(itemId: Int) {
         onView(withId(itemId)).check(matches(isDisplayed()))
     }
 
@@ -39,12 +32,12 @@ abstract class BaseRobot {
         onView(withId(itemId)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(position))
     }
 
-    protected fun checkTextFromRecicleViewItem(listId: Int, itemPosition: Int, text: String) {
+    protected fun checkTextFromRecyclerViewItem(listId: Int, itemPosition: Int, text: String) {
         onView(withRecyclerView(listId).atPosition(itemPosition))
                 .check(matches(hasDescendant(withText(text))))
     }
 
-    fun withRecyclerView(recyclerViewId: Int): RecyclerViewMatcher {
+    private fun withRecyclerView(recyclerViewId: Int): RecyclerViewMatcher {
         return RecyclerViewMatcher(recyclerViewId)
     }
 
@@ -52,7 +45,16 @@ abstract class BaseRobot {
         Thread.sleep(time)
     }
 
-    fun putTextInEditText(text: String) {
+    protected fun putTextInEditText(text: String) {
         onView(isAssignableFrom(EditText::class.java)).perform(typeText(text), pressImeActionButton())
     }
+
+    protected fun checkItemText(itemId: Int, text: String){
+        onView(withId(itemId)).check(matches(withText(text)))
+    }
+
+    protected fun checkSnackBarVisible(text: String){
+        onView(allOf(withId(android.support.design.R.id.snackbar_text), withText(text))).check(matches(isDisplayed()))
+    }
+
 }

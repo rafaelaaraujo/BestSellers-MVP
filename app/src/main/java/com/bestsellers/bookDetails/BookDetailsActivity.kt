@@ -44,7 +44,7 @@ class BookDetailsActivity : BaseActivity(), BookDetailsContract.View {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.menu_scrolling, menu)
+        menuInflater.inflate(R.menu.menu_details, menu)
         menuFavorite = menu.getItem(menuItemPosition)
         presenter.verifyIsFavoriteBook(book?.title)
         return true
@@ -79,11 +79,11 @@ class BookDetailsActivity : BaseActivity(), BookDetailsContract.View {
     }
 
     override fun showFavoriteMessage() {
-        showSnackBar(getString(R.string.favorite_message))
+        showSnackBar(getString(R.string.favorite_message), shopButton)
     }
 
     override fun showRemoveFavoriteBookMessage() {
-        showSnackBar(getString(R.string.remove_favorite_message))
+        showSnackBar(getString(R.string.remove_favorite_message), shopButton)
     }
 
     override fun loadBookReviewCount(bookReviewCount: BookReviewCount) {

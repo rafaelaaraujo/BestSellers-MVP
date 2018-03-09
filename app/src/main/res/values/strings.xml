@@ -22,4 +22,5 @@
     <string name="error_loading_data">There was an error loading the data</string>
     <string name="empty_favorite_book_list">You do not have any favorite \nbooks yet</string>
     <string name="ops">Ooops…</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>

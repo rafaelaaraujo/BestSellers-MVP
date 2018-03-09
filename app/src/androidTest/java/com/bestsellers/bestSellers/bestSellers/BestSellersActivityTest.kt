@@ -23,32 +23,44 @@ class BestSellersActivityTest : BaseTest() {
     }
 
     @Test
-    fun testScroll_scrollToTopAndBottom() {
-        with(robot){
-            scrolltoBottom()
-            scrolltoTop()
-        }
-    }
-
-    @Test
     fun checkAndSelectFirstDisplayedItem_openDetailsView() {
         with(robot) {
-            scrolltoTop()
+            scrolltoFirst()
             checkTittleFromFirstItem()
-            checkDescriptionFromFirstItem()
+            checkAuthorFromFirstItem()
             selectFirstItem()
-            checkOpenDetailsView()
+            checkOpenDetailsFirstBook()
         }
     }
 
     @Test
     fun checkAndSelectLastDisplayedItem_openDetailsView() {
         with(robot) {
-            scrolltoBottom()
+            scrolltoLast()
             checkTittleFromLastItem()
-            checkDescriptionFromLastItem()
+            checkAuthorFromLastItem()
             selectLastItem()
-            checkOpenDetailsView()
+            checkOpenDetailsLastBook()
+        }
+    }
+
+    @Test
+    fun selectDetailsButton_openDetailsView(){
+        with(robot){
+            scrolltoLast()
+            checkTittleFromLastItem()
+            selectDetailsButton()
+            checkOpenDetailsLastBook()
+        }
+    }
+
+    @Test
+    fun selectFavoriteBook_showMessageAndChangeState(){
+        with(robot){
+            selectFavoriteButton()
+            checkFavoriteMessageDisplayed()
+            selectFavoriteButton()
+            checkUnfavoriteMessageDisplayed()
         }
     }
 

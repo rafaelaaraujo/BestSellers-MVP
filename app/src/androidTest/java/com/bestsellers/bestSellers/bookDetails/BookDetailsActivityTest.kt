@@ -1,7 +1,9 @@
 package com.bestsellers.bestSellers.bookDetails
 
+import android.support.test.espresso.intent.Intents
 import android.support.test.runner.AndroidJUnit4
 import com.bestsellers.bestSellers.base.BaseTest
+import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -19,25 +21,35 @@ class BookDetailsActivityTest : BaseTest() {
     @Before
     fun init() {
         setup()
-        robot.selectGenreItem()
+        robot.initDetailsView()
     }
 
     @Test
-    fun selectNoReviewBook_checkDataBookIsVisible() {
+    fun checkBookData() {
         with(robot) {
-            selectNoReviewBook()
-            checkDataBookIsVisible()
+            checkBookTitle()
+            checkBookWriter()
+            checkBookDescription()
+            checkBookPosition()
         }
     }
 
     @Test
-    fun selectReviewBook_checkReviewIsVisible() {
+    fun checkFavoriteButton_showMessageChangeStatus() {
         with(robot) {
-            scrolltoBottom()
-            selectReviewBook()
             sleepTime(2000)
-            checkReviewIsVisible()
+            selectFavoriteButton()
+            checkFavoriteMessageDisplayed()
+            sleepTime(2000)
+            selectFavoriteButton()
+            checkUnfavoriteMessageDisplayed()
         }
     }
+
+    @Test
+    fun selectBuyButton_openAmozonUrl() {
+        robot.selectBuyButton()
+    }
+
 
 }
