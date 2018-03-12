@@ -13,6 +13,7 @@ const val NO_REVIEW_JSON = "no_reviews.json"
 const val REVIEW_JSON = "reviews.json"
 
 const val ID_BOOKS_LIST = R.id.bestSellersList
+const val ID_FAVORITE_LIST = R.id.recyclerFavorite
 const val FIRST_BOOK_POSITION = 0
 const val ITEM_BOOK_POSITION = 0
 const val LAST_BOOK_POSITION = 14
