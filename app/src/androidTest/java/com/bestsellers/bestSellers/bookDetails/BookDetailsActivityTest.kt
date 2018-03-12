@@ -36,9 +36,6 @@ class BookDetailsActivityTest : BaseTest() {
     fun checkFavoriteButton_showMessageChangeStatus() {
         with(robot) {
             selectFavoriteButton()
-            checkFavoriteMessageDisplayed()
-            selectFavoriteButton()
-            checkUnfavoriteMessageDisplayed()
         }
     }
 

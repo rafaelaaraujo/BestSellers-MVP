@@ -38,7 +38,6 @@ class BookDetailsRobot : BaseRobot() {
     }
 
     fun selectFavoriteButton(){
-        sleepTime(2000)
         clickItem(R.id.favorite)
     }
 
