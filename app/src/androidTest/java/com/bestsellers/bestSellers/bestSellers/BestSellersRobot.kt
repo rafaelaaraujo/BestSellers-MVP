@@ -64,14 +64,17 @@ class BestSellersRobot : BaseRobot() {
     }
 
     fun selectFavoriteButton(){
+        sleepTime(2000)
         clickItem(R.id.favoriteButton)
     }
 
     fun checkFavoriteMessageDisplayed(){
+        sleepTime(1000)
         checkSnackBarVisible(FAVORITE_BOOK_MESSAGE)
     }
 
     fun checkUnfavoriteMessageDisplayed(){
+        sleepTime(1000)
         checkSnackBarVisible(UNFAVORITE_BOOK_MESSAGE)
     }
 
