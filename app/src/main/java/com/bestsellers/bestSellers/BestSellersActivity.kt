@@ -48,18 +48,16 @@ class BestSellersActivity : BaseActivity(), BestSellersContract.View, DiscreteSc
     }
 
     private fun configureBestSellersList() {
-        bestSellersList.setItemTransformer(getScaleTransformation())
+        bestSellersList.setItemTransformer(ScaleTransformer.Builder()
+                .setMaxScale(MAX_SCALE)
+                .setMinScale(MIN_SCALE)
+                .build())
+
         bestSellersList.adapter = BestSellersAdapter(booksList) {
             showBookDetails()
         }
         bestSellersList.addOnItemChangedListener(this)
     }
-
-    private fun getScaleTransformation() =
-            ScaleTransformer.Builder()
-                    .setMaxScale(MAX_SCALE)
-                    .setMinScale(MIN_SCALE)
-                    .build()
 
     private fun showBookDetails() {
         launchActivity<BookDetailsActivity>(bestSellersList.rootView.findViewById(R.id.bookImage)) {
@@ -89,13 +87,12 @@ class BestSellersActivity : BaseActivity(), BestSellersContract.View, DiscreteSc
     private fun getCurrentBook() = booksList[bestSellersList.currentItem]
 
     override fun onCurrentItemChanged(viewHolder: BestSellersAdapter.ViewHolder?, position: Int) {
-
         if (position != -1)
             presenter.verifyIsFavoriteBook(getCurrentBook())
     }
 
-    override fun changeFavoriteButton(favorite: Boolean) {
-        favoriteButton.isChecked = favorite
+    override fun changeFavoriteButton(isfavoriteBook: Boolean) {
+        favoriteButton.isChecked = isfavoriteBook
     }
 
     override fun showFavoriteBookMessage() {

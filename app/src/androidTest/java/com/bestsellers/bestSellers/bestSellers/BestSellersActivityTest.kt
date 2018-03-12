@@ -45,8 +45,8 @@ class BestSellersActivityTest : BaseTest() {
     }
 
     @Test
-    fun selectDetailsButton_openDetailsView(){
-        with(robot){
+    fun selectDetailsButton_openDetailsView() {
+        with(robot) {
             scrolltoLast()
             checkTittleFromLastItem()
             selectDetailsButton()
@@ -55,12 +55,10 @@ class BestSellersActivityTest : BaseTest() {
     }
 
     @Test
-    fun selectFavoriteBook_showMessageAndChangeState(){
-        with(robot){
+    fun selectFavoriteBook_showMessageAndChangeState() {
+        with(robot) {
             selectFavoriteButton()
-            checkFavoriteMessageDisplayed()
-            selectFavoriteButton()
-            checkUnfavoriteMessageDisplayed()
+
         }
     }
 

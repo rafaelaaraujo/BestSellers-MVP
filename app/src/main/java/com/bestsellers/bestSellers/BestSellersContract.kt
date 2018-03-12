@@ -18,7 +18,7 @@ class BestSellersContract {
          */
         fun showBestSellers(bestSeller: List<Book>)
 
-        fun changeFavoriteButton(favorite: Boolean)
+        fun changeFavoriteButton(isfavoriteBook: Boolean)
 
         fun showFavoriteBookMessage()
 
