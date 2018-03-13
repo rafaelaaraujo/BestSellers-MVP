@@ -96,11 +96,11 @@ class BestSellersActivity : BaseActivity(), BestSellersContract.View, DiscreteSc
     }
 
     override fun showFavoriteBookMessage() {
-        showSnackBar(getString(R.string.favorite_message))
+        showToast(getString(R.string.favorite_message))
     }
 
     override fun showRemoveFavoriteBookMessage() {
-        showSnackBar(getString(R.string.remove_favorite_message))
+        showToast(getString(R.string.remove_favorite_message))
     }
 
     override fun onResume() {

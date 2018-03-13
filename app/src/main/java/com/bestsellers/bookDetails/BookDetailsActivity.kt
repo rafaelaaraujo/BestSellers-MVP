@@ -79,11 +79,11 @@ class BookDetailsActivity : BaseActivity(), BookDetailsContract.View {
     }
 
     override fun showFavoriteMessage() {
-        showSnackBar(getString(R.string.favorite_message), shopButton)
+        showToast(getString(R.string.favorite_message))
     }
 
     override fun showRemoveFavoriteBookMessage() {
-        showSnackBar(getString(R.string.remove_favorite_message), shopButton)
+        showToast(getString(R.string.remove_favorite_message))
     }
 
     override fun loadBookReviewCount(bookReviewCount: BookReviewCount) {

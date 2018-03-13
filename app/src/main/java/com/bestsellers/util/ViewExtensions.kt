@@ -8,6 +8,7 @@ import android.support.design.widget.Snackbar
 import android.support.v4.app.ActivityOptionsCompat
 import android.view.View
 import android.view.animation.AnimationUtils
+import android.widget.Toast
 import com.bestsellers.R
 
 
@@ -16,10 +17,8 @@ import com.bestsellers.R
  * on 03/11/2017.
  */
 
-fun Activity.showSnackBar(text: String,view: View? = null) {
-    if (view == null) Snackbar.make(window.decorView, text, Snackbar.LENGTH_LONG).show()
-    else Snackbar.make(view, text, Snackbar.LENGTH_SHORT).show()
-
+fun Activity.showToast(text: String) {
+    Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
 }
 
 inline fun <reified T : Activity> Activity.launchActivity(sharedView: View? = null, noinline init: Intent.() -> Unit = {}) {
