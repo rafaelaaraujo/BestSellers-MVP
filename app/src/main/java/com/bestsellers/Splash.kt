@@ -7,7 +7,7 @@ import com.bestsellers.util.launchActivity
 import kotlinx.android.synthetic.main.activity_splash.*
 
 
-private class Splash : AppCompatActivity() {
+class Splash : AppCompatActivity() {
 
     val ANIN_DURATION  = 2000
     val ANIN_DELAY  = 100

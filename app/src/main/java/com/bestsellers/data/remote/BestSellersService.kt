@@ -48,7 +48,7 @@ open class BestSellersService {
         }.build()
     }
 
-    fun getGenreList(): Observable<BookGenresResult> = nyApi.getBookGenresList()
+    open fun getGenreList(): Observable<BookGenresResult> = nyApi.getBookGenresList()
 
     fun getBestSeller(name: String): Observable<BestSellersResult> = nyApi.getBestSellerByNameList(name)
 

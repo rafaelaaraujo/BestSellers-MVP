@@ -12,6 +12,10 @@ class BookGenresPresenter(
         val view: BookGenresContract.View,
         private val data: BestSellersData = BestSellersData()) : BookGenresContract.Presenter {
 
+    init {
+        view.presenter = this
+    }
+
     override fun requestGenreList() {
         view.showLoading()
 

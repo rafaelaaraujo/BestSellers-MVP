@@ -24,11 +24,6 @@ open class BaseTest {
     @get:Rule
     private val activityRule = ActivityTestRule(MainActivity::class.java, true, false)
 
-    /**
-     * configures the mock server to return the expected values
-     * ​​and starts default activity
-     *
-     */
     fun setup(){
         mockWebServer.start()
         NY_BASE_URL = mockWebServer.getUrl("/").toString()
@@ -39,10 +34,4 @@ open class BaseTest {
         activityRule.launchActivity(grouchyIntent)
         AppDatabase.getInstance(activityRule.activity)?.getFavoriteBookDao()?.removeAll()
     }
-
-
-    fun before(){
-        Intents.release()
-    }
-
 }

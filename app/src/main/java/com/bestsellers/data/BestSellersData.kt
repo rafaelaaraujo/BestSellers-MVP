@@ -15,7 +15,7 @@ import io.reactivex.schedulers.Schedulers
  * Created by Rafaela Araujo
  * on 05/03/2018.
  */
-class BestSellersData(private val service: BestSellersService = BestSellersService(), val context: Context? = null) {
+open class BestSellersData(private val service: BestSellersService = BestSellersService(), val context: Context? = null) {
 
     fun getBookReviewCount(isbn: String, success: (ReviewCountResult) -> Unit, error: () -> Unit) {
         doRequest(service.getBookReviewsCount(isbn), success, error)
