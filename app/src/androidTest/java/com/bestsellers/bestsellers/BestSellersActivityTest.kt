@@ -1,7 +1,7 @@
-package com.bestsellers.bestSellers.bestSellers
+package com.bestsellers.bestsellers
 
 import android.support.test.runner.AndroidJUnit4
-import com.bestsellers.bestSellers.base.BaseTest
+import com.bestsellers.base.BaseTest
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith

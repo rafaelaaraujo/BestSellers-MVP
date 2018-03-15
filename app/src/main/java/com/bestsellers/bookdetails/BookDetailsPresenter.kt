@@ -1,4 +1,4 @@
-package com.bestsellers.bookDetails
+package com.bestsellers.bookdetails
 
 import com.bestsellers.data.BestSellersRepository
 import com.bestsellers.data.model.Book

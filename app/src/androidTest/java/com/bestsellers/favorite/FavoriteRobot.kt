@@ -1,4 +1,4 @@
-package com.bestsellers.bestSellers.favorite
+package com.bestsellers.favorite
 
 import android.support.test.espresso.Espresso.onView
 import android.support.test.espresso.action.ViewActions
@@ -6,7 +6,7 @@ import android.support.test.espresso.action.ViewActions.swipeLeft
 import android.support.test.espresso.matcher.ViewMatchers.isRoot
 import android.support.test.espresso.matcher.ViewMatchers.withId
 import com.bestsellers.R
-import com.bestsellers.bestSellers.base.*
+import com.bestsellers.base.*
 
 
 /**

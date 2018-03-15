@@ -1,6 +1,6 @@
-package com.bestsellers.bestSellers.bestSellers
+package com.bestsellers.bestsellers
 
-import com.bestsellers.bestSellers.BaseTest
+import com.bestsellers.BaseTest
 import com.bestsellers.bestSellers.BestSellersContract
 import com.bestsellers.bestSellers.BestSellersPresenter
 import com.bestsellers.data.model.BestSellers
@@ -9,10 +9,9 @@ import com.bestsellers.data.model.Results
 import io.reactivex.Observable
 import org.junit.Before
 import org.junit.Test
-import org.mockito.ArgumentMatchers.anyString
+import org.mockito.ArgumentMatchers
 import org.mockito.Mock
 import org.mockito.Mockito
-import org.mockito.Mockito.*
 
 /**
  * Created by Rafaela Araujo
@@ -31,30 +30,30 @@ class BestSellersPresenterTest : BaseTest(){
 
     @Test
     fun getBestSellersList_UpdateView(){
-        `when`(service.getBestSeller(anyString())).thenReturn(Observable.just(getBestSellersMock()))
+        Mockito.`when`(service.getBestSeller(ArgumentMatchers.anyString())).thenReturn(Observable.just(getBestSellersMock()))
 
         presenter.apply {
             requestBestSellers("")
         }
 
-        verify(view).showLoading()
-        verify(view).hideLoading()
-        verify(view).showBestSellers(getBestSellersMock().results.books)
-        verify(view, Mockito.never()).showErrorMessage()
+        Mockito.verify(view).showLoading()
+        Mockito.verify(view).hideLoading()
+        Mockito.verify(view).showBestSellers(getBestSellersMock().results.books)
+        Mockito.verify(view, Mockito.never()).showErrorMessage()
     }
 
     @Test
     fun getEmptyBestSellersList_UpdateView(){
-        `when`(service.getBestSeller(anyString())).thenReturn(Observable.just(BestSellers(Results(ArrayList()))))
+        Mockito.`when`(service.getBestSeller(ArgumentMatchers.anyString())).thenReturn(Observable.just(BestSellers(Results(ArrayList()))))
 
         presenter.apply {
             requestBestSellers("")
         }
 
-        verify(view).showLoading()
-        verify(view).hideLoading()
-        verify(view).showErrorMessage()
-        verify(view, never()).showBestSellers(ArrayList())
+        Mockito.verify(view).showLoading()
+        Mockito.verify(view).hideLoading()
+        Mockito.verify(view).showErrorMessage()
+        Mockito.verify(view, Mockito.never()).showBestSellers(ArrayList())
     }
 
     @Test
@@ -63,13 +62,13 @@ class BestSellersPresenterTest : BaseTest(){
             changeBookStatus(getEmptyBook(), true)
         }
 
-        verify(view).showFavoriteBookMessage()
+        Mockito.verify(view).showFavoriteBookMessage()
     }
 
     @Test
     fun changeBookfavoriteState_showUnfavoriteMessage(){
         presenter.changeBookStatus(getEmptyBook(), false)
-        verify(view).showRemoveFavoriteBookMessage()
+        Mockito.verify(view).showRemoveFavoriteBookMessage()
     }
 
     private fun getBestSellersMock(): BestSellers {
@@ -77,4 +76,5 @@ class BestSellersPresenterTest : BaseTest(){
     }
 
     private fun getEmptyBook() = Book("test", 1, 3, "", "", "", "", "", ArrayList())
+
 }

@@ -1,4 +1,4 @@
-package com.bestsellers.bookDetails
+package com.bestsellers.bookdetails
 
 import android.os.Bundle
 import android.view.Menu

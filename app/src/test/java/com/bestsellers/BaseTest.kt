@@ -1,4 +1,4 @@
-package com.bestsellers.bestSellers
+package com.bestsellers
 
 import com.bestsellers.data.BestSellersRepository
 import com.bestsellers.data.remote.BestSellersService

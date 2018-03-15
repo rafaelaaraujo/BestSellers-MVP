@@ -1,4 +1,4 @@
-package com.bestsellers.bookDetails
+package com.bestsellers.bookdetails
 
 import com.bestsellers.common.BaseView
 import com.bestsellers.data.model.Genre

@@ -1,15 +1,10 @@
-package com.bestsellers.bestSellers.bookDetails
+package com.bestsellers.bookdetails
 
-import com.bestsellers.bestSellers.BaseTest
-import com.bestsellers.bestSellers.BestSellersContract
-import com.bestsellers.bestSellers.BestSellersPresenter
-import com.bestsellers.bookDetails.BookDetailsContract
-import com.bestsellers.bookDetails.BookDetailsPresenter
+import com.bestsellers.BaseTest
 import com.bestsellers.data.model.*
 import io.reactivex.Observable
 import org.junit.Before
 import org.junit.Test
-import org.mockito.ArgumentMatchers
 import org.mockito.ArgumentMatchers.anyString
 import org.mockito.Mock
 import org.mockito.Mockito

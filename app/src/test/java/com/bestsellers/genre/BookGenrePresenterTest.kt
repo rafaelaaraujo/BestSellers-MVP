@@ -1,21 +1,15 @@
-package com.bestsellers.bestSellers.genre
+package com.bestsellers.genre
 
-import com.bestsellers.bestSellers.BaseTest
-import com.bestsellers.bookDetails.BookGenresContract
+import com.bestsellers.BaseTest
+import com.bestsellers.bookdetails.BookGenresContract
 import com.bestsellers.bookGenre.BookGenresPresenter
-import com.bestsellers.data.BestSellersRepository
 import com.bestsellers.data.model.BookGenres
 import com.bestsellers.data.model.Genre
-import com.bestsellers.data.remote.BestSellersService
 import io.reactivex.Observable.just
-import io.reactivex.android.plugins.RxAndroidPlugins
-import io.reactivex.plugins.RxJavaPlugins
-import io.reactivex.schedulers.Schedulers
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
 import org.mockito.Mockito.*
-import org.mockito.MockitoAnnotations
 
 
 /**
