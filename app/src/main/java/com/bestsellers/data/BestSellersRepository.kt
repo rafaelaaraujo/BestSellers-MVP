@@ -8,14 +8,18 @@ import com.bestsellers.data.model.Book
 import com.bestsellers.data.model.BookGenres
 import com.bestsellers.data.model.BookAverage
 import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.Scheduler
 import io.reactivex.schedulers.Schedulers
 
 /**
  * Created by Rafaela Araujo
  * on 05/03/2018.
  */
-open class BestSellersRepository(private val service: BestSellersService = BestSellersService(), val context: Context? = null) {
+open class BestSellersRepository(
+        private val service: BestSellersService = BestSellersService(),
+        private val context: Context? = null,
+        private val ioScheduler: Scheduler = Schedulers.io(),
+        private val mainScheduler: Scheduler = Schedulers.io()) {
 
     fun getBookAverage(isbn: String, success: (BookAverage) -> Unit, error: () -> Unit) {
         doRequest(service.getBookAverage(isbn), success, error)
@@ -41,15 +45,16 @@ open class BestSellersRepository(private val service: BestSellersService = BestS
         getFavoriteDao()?.insertBook(book)
     }
 
-    fun getBookFavorite(title:String?): Book? {
+    fun getBookFavorite(title: String?): Book? {
         return getFavoriteDao()?.getFavoriteBook(title)
     }
 
     private fun getFavoriteDao() = context?.let { AppDatabase.getInstance(it)?.getFavoriteBookDao() }
 
     private fun <T> doRequest(observable: Observable<T>, success: (T) -> Unit, error: () -> Unit) {
-        observable.subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
+        observable
+                .subscribeOn(ioScheduler)
+                .observeOn(mainScheduler)
                 .subscribe({ result -> success(result) }, { error() })
     }
 

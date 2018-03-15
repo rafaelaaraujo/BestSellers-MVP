@@ -50,7 +50,7 @@ open class BestSellersService {
 
     open fun getGenreList(): Observable<BookGenres> = nyApi.getBookGenresList()
 
-    fun getBestSeller(name: String): Observable<BestSellers> = nyApi.getBestSellerByNameList(name)
+    open fun getBestSeller(name: String): Observable<BestSellers> = nyApi.getBestSellerByNameList(name)
 
-    fun getBookAverage(isbn: String): Observable<BookAverage> = goodReadsApi.getBookAverage(isbn)
+    open fun getBookAverage(isbn: String): Observable<BookAverage> = goodReadsApi.getBookAverage(isbn)
 }
