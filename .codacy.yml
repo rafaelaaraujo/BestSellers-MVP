@@ -3,5 +3,5 @@ exclude_paths:
   - spec/**/*
   - benchmarks/**/*
   - '*.min.js'
-  - '**/tests/**'
+  - '**/test/**'
   - '**/androidTest/**'
