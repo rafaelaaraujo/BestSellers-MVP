@@ -1,7 +1,7 @@
 package com.bestsellers.data.local
 
 import android.arch.persistence.room.TypeConverter
-import com.bestsellers.model.Isbn
+import com.bestsellers.data.model.Isbn
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 

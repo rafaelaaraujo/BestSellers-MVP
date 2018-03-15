@@ -6,8 +6,8 @@ import android.view.View.VISIBLE
 import com.bestsellers.R
 import com.bestsellers.bookDetails.BookDetailsActivity
 import com.bestsellers.common.BaseActivity
-import com.bestsellers.data.BestSellersData
-import com.bestsellers.model.Book
+import com.bestsellers.data.BestSellersRepository
+import com.bestsellers.data.model.Book
 import com.bestsellers.util.*
 import com.yarolegovich.discretescrollview.DiscreteScrollView
 import com.yarolegovich.discretescrollview.transform.ScaleTransformer
@@ -28,7 +28,7 @@ class BestSellersActivity : BaseActivity(), BestSellersContract.View, DiscreteSc
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_best_sellers)
-        presenter = BestSellersPresenter(this, BestSellersData(context = this))
+        presenter = BestSellersPresenter(this, BestSellersRepository(context = this))
         presenter.requestBestSellers(intent.extras.getString(GENRE_NAME))
 
         configureView(intent.extras.getString(DISPLAY_NAME))

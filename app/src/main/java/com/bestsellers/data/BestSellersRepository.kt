@@ -3,10 +3,10 @@ package com.bestsellers.data
 import android.content.Context
 import com.bestsellers.data.local.AppDatabase
 import com.bestsellers.data.remote.BestSellersService
-import com.bestsellers.model.BestSellersResult
-import com.bestsellers.model.Book
-import com.bestsellers.model.BookGenresResult
-import com.bestsellers.model.ReviewCountResult
+import com.bestsellers.data.model.BestSellers
+import com.bestsellers.data.model.Book
+import com.bestsellers.data.model.BookGenres
+import com.bestsellers.data.model.BookAverage
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -15,17 +15,17 @@ import io.reactivex.schedulers.Schedulers
  * Created by Rafaela Araujo
  * on 05/03/2018.
  */
-open class BestSellersData(private val service: BestSellersService = BestSellersService(), val context: Context? = null) {
+open class BestSellersRepository(private val service: BestSellersService = BestSellersService(), val context: Context? = null) {
 
-    fun getBookReviewCount(isbn: String, success: (ReviewCountResult) -> Unit, error: () -> Unit) {
-        doRequest(service.getBookReviewsCount(isbn), success, error)
+    fun getBookAverage(isbn: String, success: (BookAverage) -> Unit, error: () -> Unit) {
+        doRequest(service.getBookAverage(isbn), success, error)
     }
 
-    fun getBestSellers(name: String, success: (BestSellersResult) -> Unit, error: () -> Unit) {
+    fun getBestSellers(name: String, success: (BestSellers) -> Unit, error: () -> Unit) {
         doRequest(service.getBestSeller(name), success, error)
     }
 
-    fun getBestSellersGenre(success: (BookGenresResult) -> Unit, error: () -> Unit) {
+    fun getBestSellersGenre(success: (BookGenres) -> Unit, error: () -> Unit) {
         doRequest(service.getGenreList(), success, error)
     }
 

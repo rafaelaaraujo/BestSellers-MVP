@@ -1,6 +1,6 @@
 package com.bestsellers.data.remote
 
-import com.bestsellers.model.ReviewCountResult
+import com.bestsellers.data.model.BookAverage
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -11,6 +11,6 @@ import retrofit2.http.Query
 interface GoodReadsApi {
 
     @GET("/book/review_counts.json")
-    fun getBookReviewCount(@Query("isbns") isbns: String, @Query("key") key: String = "Z0ERaQrt6JugORS6TpPw"): Observable<ReviewCountResult>
+    fun getBookAverage(@Query("isbns") isbns: String, @Query("key") key: String = "Z0ERaQrt6JugORS6TpPw"): Observable<BookAverage>
 
 }

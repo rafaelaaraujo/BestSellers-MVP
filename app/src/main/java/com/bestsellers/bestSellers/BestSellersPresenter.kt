@@ -1,7 +1,7 @@
 package com.bestsellers.bestSellers
 
-import com.bestsellers.data.BestSellersData
-import com.bestsellers.model.Book
+import com.bestsellers.data.BestSellersRepository
+import com.bestsellers.data.model.Book
 
 /**
  * Created by Rafaela Araujo
@@ -9,14 +9,20 @@ import com.bestsellers.model.Book
  */
 class BestSellersPresenter(
         val view: BestSellersContract.View,
-        private val data: BestSellersData) :
+        private val source: BestSellersRepository) :
         BestSellersContract.Presenter {
 
     override fun requestBestSellers(name:String) {
         view.showLoading()
-        data.getBestSellers(name, {
+        source.getBestSellers(name, {
             view.hideLoading()
-            view.showBestSellers(it.results.books)
+            val books = it.results.books
+
+            if(books.isNotEmpty()) {
+                view.showBestSellers(books)
+            }else{
+                view.showErrorMessage()
+            }
         }, {
             view.showErrorMessage()
         })
@@ -24,16 +30,16 @@ class BestSellersPresenter(
 
     override fun changeBookStatus(book: Book, favorite: Boolean) {
         if (favorite){
-            data.favoriteBook(book)
+            source.favoriteBook(book)
             view.showFavoriteBookMessage()
         } else {
-            data.removeFavoriteBook(book)
+            source.removeFavoriteBook(book)
             view.showRemoveFavoriteBookMessage()
         }
     }
 
     override fun verifyIsFavoriteBook(book: Book) {
-        val b = data.getBookFavorite(book.title)
+        val b = source.getBookFavorite(book.title)
         view.changeFavoriteButton(b != null)
     }
 }

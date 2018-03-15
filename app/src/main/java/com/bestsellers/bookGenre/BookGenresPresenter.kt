@@ -1,7 +1,7 @@
 package com.bestsellers.bookGenre
 
 import com.bestsellers.bookDetails.BookGenresContract
-import com.bestsellers.data.BestSellersData
+import com.bestsellers.data.BestSellersRepository
 
 
 /**
@@ -10,7 +10,7 @@ import com.bestsellers.data.BestSellersData
  */
 class BookGenresPresenter(
         val view: BookGenresContract.View,
-        private val data: BestSellersData = BestSellersData()) : BookGenresContract.Presenter {
+        private val source: BestSellersRepository = BestSellersRepository()) : BookGenresContract.Presenter {
 
     init {
         view.presenter = this
@@ -19,9 +19,14 @@ class BookGenresPresenter(
     override fun requestGenreList() {
         view.showLoading()
 
-        data.getBestSellersGenre({
+        source.getBestSellersGenre({
             view.hideLoading()
-            view.showGenreList(it.results)
+            val genres = it.results
+            if (genres.isNotEmpty()) {
+                view.showGenreList(it.results)
+            } else {
+                view.showErrorMessage()
+            }
         }, {
             view.showErrorMessage()
         })

@@ -1,8 +1,8 @@
 package com.bestsellers.data.remote
 
-import com.bestsellers.model.BestSellersResult
-import com.bestsellers.model.BookGenresResult
-import com.bestsellers.model.ReviewCountResult
+import com.bestsellers.data.model.BestSellers
+import com.bestsellers.data.model.BookGenres
+import com.bestsellers.data.model.BookAverage
 import com.bestsellers.util.API_KEY
 import com.bestsellers.util.GOODREADS_BASE_URL
 import com.bestsellers.util.NY_AUTORIZATION
@@ -48,9 +48,9 @@ open class BestSellersService {
         }.build()
     }
 
-    open fun getGenreList(): Observable<BookGenresResult> = nyApi.getBookGenresList()
+    open fun getGenreList(): Observable<BookGenres> = nyApi.getBookGenresList()
 
-    fun getBestSeller(name: String): Observable<BestSellersResult> = nyApi.getBestSellerByNameList(name)
+    fun getBestSeller(name: String): Observable<BestSellers> = nyApi.getBestSellerByNameList(name)
 
-    fun getBookReviewsCount(isbn: String): Observable<ReviewCountResult> = goodReadsApi.getBookReviewCount(isbn)
+    fun getBookAverage(isbn: String): Observable<BookAverage> = goodReadsApi.getBookAverage(isbn)
 }

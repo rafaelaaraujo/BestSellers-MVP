@@ -2,7 +2,7 @@ package com.bestsellers.util
 
 import android.content.Context
 import com.bestsellers.R
-import com.bestsellers.model.Book
+import com.bestsellers.data.model.Book
 
 /**
  * Created by rafaela.araujo on 06/03/18.

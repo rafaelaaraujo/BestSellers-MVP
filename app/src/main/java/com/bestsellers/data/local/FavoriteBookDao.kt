@@ -1,7 +1,7 @@
 package com.bestsellers.data.local
 
 import android.arch.persistence.room.*
-import com.bestsellers.model.Book
+import com.bestsellers.data.model.Book
 
 /**
  * Created by rafaela.araujo on 01/03/18.

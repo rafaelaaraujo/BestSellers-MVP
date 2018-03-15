@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
 import com.bestsellers.R
-import com.bestsellers.model.Genre
+import com.bestsellers.data.model.Genre
 import kotlinx.android.synthetic.main.genre_item.view.*
 
 /**

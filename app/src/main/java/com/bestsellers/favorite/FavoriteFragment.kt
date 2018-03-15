@@ -10,8 +10,8 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import com.bestsellers.R
 import com.bestsellers.bookDetails.BookDetailsActivity
-import com.bestsellers.data.BestSellersData
-import com.bestsellers.model.Book
+import com.bestsellers.data.BestSellersRepository
+import com.bestsellers.data.model.Book
 import com.bestsellers.util.BOOK
 import com.bestsellers.util.launchActivity
 import kotlinx.android.synthetic.main.activity_favorite.*
@@ -32,7 +32,7 @@ class FavoriteFragment : Fragment(), FavoriteContract.View {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        presenter = FavoritePresenter(this, BestSellersData(context = activity))
+        presenter = FavoritePresenter(this, BestSellersRepository(context = activity))
         loadRecyclerView()
     }
 

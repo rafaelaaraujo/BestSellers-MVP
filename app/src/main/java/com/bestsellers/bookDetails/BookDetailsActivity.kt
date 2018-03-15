@@ -5,9 +5,9 @@ import android.view.Menu
 import android.view.MenuItem
 import com.bestsellers.R
 import com.bestsellers.common.BaseActivity
-import com.bestsellers.data.BestSellersData
-import com.bestsellers.model.Book
-import com.bestsellers.model.BookReviewCount
+import com.bestsellers.data.BestSellersRepository
+import com.bestsellers.data.model.Book
+import com.bestsellers.data.model.Average
 import com.bestsellers.util.*
 import kotlinx.android.synthetic.main.details_activity.*
 
@@ -21,7 +21,7 @@ class BookDetailsActivity : BaseActivity(), BookDetailsContract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setContentView(R.layout.details_activity)
-        presenter = BookDetailsPresenter(this, BestSellersData(context = this))
+        presenter = BookDetailsPresenter(this, BestSellersRepository(context = this))
         book = intent.extras.getSerializable(BOOK) as? Book
         setBookInformation()
         super.onCreate(savedInstanceState)
@@ -86,7 +86,7 @@ class BookDetailsActivity : BaseActivity(), BookDetailsContract.View {
         showToast(getString(R.string.remove_favorite_message))
     }
 
-    override fun loadBookReviewCount(bookReviewCount: BookReviewCount) {
-        reviewsRatingBar.rating = bookReviewCount.average_rating
+    override fun loadBookReviewCount(average: Average) {
+        reviewsRatingBar.rating = average.average_rating
     }
 }

@@ -1,7 +1,7 @@
 package com.bestsellers.bookGenre
 
 import android.widget.Filter
-import com.bestsellers.model.Genre
+import com.bestsellers.data.model.Genre
 
 /**
  * Created by Rafaela Araujo

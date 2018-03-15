@@ -1,7 +1,7 @@
 package com.bestsellers.bookDetails
 
 import com.bestsellers.common.BaseView
-import com.bestsellers.model.Genre
+import com.bestsellers.data.model.Genre
 
 /**
  * Created by Rafaela Araujo
@@ -11,19 +11,12 @@ open class BookGenresContract {
 
     interface View : BaseView<Presenter> {
 
-        /**
-         * load list with book genres
-         * @param genreList
-         */
         fun showGenreList(genreList: List<Genre>)
     }
 
 
     interface Presenter {
 
-        /**
-         * get genres from server
-         */
         fun requestGenreList()
     }
 }

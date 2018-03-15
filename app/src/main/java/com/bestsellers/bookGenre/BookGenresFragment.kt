@@ -11,7 +11,7 @@ import android.view.View.VISIBLE
 import com.bestsellers.R
 import com.bestsellers.bestSellers.BestSellersActivity
 import com.bestsellers.bookDetails.BookGenresContract
-import com.bestsellers.model.Genre
+import com.bestsellers.data.model.Genre
 import com.bestsellers.util.DISPLAY_NAME
 import com.bestsellers.util.GENRE_NAME
 import com.bestsellers.util.launchActivity

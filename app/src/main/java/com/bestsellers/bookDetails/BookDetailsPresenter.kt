@@ -1,8 +1,7 @@
 package com.bestsellers.bookDetails
 
-import com.bestsellers.data.BestSellersData
-import com.bestsellers.model.Book
-import com.bestsellers.model.BookReviewCount
+import com.bestsellers.data.BestSellersRepository
+import com.bestsellers.data.model.Book
 
 /**
  * Created by Rafaela
@@ -10,34 +9,34 @@ import com.bestsellers.model.BookReviewCount
  */
 class BookDetailsPresenter(
         val view: BookDetailsContract.View,
-        private val data: BestSellersData) :
+        private val source: BestSellersRepository) :
         BookDetailsContract.Presenter {
 
     override fun getBookReviewCount(isbn: String) {
         view.showLoading()
-        data.getBookReviewCount(isbn, {
-            verifyReview(it.books)
+        source.getBookAverage(isbn, {
+            val averageList = it.books
+            if(averageList.isNotEmpty()){
+                view.loadBookReviewCount(averageList[0])
+            } else{
+                view.showErrorMessage()
+            }
         }, {
             view.showErrorMessage()
         })
     }
 
-    private fun verifyReview(books: List<BookReviewCount>) {
-        if (books.isNotEmpty())
-            view.loadBookReviewCount(books[0])
-    }
-
     override fun verifyIsFavoriteBook(title: String?) {
-        val b = data.getBookFavorite(title)
+        val b = source.getBookFavorite(title)
         view.updateStatus(b != null)
     }
 
     override fun changeBookStatus(book: Book, favorite: Boolean) {
         if (favorite) {
-            data.favoriteBook(book)
+            source.favoriteBook(book)
             view.showFavoriteMessage()
         } else {
-            data.removeFavoriteBook(book)
+            source.removeFavoriteBook(book)
             view.showRemoveFavoriteBookMessage()
         }
 

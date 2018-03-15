@@ -1,8 +1,8 @@
 package com.bestsellers.bookDetails
 
 import com.bestsellers.common.BaseView
-import com.bestsellers.model.Book
-import com.bestsellers.model.BookReviewCount
+import com.bestsellers.data.model.Book
+import com.bestsellers.data.model.Average
 
 /**
  * Created by Rafaela Araujo
@@ -12,10 +12,7 @@ class BookDetailsContract {
 
     interface View : BaseView<Presenter> {
 
-        /**
-         * show review from selected book
-         */
-        fun loadBookReviewCount(bookReviewCount: BookReviewCount)
+        fun loadBookReviewCount(average: Average)
 
         fun updateStatus(isBookFavorite: Boolean)
 
@@ -26,10 +23,6 @@ class BookDetailsContract {
 
     interface Presenter {
 
-        /**
-         * request book review from server
-         * @param isbn from selected book
-         */
         fun getBookReviewCount(isbn: String)
 
         fun verifyIsFavoriteBook(title: String?)

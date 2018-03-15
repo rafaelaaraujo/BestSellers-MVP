@@ -1,27 +1,27 @@
 package com.bestsellers.favorite
 
-import com.bestsellers.data.BestSellersData
-import com.bestsellers.model.Book
+import com.bestsellers.data.BestSellersRepository
+import com.bestsellers.data.model.Book
 
 /**
  * Created by rafaela.araujo on 27/02/18.
  */
 class FavoritePresenter(
         private val favoriteView: FavoriteContract.View,
-        private val data: BestSellersData) : FavoriteContract.Presenter {
+        private val source: BestSellersRepository) : FavoriteContract.Presenter {
 
     override fun getFavoriteBooks() {
         favoriteView.showLoading()
-        val list = data.getFavoriteBooks()
-        list?.let {
+        val list = source.getFavoriteBooks()
+        if (list != null && list.isNotEmpty()) {
             favoriteView.hideLoading()
             favoriteView.showFavoriteBooks(list)
-            return
-        }
+        } else {
             favoriteView.showErrorMessage()
+        }
     }
 
     override fun removeFavoriteBook(book: Book) {
-        data.removeFavoriteBook(book)
+        source.removeFavoriteBook(book)
     }
 }

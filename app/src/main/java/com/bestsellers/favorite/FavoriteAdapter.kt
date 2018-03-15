@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bestsellers.R
-import com.bestsellers.model.Book
+import com.bestsellers.data.model.Book
 import com.bestsellers.util.loadUrl
 import kotlinx.android.synthetic.main.best_seller_item.view.*
 

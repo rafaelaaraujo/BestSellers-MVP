@@ -1,7 +1,7 @@
 package com.bestsellers.favorite
 
 import com.bestsellers.common.BaseView
-import com.bestsellers.model.Book
+import com.bestsellers.data.model.Book
 
 /**
  * Created by rafaela.araujo on 27/02/18.
