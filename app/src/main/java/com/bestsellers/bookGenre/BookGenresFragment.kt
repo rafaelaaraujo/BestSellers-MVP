@@ -25,13 +25,12 @@ import kotlinx.android.synthetic.main.activity_genre.*
 
 class BookGenresFragment : Fragment(), BookGenresContract.View, SearchView.OnQueryTextListener {
 
-    override lateinit var presenter: BookGenresContract.Presenter
+    override var presenter: BookGenresContract.Presenter = BookGenresPresenter(this)
     private lateinit var adapter: BookGenresAdapter
     private var genreList = ArrayList<Genre>()
     private var searchView: SearchView? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        presenter = BookGenresPresenter(this)
         setHasOptionsMenu(true)
         return inflater.inflate(R.layout.activity_genre, container, false)
     }

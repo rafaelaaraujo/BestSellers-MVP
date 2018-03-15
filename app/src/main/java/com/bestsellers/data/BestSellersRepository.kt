@@ -9,6 +9,7 @@ import com.bestsellers.data.model.BookGenres
 import com.bestsellers.data.model.BookAverage
 import io.reactivex.Observable
 import io.reactivex.Scheduler
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
 /**
@@ -19,7 +20,7 @@ open class BestSellersRepository(
         private val service: BestSellersService = BestSellersService(),
         private val context: Context? = null,
         private val ioScheduler: Scheduler = Schedulers.io(),
-        private val mainScheduler: Scheduler = Schedulers.io()) {
+        private val mainScheduler: Scheduler = AndroidSchedulers.mainThread()) {
 
     fun getBookAverage(isbn: String, success: (BookAverage) -> Unit, error: () -> Unit) {
         doRequest(service.getBookAverage(isbn), success, error)
@@ -55,7 +56,7 @@ open class BestSellersRepository(
         observable
                 .subscribeOn(ioScheduler)
                 .observeOn(mainScheduler)
-                .subscribe({ result -> success(result) }, { error() })
+                .subscribe({success(it)}, {error()})
     }
 
 }
