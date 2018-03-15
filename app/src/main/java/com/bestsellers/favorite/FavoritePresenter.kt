@@ -8,11 +8,11 @@ import com.bestsellers.data.model.Book
  */
 class FavoritePresenter(
         private val favoriteView: FavoriteContract.View,
-        private val source: BestSellersRepository) : FavoriteContract.Presenter {
+        private val repository: BestSellersRepository) : FavoriteContract.Presenter {
 
     override fun getFavoriteBooks() {
         favoriteView.showLoading()
-        val list = source.getFavoriteBooks()
+        val list = repository.getFavoriteBooks()
         if (list != null && list.isNotEmpty()) {
             favoriteView.hideLoading()
             favoriteView.showFavoriteBooks(list)
@@ -22,6 +22,6 @@ class FavoritePresenter(
     }
 
     override fun removeFavoriteBook(book: Book) {
-        source.removeFavoriteBook(book)
+        repository.removeFavoriteBook(book)
     }
 }

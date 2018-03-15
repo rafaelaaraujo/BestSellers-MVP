@@ -30,7 +30,7 @@ class BookDetailsActivity : BaseActivity(), BookDetailsContract.View {
     private fun setBookInformation() {
         book?.apply {
             configureActionBar(title)
-            presenter.getBookReviewCount(getIsbn())
+            presenter.getBookAverage(getIsbn())
             txtIsbn10.text = getString(R.string.isbn10, getIsbn())
             weeksOnList.text = getWeeksOnTheList(this@BookDetailsActivity)
             titleBook.text = title

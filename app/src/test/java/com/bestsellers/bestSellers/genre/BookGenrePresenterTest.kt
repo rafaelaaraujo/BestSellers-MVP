@@ -1,5 +1,6 @@
 package com.bestsellers.bestSellers.genre
 
+import com.bestsellers.bestSellers.BaseTest
 import com.bestsellers.bookDetails.BookGenresContract
 import com.bestsellers.bookGenre.BookGenresPresenter
 import com.bestsellers.data.BestSellersRepository
@@ -21,22 +22,16 @@ import org.mockito.MockitoAnnotations
  * Created by rafaela.araujo on 15/03/18.
  */
 
-class BookGenrePresenterTest {
+class BookGenrePresenterTest: BaseTest() {
 
-    private lateinit var repository: BestSellersRepository
     @Mock private lateinit var view: BookGenresContract.View
-    @Mock private lateinit var service: BestSellersService
     private lateinit var presenter: BookGenresContract.Presenter
 
     @Before
     fun setup() {
-        MockitoAnnotations.initMocks(this)
-        repository = BestSellersRepository(service, null, Schedulers.trampoline(),Schedulers.trampoline())
+        initMock()
         presenter = BookGenresPresenter(view, repository)
-        RxJavaPlugins.reset()
-        RxAndroidPlugins.reset()
     }
-
 
     @Test
     fun createPresenter_setsThePresenterToView() {
@@ -44,10 +39,10 @@ class BookGenrePresenterTest {
     }
 
     @Test
-    fun getBookGenresAndUpdateView() {
+    fun getGenreList_AndUpdateView() {
         `when`(service.getGenreList()).thenReturn(just(getMockGenreList()))
 
-        presenter.apply {
+       presenter.apply {
             requestGenreList()
         }
 
@@ -55,13 +50,25 @@ class BookGenrePresenterTest {
         verify(view).hideLoading()
         verify(view).showGenreList(getMockGenreList().results)
         verify(view, never()).showErrorMessage()
+    }
 
+
+    @Test
+    fun getEmptyGenreList_ShowMessageError() {
+        `when`(service.getGenreList()).thenReturn(just(BookGenres(ArrayList())))
+
+       presenter.apply {
+            requestGenreList()
+        }
+
+        verify(view).showLoading()
+        verify(view).hideLoading()
+        verify(view).showErrorMessage()
+        verify(view, never()).showGenreList(ArrayList())
     }
 
     private fun getMockGenreList(): BookGenres {
-        val list = ArrayList<Genre>()
-        list.add(Genre("", "", ""))
-        return BookGenres(list)
+        return BookGenres(listOf(Genre("", "", "")))
     }
 
 }

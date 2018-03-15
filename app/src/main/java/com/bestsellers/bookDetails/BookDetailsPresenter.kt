@@ -9,17 +9,14 @@ import com.bestsellers.data.model.Book
  */
 class BookDetailsPresenter(
         val view: BookDetailsContract.View,
-        private val source: BestSellersRepository) :
+        private val repository: BestSellersRepository) :
         BookDetailsContract.Presenter {
 
-    override fun getBookReviewCount(isbn: String) {
-        view.showLoading()
-        source.getBookAverage(isbn, {
+    override fun getBookAverage(isbn: String) {
+        repository.getBookAverage(isbn, {
             val averageList = it.books
             if(averageList.isNotEmpty()){
                 view.loadBookReviewCount(averageList[0])
-            } else{
-                view.showErrorMessage()
             }
         }, {
             view.showErrorMessage()
@@ -27,16 +24,16 @@ class BookDetailsPresenter(
     }
 
     override fun verifyIsFavoriteBook(title: String?) {
-        val b = source.getBookFavorite(title)
+        val b = repository.getBookFavorite(title)
         view.updateStatus(b != null)
     }
 
     override fun changeBookStatus(book: Book, favorite: Boolean) {
         if (favorite) {
-            source.favoriteBook(book)
+            repository.favoriteBook(book)
             view.showFavoriteMessage()
         } else {
-            source.removeFavoriteBook(book)
+            repository.removeFavoriteBook(book)
             view.showRemoveFavoriteBookMessage()
         }
 

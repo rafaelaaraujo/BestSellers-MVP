@@ -23,7 +23,7 @@ class BookDetailsContract {
 
     interface Presenter {
 
-        fun getBookReviewCount(isbn: String)
+        fun getBookAverage(isbn: String)
 
         fun verifyIsFavoriteBook(title: String?)
 

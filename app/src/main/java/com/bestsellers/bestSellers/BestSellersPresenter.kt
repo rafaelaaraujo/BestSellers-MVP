@@ -9,12 +9,12 @@ import com.bestsellers.data.model.Book
  */
 class BestSellersPresenter(
         val view: BestSellersContract.View,
-        private val source: BestSellersRepository) :
+        private val repository: BestSellersRepository) :
         BestSellersContract.Presenter {
 
     override fun requestBestSellers(name:String) {
         view.showLoading()
-        source.getBestSellers(name, {
+        repository.getBestSellers(name, {
             view.hideLoading()
             val books = it.results.books
 
@@ -30,16 +30,16 @@ class BestSellersPresenter(
 
     override fun changeBookStatus(book: Book, favorite: Boolean) {
         if (favorite){
-            source.favoriteBook(book)
+            repository.favoriteBook(book)
             view.showFavoriteBookMessage()
         } else {
-            source.removeFavoriteBook(book)
+            repository.removeFavoriteBook(book)
             view.showRemoveFavoriteBookMessage()
         }
     }
 
     override fun verifyIsFavoriteBook(book: Book) {
-        val b = source.getBookFavorite(book.title)
+        val b = repository.getBookFavorite(book.title)
         view.changeFavoriteButton(b != null)
     }
 }
