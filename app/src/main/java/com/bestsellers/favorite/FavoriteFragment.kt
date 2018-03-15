@@ -48,6 +48,8 @@ class FavoriteFragment : Fragment(), FavoriteContract.View {
     }
 
     override fun showErrorMessage() {
+        hideLoading()
+        
         empityStateLayout.visibility = VISIBLE
         txt_message_emptyState.text = getString(R.string.error_loading_data)
     }
