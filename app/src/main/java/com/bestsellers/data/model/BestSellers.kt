@@ -8,8 +8,7 @@ import java.io.Serializable
 /**
  * Created by rafaela.araujo on 07/11/17.
  */
-data class BestSellers(
-        val results: Results)
+data class BestSellers(val results: Results)
 
 data class Results(val books: List<Book>)
 

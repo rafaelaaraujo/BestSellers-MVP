@@ -7,21 +7,22 @@ import com.bestsellers.data.model.Book
  * Created by rafaela.araujo on 27/02/18.
  */
 class FavoritePresenter(
-        private val favoriteView: FavoriteContract.View,
-        private val source: BestSellersRepository) : FavoriteContract.Presenter {
+        private val repository: BestSellersRepository) : FavoriteContract.Presenter {
+
+    override lateinit var view: FavoriteContract.View
 
     override fun getFavoriteBooks() {
-        favoriteView.showLoading()
-        val list = source.getFavoriteBooks()
+        view.showLoading()
+        val list = repository.getFavoriteBooks()
         if (list != null && list.isNotEmpty()) {
-            favoriteView.hideLoading()
-            favoriteView.showFavoriteBooks(list)
+            view.hideLoading()
+            view.showFavoriteBooks(list)
         } else {
-            favoriteView.showErrorMessage()
+            view.showErrorMessage()
         }
     }
 
     override fun removeFavoriteBook(book: Book) {
-        source.removeFavoriteBook(book)
+        repository.removeFavoriteBook(book)
     }
 }

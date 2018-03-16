@@ -7,39 +7,39 @@ import com.bestsellers.data.model.Book
  * Created by Rafaela Araujo
  * on 03/11/2017.
  */
-class BestSellersPresenter(
-        val view: BestSellersContract.View,
-        private val source: BestSellersRepository) :
-        BestSellersContract.Presenter {
+class BestSellersPresenter(private val repository: BestSellersRepository) : BestSellersContract.Presenter {
 
-    override fun requestBestSellers(name:String) {
+    override lateinit var view: BestSellersContract.View
+
+    override fun requestBestSellers(name: String) {
         view.showLoading()
-        source.getBestSellers(name, {
+        repository.getBestSellers(name, {
             view.hideLoading()
             val books = it.results.books
-
-            if(books.isNotEmpty()) {
+            if (books.isNotEmpty()) {
                 view.showBestSellers(books)
-            }else{
+            } else {
                 view.showErrorMessage()
             }
+
         }, {
             view.showErrorMessage()
         })
+
     }
 
     override fun changeBookStatus(book: Book, favorite: Boolean) {
-        if (favorite){
-            source.favoriteBook(book)
+        if (favorite) {
+            repository.favoriteBook(book)
             view.showFavoriteBookMessage()
         } else {
-            source.removeFavoriteBook(book)
+            repository.removeFavoriteBook(book)
             view.showRemoveFavoriteBookMessage()
         }
     }
 
     override fun verifyIsFavoriteBook(book: Book) {
-        val b = source.getBookFavorite(book.title)
+        val b = repository.getBookFavorite(book.title)
         view.changeFavoriteButton(b != null)
     }
 }

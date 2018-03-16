@@ -10,29 +10,29 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import com.bestsellers.R
 import com.bestsellers.bookDetails.BookDetailsActivity
-import com.bestsellers.data.BestSellersRepository
 import com.bestsellers.data.model.Book
 import com.bestsellers.util.BOOK
 import com.bestsellers.util.launchActivity
 import kotlinx.android.synthetic.main.activity_favorite.*
 import kotlinx.android.synthetic.main.empty_state_view.*
+import org.koin.android.ext.android.inject
 
 /**
  * Created by rafaela.araujo on 27/02/18.
  */
 class FavoriteFragment : Fragment(), FavoriteContract.View {
 
-    override lateinit var presenter: FavoriteContract.Presenter
+    override val presenter: FavoriteContract.Presenter by inject()
     private var favoriteList: List<Book> = ArrayList()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         setHasOptionsMenu(true)
+        presenter.view = this
         return inflater.inflate(R.layout.activity_favorite, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        presenter = FavoritePresenter(this, BestSellersRepository(context = activity))
         loadRecyclerView()
     }
 
@@ -49,7 +49,7 @@ class FavoriteFragment : Fragment(), FavoriteContract.View {
 
     override fun showErrorMessage() {
         hideLoading()
-        
+
         empityStateLayout.visibility = VISIBLE
         txt_message_emptyState.text = getString(R.string.error_loading_data)
     }

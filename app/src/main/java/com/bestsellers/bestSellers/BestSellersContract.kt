@@ -1,5 +1,6 @@
 package com.bestsellers.bestSellers
 
+import com.bestsellers.common.BasePresenter
 import com.bestsellers.common.BaseView
 import com.bestsellers.data.model.Book
 
@@ -21,7 +22,7 @@ class BestSellersContract {
         fun showRemoveFavoriteBookMessage()
     }
 
-    interface Presenter {
+    interface Presenter : BasePresenter<View>{
 
         fun requestBestSellers(name: String)
 

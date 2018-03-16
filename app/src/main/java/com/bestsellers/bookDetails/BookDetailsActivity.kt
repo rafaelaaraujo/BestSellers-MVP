@@ -5,23 +5,23 @@ import android.view.Menu
 import android.view.MenuItem
 import com.bestsellers.R
 import com.bestsellers.common.BaseActivity
-import com.bestsellers.data.BestSellersRepository
-import com.bestsellers.data.model.Book
 import com.bestsellers.data.model.Average
+import com.bestsellers.data.model.Book
 import com.bestsellers.util.*
 import kotlinx.android.synthetic.main.details_activity.*
+import org.koin.android.ext.android.inject
 
 
 class BookDetailsActivity : BaseActivity(), BookDetailsContract.View {
 
-    override lateinit var presenter: BookDetailsContract.Presenter
+    override val presenter: BookDetailsContract.Presenter by inject()
     private var book: Book? = null
     private lateinit var menuFavorite: MenuItem
     private val menuItemPosition = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setContentView(R.layout.details_activity)
-        presenter = BookDetailsPresenter(this, BestSellersRepository(context = this))
+        presenter.view = this
         book = intent.extras.getSerializable(BOOK) as? Book
         setBookInformation()
         super.onCreate(savedInstanceState)

@@ -1,5 +1,6 @@
 package com.bestsellers.bookDetails
 
+import com.bestsellers.common.BasePresenter
 import com.bestsellers.common.BaseView
 import com.bestsellers.data.model.Genre
 
@@ -15,7 +16,7 @@ open class BookGenresContract {
     }
 
 
-    interface Presenter {
+    interface Presenter : BasePresenter<View> {
 
         fun requestGenreList()
     }

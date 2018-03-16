@@ -1,6 +1,7 @@
 package com.bestsellers.data
 
 import android.content.Context
+import com.bestsellers.BestSellersApplication
 import com.bestsellers.data.local.AppDatabase
 import com.bestsellers.data.remote.BestSellersService
 import com.bestsellers.data.model.BestSellers
@@ -18,7 +19,6 @@ import io.reactivex.schedulers.Schedulers
  */
 open class BestSellersRepository(
         private val service: BestSellersService = BestSellersService(),
-        private val context: Context? = null,
         private val ioScheduler: Scheduler = Schedulers.io(),
         private val mainScheduler: Scheduler = AndroidSchedulers.mainThread()) {
 
@@ -50,7 +50,7 @@ open class BestSellersRepository(
         return getFavoriteDao()?.getFavoriteBook(title)
     }
 
-    private fun getFavoriteDao() = context?.let { AppDatabase.getInstance(it)?.getFavoriteBookDao() }
+    private fun getFavoriteDao() = AppDatabase.getInstance(BestSellersApplication.context)?.getFavoriteBookDao()
 
     private fun <T> doRequest(observable: Observable<T>, success: (T) -> Unit, error: () -> Unit) {
         observable

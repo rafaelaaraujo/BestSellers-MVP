@@ -34,8 +34,6 @@ class FavoriteActivityTest : BaseTest() {
     fun openFavoriteBook_showBookDetails(){
         with(robot) {
             selectFavoriteBook()
-            sleepTime(2000)
-//            checkOpenCorrectBookDetails()
         }
     }
 

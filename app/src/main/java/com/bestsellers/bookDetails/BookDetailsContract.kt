@@ -1,5 +1,6 @@
 package com.bestsellers.bookDetails
 
+import com.bestsellers.common.BasePresenter
 import com.bestsellers.common.BaseView
 import com.bestsellers.data.model.Book
 import com.bestsellers.data.model.Average
@@ -21,7 +22,7 @@ class BookDetailsContract {
         fun showRemoveFavoriteBookMessage()
     }
 
-    interface Presenter {
+    interface Presenter : BasePresenter<View>{
 
         fun getBookReviewCount(isbn: String)
 

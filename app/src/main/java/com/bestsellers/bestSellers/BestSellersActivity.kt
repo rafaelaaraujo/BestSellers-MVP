@@ -6,13 +6,13 @@ import android.view.View.VISIBLE
 import com.bestsellers.R
 import com.bestsellers.bookDetails.BookDetailsActivity
 import com.bestsellers.common.BaseActivity
-import com.bestsellers.data.BestSellersRepository
 import com.bestsellers.data.model.Book
 import com.bestsellers.util.*
 import com.yarolegovich.discretescrollview.DiscreteScrollView
 import com.yarolegovich.discretescrollview.transform.ScaleTransformer
 import kotlinx.android.synthetic.main.activity_best_sellers.*
 import kotlinx.android.synthetic.main.book_card_options.*
+import org.koin.android.ext.android.inject
 
 /**
  * Created by Rafaela
@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.book_card_options.*
  */
 class BestSellersActivity : BaseActivity(), BestSellersContract.View, DiscreteScrollView.OnItemChangedListener<BestSellersAdapter.ViewHolder> {
 
-    override lateinit var presenter: BestSellersContract.Presenter
+    override val presenter : BestSellersContract.Presenter by inject()
     private var booksList = ArrayList<Book>()
     private val MAX_SCALE = 1.05f
     private val MIN_SCALE = 0.8f
@@ -28,9 +28,8 @@ class BestSellersActivity : BaseActivity(), BestSellersContract.View, DiscreteSc
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_best_sellers)
-        presenter = BestSellersPresenter(this, BestSellersRepository(context = this))
-        presenter.requestBestSellers(intent.extras.getString(GENRE_NAME))
-
+        presenter.view = this
+        presenter.requestBestSellers(intent?.extras?.getString(GENRE_NAME)?: "")
         configureView(intent.extras.getString(DISPLAY_NAME))
     }
 
@@ -53,9 +52,7 @@ class BestSellersActivity : BaseActivity(), BestSellersContract.View, DiscreteSc
                 .setMinScale(MIN_SCALE)
                 .build())
 
-        bestSellersList.adapter = BestSellersAdapter(booksList) {
-            showBookDetails()
-        }
+        bestSellersList.adapter = BestSellersAdapter(booksList, this::showBookDetails)
         bestSellersList.addOnItemChangedListener(this)
     }
 

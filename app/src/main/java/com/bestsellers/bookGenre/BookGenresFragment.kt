@@ -16,6 +16,7 @@ import com.bestsellers.util.DISPLAY_NAME
 import com.bestsellers.util.GENRE_NAME
 import com.bestsellers.util.launchActivity
 import kotlinx.android.synthetic.main.activity_genre.*
+import org.koin.android.ext.android.inject
 
 
 /**
@@ -25,13 +26,14 @@ import kotlinx.android.synthetic.main.activity_genre.*
 
 class BookGenresFragment : Fragment(), BookGenresContract.View, SearchView.OnQueryTextListener {
 
-    override var presenter: BookGenresContract.Presenter = BookGenresPresenter(this)
+    override val presenter: BookGenresContract.Presenter by inject()
     private lateinit var adapter: BookGenresAdapter
     private var genreList = ArrayList<Genre>()
     private var searchView: SearchView? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         setHasOptionsMenu(true)
+        presenter.view = this
         return inflater.inflate(R.layout.activity_genre, container, false)
     }
 

@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.best_seller_item.view.*
  * Created by rafaela.araujo on 07/11/17.
  */
 class BestSellersAdapter(
-        private val bestSellerList: List<Book>, private val listener: (Book) -> Unit) :
+        private val bestSellerList: List<Book>, private val listener: () -> Unit) :
         RecyclerView.Adapter<BestSellersAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -27,12 +27,12 @@ class BestSellersAdapter(
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        internal fun bind(item: Book, listener: (Book) -> Unit) = with(itemView) {
+        internal fun bind(item: Book, listener: () -> Unit) = with(itemView) {
             bookTittle.text = item.title
             bookAuthor.text = item.contributor
             rankPosition.text = item.rank.toString()
             bookImage.loadUrl(item.book_image)
-            setOnClickListener{listener(item)}
+            setOnClickListener{listener()}
         }
     }
 }

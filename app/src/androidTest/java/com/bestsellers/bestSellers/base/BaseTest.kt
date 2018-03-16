@@ -1,9 +1,7 @@
 package com.bestsellers.bestSellers.base
 
 import android.content.Intent
-import android.support.test.espresso.intent.Intents
 import android.support.test.rule.ActivityTestRule
-import com.bestsellers.bookGenre.BookGenresFragment
 import com.bestsellers.data.local.AppDatabase
 import com.bestsellers.main.MainActivity
 import com.bestsellers.util.GOODREADS_BASE_URL

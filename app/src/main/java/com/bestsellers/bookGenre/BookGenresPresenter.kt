@@ -8,13 +8,9 @@ import com.bestsellers.data.BestSellersRepository
  * Created by Rafaela
  * on 03/11/2017.
  */
-class BookGenresPresenter(
-        val view: BookGenresContract.View,
-        private val source: BestSellersRepository = BestSellersRepository()) : BookGenresContract.Presenter {
+class BookGenresPresenter(private val source: BestSellersRepository) : BookGenresContract.Presenter {
 
-    init {
-        view.presenter = this
-    }
+    override lateinit var view: BookGenresContract.View
 
     override fun requestGenreList() {
         view.showLoading()
