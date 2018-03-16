@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import com.bestsellers.R
-import com.bestsellers.bookDetails.BookDetailsActivity
+import com.bestsellers.bookdetails.BookDetailsActivity
 import com.bestsellers.common.BaseActivity
 import com.bestsellers.data.model.Book
 import com.bestsellers.util.*

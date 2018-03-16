@@ -9,7 +9,7 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import com.bestsellers.R
-import com.bestsellers.bookDetails.BookDetailsActivity
+import com.bestsellers.bookdetails.BookDetailsActivity
 import com.bestsellers.data.model.Book
 import com.bestsellers.util.BOOK
 import com.bestsellers.util.launchActivity
@@ -45,11 +45,13 @@ class FavoriteFragment : Fragment(), FavoriteContract.View {
         recyclerFavorite.layoutManager = GridLayoutManager(context, 2)
         recyclerFavorite.adapter = FavoriteAdapter(favoriteList, this::showBookDetails)
         empityStateLayout.visibility = GONE
+        recyclerFavorite.visibility = VISIBLE
+
     }
 
     override fun showErrorMessage() {
         hideLoading()
-
+        recyclerFavorite.visibility = GONE
         empityStateLayout.visibility = VISIBLE
         txt_message_emptyState.text = getString(R.string.error_loading_data)
     }
@@ -65,15 +67,6 @@ class FavoriteFragment : Fragment(), FavoriteContract.View {
     override fun showFavoriteBooks(list: List<Book>) {
         favoriteList = list
         loadRecyclerView()
-
-        if (list.isEmpty()) {
-            showEmptyStateMessage()
-        }
-    }
-
-    private fun showEmptyStateMessage() {
-        empityStateLayout.visibility = VISIBLE
-        txt_message_emptyState.text = getString(R.string.empty_favorite_book_list)
     }
 
     private fun showBookDetails(book: Book) {

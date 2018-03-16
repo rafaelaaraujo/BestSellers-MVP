@@ -1,6 +1,5 @@
 package com.bestsellers.data
 
-import android.content.Context
 import com.bestsellers.BestSellersApplication
 import com.bestsellers.data.local.AppDatabase
 import com.bestsellers.data.remote.BestSellersService
@@ -50,13 +49,16 @@ open class BestSellersRepository(
         return getFavoriteDao()?.getFavoriteBook(title)
     }
 
-    private fun getFavoriteDao() = AppDatabase.getInstance(BestSellersApplication.context)?.getFavoriteBookDao()
+    private fun getFavoriteDao() =
+            BestSellersApplication.context?.let {
+                AppDatabase.getInstance(it)?.getFavoriteBookDao()
+            }
 
     private fun <T> doRequest(observable: Observable<T>, success: (T) -> Unit, error: () -> Unit) {
         observable
                 .subscribeOn(ioScheduler)
                 .observeOn(mainScheduler)
-                .subscribe({success(it)}, {error()})
+                .subscribe({ success(it) }, { error() })
     }
 
 }

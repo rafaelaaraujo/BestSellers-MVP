@@ -1,4 +1,4 @@
-package com.bestsellers.bestSellers.base
+package com.bestsellers.base
 
 import android.content.Intent
 import android.support.test.rule.ActivityTestRule

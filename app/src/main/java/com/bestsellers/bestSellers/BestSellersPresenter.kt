@@ -29,7 +29,8 @@ class BestSellersPresenter(private val repository: BestSellersRepository) : Best
     }
 
     override fun changeBookStatus(book: Book, favorite: Boolean) {
-        if (favorite) {
+
+        if (favorite){
             repository.favoriteBook(book)
             view.showFavoriteBookMessage()
         } else {

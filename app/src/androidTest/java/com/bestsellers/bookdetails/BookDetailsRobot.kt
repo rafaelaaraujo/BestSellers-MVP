@@ -1,7 +1,7 @@
-package com.bestsellers.bestSellers.bookDetails
+package com.bestsellers.bookdetails
 
 import com.bestsellers.R
-import com.bestsellers.bestSellers.base.*
+import com.bestsellers.base.*
 
 /**
  * Created by Rafaela Araujo

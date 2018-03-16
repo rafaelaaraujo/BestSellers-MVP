@@ -1,4 +1,4 @@
-package com.bestsellers.bestSellers.base
+package com.bestsellers.base
 
 import com.bestsellers.R
 

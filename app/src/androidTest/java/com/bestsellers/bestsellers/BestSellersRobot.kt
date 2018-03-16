@@ -1,7 +1,7 @@
-package com.bestsellers.bestSellers.bestSellers
+package com.bestsellers.bestsellers
 
 import com.bestsellers.R
-import com.bestsellers.bestSellers.base.*
+import com.bestsellers.base.*
 
 /**
  * Created by Rafaela Araujo

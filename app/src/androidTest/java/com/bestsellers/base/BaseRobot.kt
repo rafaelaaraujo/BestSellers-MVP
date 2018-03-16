@@ -1,4 +1,4 @@
-package com.bestsellers.bestSellers.base
+package com.bestsellers.base
 
 import android.support.test.espresso.Espresso.onView
 import android.support.test.espresso.action.ViewActions.*

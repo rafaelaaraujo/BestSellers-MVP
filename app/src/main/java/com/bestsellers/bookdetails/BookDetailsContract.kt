@@ -1,4 +1,4 @@
-package com.bestsellers.bookDetails
+package com.bestsellers.bookdetails
 
 import com.bestsellers.common.BasePresenter
 import com.bestsellers.common.BaseView
@@ -24,7 +24,7 @@ class BookDetailsContract {
 
     interface Presenter : BasePresenter<View>{
 
-        fun getBookReviewCount(isbn: String)
+        fun getBookAverage(isbn: String)
 
         fun verifyIsFavoriteBook(title: String?)
 

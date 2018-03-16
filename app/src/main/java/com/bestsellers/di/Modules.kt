@@ -3,12 +3,12 @@ package com.bestsellers.di
 import com.bestsellers.bestSellers.BestSellersActivity
 import com.bestsellers.bestSellers.BestSellersContract
 import com.bestsellers.bestSellers.BestSellersPresenter
-import com.bestsellers.bookDetails.BookDetailsActivity
-import com.bestsellers.bookDetails.BookDetailsContract
-import com.bestsellers.bookDetails.BookDetailsPresenter
-import com.bestsellers.bookDetails.BookGenresContract
 import com.bestsellers.bookGenre.BookGenresFragment
 import com.bestsellers.bookGenre.BookGenresPresenter
+import com.bestsellers.bookdetails.BookDetailsActivity
+import com.bestsellers.bookdetails.BookDetailsContract
+import com.bestsellers.bookdetails.BookDetailsPresenter
+import com.bestsellers.bookdetails.BookGenresContract
 import com.bestsellers.data.BestSellersRepository
 import com.bestsellers.favorite.FavoriteContract
 import com.bestsellers.favorite.FavoriteFragment

@@ -1,4 +1,4 @@
-package com.bestsellers.bestSellers.base;
+package com.bestsellers.base;
 
 import android.content.Context;
 
@@ -11,16 +11,15 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import static android.support.test.InstrumentationRegistry.getInstrumentation;
-import static com.bestsellers.bestSellers.base.TestConstantsKt.BEST_SELLERS_JSON;
-import static com.bestsellers.bestSellers.base.TestConstantsKt.NAMES_JSON;
-import static com.bestsellers.bestSellers.base.TestConstantsKt.NO_REVIEW_JSON;
-import static com.bestsellers.bestSellers.base.TestConstantsKt.REVIEW_JSON;
-import static com.bestsellers.bestSellers.base.TestConstantsKt.URL_BEST_SELLERS;
-import static com.bestsellers.bestSellers.base.TestConstantsKt.URL_NO_REVIEW_FIRST_ITEM;
-import static com.bestsellers.bestSellers.base.TestConstantsKt.URL_NO_REVIEW_LAST_ITEM;
-import static com.bestsellers.bestSellers.base.TestConstantsKt.URL_REVIEW_ITEM;
+import static com.bestsellers.base.TestConstantsKt.BEST_SELLERS_JSON;
+import static com.bestsellers.base.TestConstantsKt.NAMES_JSON;
+import static com.bestsellers.base.TestConstantsKt.NO_REVIEW_JSON;
+import static com.bestsellers.base.TestConstantsKt.REVIEW_JSON;
+import static com.bestsellers.base.TestConstantsKt.URL_BEST_SELLERS;
+import static com.bestsellers.base.TestConstantsKt.URL_NO_REVIEW_FIRST_ITEM;
+import static com.bestsellers.base.TestConstantsKt.URL_NO_REVIEW_LAST_ITEM;
+import static com.bestsellers.base.TestConstantsKt.URL_REVIEW_ITEM;
 import static com.bestsellers.util.ConstantsKt.URL_NAMES;
-import static com.bestsellers.util.ConstantsKt.URL_REVIEWS;
 
 /**
  * Created by Rafaela Araujo

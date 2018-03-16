@@ -1,4 +1,4 @@
-package com.bestsellers.bookDetails
+package com.bestsellers.bookdetails
 
 import com.bestsellers.data.BestSellersRepository
 import com.bestsellers.data.model.Book
@@ -11,14 +11,13 @@ class BookDetailsPresenter(private val repository: BestSellersRepository) : Book
 
     override lateinit var view: BookDetailsContract.View
 
-    override fun getBookReviewCount(isbn: String) {
+    override fun getBookAverage(isbn: String) {
         view.showLoading()
+
         repository.getBookAverage(isbn, {
             val averageList = it.books
             if(averageList.isNotEmpty()){
                 view.loadBookReviewCount(averageList[0])
-            } else{
-                view.showErrorMessage()
             }
         }, {
             view.showErrorMessage()

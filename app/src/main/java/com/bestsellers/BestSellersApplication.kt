@@ -14,7 +14,7 @@ class BestSellersApplication : Application() {
     }
 
     companion object {
-        lateinit var context: Context
+        var context: Context? = null
     }
 
 }
