@@ -55,6 +55,7 @@ class BookGenresFragmentTest : BaseTest() {
         with(robot) {
             selectSearchButton()
             addTextToSearchView()
+            sleepTime(2000)
             checkItemSearchDisplayed()
         }
     }
