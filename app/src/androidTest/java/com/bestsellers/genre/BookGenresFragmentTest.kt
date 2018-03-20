@@ -50,7 +50,7 @@ class BookGenresFragmentTest : BaseTest() {
         }
     }
 
-//    @Test
+    @Test
     fun selectSearchButtonAndMakeSearch_filterList() {
         with(robot) {
             selectSearchButton()
