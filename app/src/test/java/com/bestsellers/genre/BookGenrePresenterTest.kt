@@ -43,7 +43,6 @@ class BookGenrePresenterTest: BaseTest() {
         verify(view, never()).showErrorMessage()
     }
 
-
     @Test
     fun getEmptyGenreList_ShowMessageError() {
         `when`(service.getGenreList()).thenReturn(just(BookGenres(ArrayList())))

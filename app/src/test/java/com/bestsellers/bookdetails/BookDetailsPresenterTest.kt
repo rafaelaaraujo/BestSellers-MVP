@@ -29,13 +29,13 @@ class BookDetailsPresenterTest : BaseTest(){
 
     @Test
     fun getBookAverage_updateView() {
-        Mockito.`when`(service.getBookAverage(anyString())).thenReturn(Observable.just(getBookaverage()))
+        Mockito.`when`(service.getBookAverage("123")).thenReturn(Observable.just(getBookaverage()))
 
         presenter.apply {
-            getBookAverage("")
+            getBookAverage("123")
         }
 
-        verify(view).loadBookReviewCount(getBookaverage().books[0])
+        verify(view).loadBookReviewCount(getAverage())
         Mockito.verify(view, Mockito.never()).showErrorMessage()
     }
 
@@ -57,10 +57,11 @@ class BookDetailsPresenterTest : BaseTest(){
     }
 
     private fun getBookaverage(): BookAverage {
-        return BookAverage(listOf(Average("", 5f)))
+        return BookAverage(listOf(getAverage()))
     }
 
-    private fun getEmptyBook() = Book("test", 1, 3, "", "", "", "", "", ArrayList())
+    private fun getAverage() = Average("10", 5f)
 
+    private fun getEmptyBook() = Book("test", 1, 3, "", "", "", "", "", ArrayList())
 
 }
