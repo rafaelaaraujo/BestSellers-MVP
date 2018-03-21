@@ -25,7 +25,6 @@ before_script:
   - adb shell input keyevent 82 &
 
 script:
-  - ./gradlew build jacocoTestReport assembleAndroidTest
   - chmod +x ./gradlew
   - ./gradlew test
   - ./gradlew connectedAndroidTest
