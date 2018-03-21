@@ -68,7 +68,9 @@ class BestSellersPresenterTest : BaseTest() {
 
     @Test
     fun changeBookfavoriteState_showUnfavoriteMessage() {
-        presenter.changeBookStatus(getEmptyBook(), false)
+        presenter.apply {
+            changeBookStatus(getEmptyBook(), false)
+        }
         Mockito.verify(view).showRemoveFavoriteBookMessage()
     }
 

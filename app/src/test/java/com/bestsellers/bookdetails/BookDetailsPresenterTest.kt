@@ -44,8 +44,8 @@ class BookDetailsPresenterTest : BaseTest(){
         presenter.apply {
             changeBookStatus(getEmptyBook(), true)
         }
-
         verify(view).showFavoriteMessage()
+        verify(view).updateStatus(true)
     }
 
     @Test
@@ -54,6 +54,8 @@ class BookDetailsPresenterTest : BaseTest(){
             changeBookStatus(getEmptyBook(), false)
         }
         verify(view).showRemoveFavoriteBookMessage()
+        verify(view).updateStatus(false)
+
     }
 
     private fun getBookaverage(): BookAverage {
