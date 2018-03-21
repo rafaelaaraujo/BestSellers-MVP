@@ -36,6 +36,7 @@ class BookDetailsPresenterTest : BaseTest(){
         }
 
         verify(view).loadBookReviewCount(getBookaverage().books[0])
+        Mockito.verify(view, Mockito.never()).showErrorMessage()
     }
 
     @Test
@@ -49,7 +50,9 @@ class BookDetailsPresenterTest : BaseTest(){
 
     @Test
     fun changeBookfavoriteState_showUnfavoriteMessage(){
-        presenter.changeBookStatus(getEmptyBook(), false)
+        presenter.apply {
+            changeBookStatus(getEmptyBook(), false)
+        }
         verify(view).showRemoveFavoriteBookMessage()
     }
 
