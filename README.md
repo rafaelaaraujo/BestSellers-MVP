@@ -5,8 +5,8 @@ Used [The New York Times Books API](https://developer.nytimes.com/books_api.json
 - MVP
 - Koin
 - Room
-- RxJava2
-- Retrofit2
+- RxJava
+- Retrofit
 - Mockito
 - Espresso
 
