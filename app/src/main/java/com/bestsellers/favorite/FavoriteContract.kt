@@ -10,7 +10,6 @@ import com.bestsellers.data.model.Book
 class FavoriteContract {
 
     interface View : BaseView<Presenter> {
-
         fun showFavoriteBooks(list: List<Book>)
     }
 

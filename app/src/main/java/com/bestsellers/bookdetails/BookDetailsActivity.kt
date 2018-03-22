@@ -82,7 +82,7 @@ class BookDetailsActivity : BaseActivity(), BookDetailsContract.View {
         showToast(getString(R.string.favorite_message))
     }
 
-    override fun showUnfavoriteBookMessage() {
+    override fun showRemoveFavoriteBookMessage() {
         showToast(getString(R.string.remove_favorite_message))
     }
 

@@ -64,7 +64,7 @@ class FavoriteFragment : Fragment(), FavoriteContract.View {
         progressFavorite.visibility = GONE
     }
 
-    override fun  showFavoriteBooks(list: List<Book>) {
+    override fun showFavoriteBooks(list: List<Book>) {
         favoriteList = list
         loadRecyclerView()
     }

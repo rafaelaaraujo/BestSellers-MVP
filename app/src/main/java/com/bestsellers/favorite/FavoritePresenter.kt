@@ -1,5 +1,6 @@
 package com.bestsellers.favorite
 
+import com.bestsellers.R
 import com.bestsellers.data.BestSellersRepository
 import com.bestsellers.data.model.Book
 
@@ -11,11 +12,9 @@ class FavoritePresenter(private val repository: BestSellersRepository) : Favorit
     override lateinit var view: FavoriteContract.View
 
     override fun getFavoriteBooks() {
-        view.showLoading()
         val list = repository.getFavoriteBooks()
-
-        view.hideLoading()
         if (list != null && list.isNotEmpty()) {
+            view.hideLoading()
             view.showFavoriteBooks(list)
         } else {
             view.showErrorMessage()
