@@ -34,7 +34,7 @@ class BookDetailsPresenter(private val repository: BestSellersRepository) : Book
             view.showFavoriteMessage()
         } else {
             repository.removeFavoriteBook(book)
-            view.showRemoveFavoriteBookMessage()
+            view.showUnfavoriteBookMessage()
         }
 
         view.updateStatus(favorite)

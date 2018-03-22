@@ -1,12 +1,10 @@
 package com.bestsellers.bookdetails
 
 import com.bestsellers.BaseTest
-import com.bestsellers.bestSellers.BestSellersPresenter
 import com.bestsellers.data.model.*
 import io.reactivex.Observable
 import org.junit.Before
 import org.junit.Test
-import org.mockito.ArgumentMatchers.anyString
 import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.Mockito.verify
@@ -44,6 +42,7 @@ class BookDetailsPresenterTest : BaseTest(){
         presenter.apply {
             changeBookStatus(getEmptyBook(), true)
         }
+        verify(favoriteDao).insertBook(getEmptyBook())
         verify(view).showFavoriteMessage()
         verify(view).updateStatus(true)
     }
@@ -53,9 +52,9 @@ class BookDetailsPresenterTest : BaseTest(){
         presenter.apply {
             changeBookStatus(getEmptyBook(), false)
         }
-        verify(view).showRemoveFavoriteBookMessage()
+        verify(favoriteDao).deleteBook(getEmptyBook())
+        verify(view).showUnfavoriteBookMessage()
         verify(view).updateStatus(false)
-
     }
 
     private fun getBookaverage(): BookAverage {

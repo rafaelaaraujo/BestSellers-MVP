@@ -2,6 +2,7 @@ package com.bestsellers.data
 
 import com.bestsellers.BestSellersApplication
 import com.bestsellers.data.local.AppDatabase
+import com.bestsellers.data.local.FavoriteBookDao
 import com.bestsellers.data.remote.BestSellersService
 import com.bestsellers.data.model.BestSellers
 import com.bestsellers.data.model.Book
@@ -18,9 +19,15 @@ import io.reactivex.schedulers.Schedulers
  */
 open class BestSellersRepository(
         private val service: BestSellersService = BestSellersService(),
+        private var favoriteDao: FavoriteBookDao? = null,
         private val ioScheduler: Scheduler = Schedulers.io(),
         private val mainScheduler: Scheduler = AndroidSchedulers.mainThread()) {
 
+    init{
+        if(favoriteDao == null){
+            favoriteDao = getFavoriteDao()
+        }
+    }
     fun getBookAverage(isbn: String, success: (BookAverage) -> Unit, error: () -> Unit) {
         doRequest(service.getBookAverage(isbn), success, error)
     }
@@ -34,19 +41,19 @@ open class BestSellersRepository(
     }
 
     fun getFavoriteBooks(): List<Book>? {
-        return getFavoriteDao()?.loadAllFavoriteBooks()
+        return favoriteDao?.loadAllFavoriteBooks()
     }
 
     fun removeFavoriteBook(book: Book) {
-        getFavoriteDao()?.deleteBook(book)
+        favoriteDao?.deleteBook(book)
     }
 
     fun favoriteBook(book: Book) {
-        getFavoriteDao()?.insertBook(book)
+        favoriteDao?.insertBook(book)
     }
 
     fun getBookFavorite(title: String?): Book? {
-        return getFavoriteDao()?.getFavoriteBook(title)
+        return favoriteDao?.getFavoriteBook(title)
     }
 
     private fun getFavoriteDao() =

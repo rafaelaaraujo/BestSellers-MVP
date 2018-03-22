@@ -19,7 +19,7 @@ class BookDetailsContract {
 
         fun showFavoriteMessage()
 
-        fun showRemoveFavoriteBookMessage()
+        fun showUnfavoriteBookMessage()
     }
 
     interface Presenter : BasePresenter<View>{
