@@ -10,8 +10,8 @@ import kotlinx.android.synthetic.main.activity_splash.*
 
 class Splash : AppCompatActivity() {
 
-    val ANIN_DURATION  = 2000
-    val ANIN_DELAY  = 100
+    private val duration = 2000
+    private val delay = 100
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,8 +21,8 @@ class Splash : AppCompatActivity() {
 
     private fun configurePathView() {
         pathView.pathAnimator.apply {
-            delay(ANIN_DELAY)
-            duration(ANIN_DURATION)
+            delay(delay)
+            duration(duration)
             listenerEnd { initGenreActivity()}
             start()
         }

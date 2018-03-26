@@ -22,8 +22,8 @@ class BestSellersActivity : BaseActivity(), BestSellersContract.View, DiscreteSc
 
     override val presenter : BestSellersContract.Presenter by inject()
     private var booksList = ArrayList<Book>()
-    private val MAX_SCALE = 1.05f
-    private val MIN_SCALE = 0.8f
+    private val maxScale = 1.05f
+    private val minScale = 0.8f
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,8 +48,8 @@ class BestSellersActivity : BaseActivity(), BestSellersContract.View, DiscreteSc
 
     private fun configureBestSellersList() {
         bestSellersList.setItemTransformer(ScaleTransformer.Builder()
-                .setMaxScale(MAX_SCALE)
-                .setMinScale(MIN_SCALE)
+                .setMaxScale(maxScale)
+                .setMinScale(minScale)
                 .build())
 
         bestSellersList.adapter = BestSellersAdapter(booksList, this::showBookDetails)

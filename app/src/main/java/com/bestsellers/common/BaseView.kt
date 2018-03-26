@@ -13,5 +13,4 @@ interface BaseView<out T : BasePresenter<*>> {
     fun showLoading()
 
     fun hideLoading()
-
 }
