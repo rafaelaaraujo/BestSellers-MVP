@@ -11,6 +11,10 @@ ext {
     koin_version = '0.9.1'
 }
 
+jacoco {
+    toolVersion = "0.7.1.201405082137"
+}
+
 task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest', 'createDebugCoverageReport']) {
 
     reports {
@@ -98,6 +102,15 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-v4'
         exclude group: 'com.android.support', module: 'support-annotations'
         exclude module: 'recyclerview-v7'
+    }
+
+    jacocoTestReport {
+        group = "Reporting"
+        reports {
+            xml.enabled true
+            csv.enabled false
+            html.destination "${buildDir}/reports/coverage"
+        }
     }
 
 }

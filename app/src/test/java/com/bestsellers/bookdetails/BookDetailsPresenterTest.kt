@@ -30,10 +30,10 @@ class BookDetailsPresenterTest : BaseTest(){
         Mockito.`when`(service.getBookAverage("123")).thenReturn(Observable.just(getBookaverage()))
 
         presenter.apply {
-            getBookAverage("123")
+            getBookRatingAverage("123")
         }
 
-        verify(view).loadBookReviewCount(getAverage())
+        verify(view).loadBookRatingAverage(getAverage())
         Mockito.verify(view, Mockito.never()).showErrorMessage()
     }
 

@@ -23,6 +23,7 @@ allprojects {
             url "https://plugins.gradle.org/m2/"
         }
     }
+
 }
 
 task clean(type: Delete) {

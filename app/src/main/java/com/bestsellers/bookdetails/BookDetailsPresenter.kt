@@ -11,12 +11,12 @@ class BookDetailsPresenter(private val repository: BestSellersRepository) : Book
 
     override lateinit var view: BookDetailsContract.View
 
-    override fun getBookAverage(isbn: String) {
+    override fun getBookRatingAverage(isbn: String) {
         view.showLoading()
 
         repository.getBookAverage(isbn, {
             if(it.books.isNotEmpty()){
-                view.loadBookReviewCount(it.books[0])
+                view.loadBookRatingAverage(it.books[0])
             }
         }, {
             view.showErrorMessage()

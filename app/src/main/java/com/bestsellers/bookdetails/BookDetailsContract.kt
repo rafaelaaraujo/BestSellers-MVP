@@ -13,7 +13,7 @@ class BookDetailsContract {
 
     interface View : BaseView<Presenter> {
 
-        fun loadBookReviewCount(average: Average)
+        fun loadBookRatingAverage(average: Average)
 
         fun updateStatus(isBookFavorite: Boolean)
 
@@ -24,7 +24,7 @@ class BookDetailsContract {
 
     interface Presenter : BasePresenter<View>{
 
-        fun getBookAverage(isbn: String)
+        fun getBookRatingAverage(isbn: String)
 
         fun verifyIsFavoriteBook(title: String?)
 

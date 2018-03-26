@@ -30,7 +30,7 @@ class BookDetailsActivity : BaseActivity(), BookDetailsContract.View {
     private fun setBookInformation() {
         book?.apply {
             configureActionBar(title)
-            presenter.getBookAverage(getIsbn())
+            presenter.getBookRatingAverage(getIsbn())
             txtIsbn10.text = getString(R.string.isbn10, getIsbn())
             weeksOnList.text = getWeeksOnTheList(this@BookDetailsActivity)
             titleBook.text = title
@@ -86,7 +86,7 @@ class BookDetailsActivity : BaseActivity(), BookDetailsContract.View {
         showToast(getString(R.string.remove_favorite_message))
     }
 
-    override fun loadBookReviewCount(average: Average) {
+    override fun loadBookRatingAverage(average: Average) {
         reviewsRatingBar.rating = average.average_rating
     }
 }
