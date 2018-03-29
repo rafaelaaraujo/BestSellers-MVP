@@ -25,7 +25,7 @@ class BestSellersPresenterTest : BaseTest() {
     @Before
     fun setup() {
         initMock()
-        presenter = BestSellersPresenter(repository)
+        presenter = BestSellersPresenter("",repository)
         presenter.view = view
     }
 
@@ -34,7 +34,7 @@ class BestSellersPresenterTest : BaseTest() {
         Mockito.`when`(service.getBestSeller(ArgumentMatchers.anyString())).thenReturn(Observable.just(getBestSellersMock()))
 
         presenter.apply {
-            requestBestSellers("")
+            requestBestSellers()
         }
 
         Mockito.verify(view).showLoading()
@@ -48,7 +48,7 @@ class BestSellersPresenterTest : BaseTest() {
         Mockito.`when`(service.getBestSeller(ArgumentMatchers.anyString())).thenReturn(Observable.just(BestSellers(Results(ArrayList()))))
 
         presenter.apply {
-            requestBestSellers("")
+            requestBestSellers()
         }
 
         Mockito.verify(view).showLoading()

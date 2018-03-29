@@ -1,4 +1,4 @@
-package com.bestsellers.util
+package com.bestsellers.util.ext
 
 import android.support.v4.content.ContextCompat
 import android.widget.ImageView

@@ -14,7 +14,7 @@ import com.bestsellers.bookdetails.BookGenresContract
 import com.bestsellers.data.model.Genre
 import com.bestsellers.util.DISPLAY_NAME
 import com.bestsellers.util.GENRE_NAME
-import com.bestsellers.util.launchActivity
+import com.bestsellers.util.ext.launchActivity
 import kotlinx.android.synthetic.main.activity_genre.*
 import org.koin.android.ext.android.inject
 

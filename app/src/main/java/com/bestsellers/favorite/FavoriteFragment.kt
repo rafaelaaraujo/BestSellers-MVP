@@ -12,7 +12,7 @@ import com.bestsellers.R
 import com.bestsellers.bookdetails.BookDetailsActivity
 import com.bestsellers.data.model.Book
 import com.bestsellers.util.BOOK
-import com.bestsellers.util.launchActivity
+import com.bestsellers.util.ext.launchActivity
 import kotlinx.android.synthetic.main.activity_favorite.*
 import kotlinx.android.synthetic.main.empty_state_view.*
 import org.koin.android.ext.android.inject

@@ -24,7 +24,7 @@ class BestSellersContract {
 
     interface Presenter : BasePresenter<View>{
 
-        fun requestBestSellers(name: String)
+        fun requestBestSellers()
 
         fun changeBookStatus(book: Book, favorite: Boolean)
 

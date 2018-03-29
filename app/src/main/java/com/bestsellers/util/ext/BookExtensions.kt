@@ -1,4 +1,4 @@
-package com.bestsellers.util
+package com.bestsellers.util.ext
 
 import android.content.Context
 import com.bestsellers.R

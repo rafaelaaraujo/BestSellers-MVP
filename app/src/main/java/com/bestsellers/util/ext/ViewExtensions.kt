@@ -1,15 +1,16 @@
-package com.bestsellers.util
+package com.bestsellers.util.ext
 
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import android.support.design.widget.Snackbar
 import android.support.v4.app.ActivityOptionsCompat
 import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.Toast
 import com.bestsellers.R
+import com.bestsellers.util.BounceInterpolator
+import com.bestsellers.util.SHARED_ITEM_ID
 
 
 /**
@@ -47,6 +48,12 @@ fun View.startBounceAnimation() {
 fun Activity.openUrlInBrowser(url: String?) {
     if (url != null) this.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
 }
+
+/**
+ * Retrieve property from intent
+ */
+fun <T : Any> Activity.argument(key: String) = lazy { intent.extras?.get(key) as T }
+
 
 
 

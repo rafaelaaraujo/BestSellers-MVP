@@ -7,13 +7,14 @@ import com.bestsellers.data.model.Book
  * Created by Rafaela Araujo
  * on 03/11/2017.
  */
-class BestSellersPresenter(private val repository: BestSellersRepository) : BestSellersContract.Presenter {
+class BestSellersPresenter(private val booksGenre: String,
+                           private val repository: BestSellersRepository) : BestSellersContract.Presenter {
 
     override lateinit var view: BestSellersContract.View
 
-    override fun requestBestSellers(name: String) {
+    override fun requestBestSellers() {
         view.showLoading()
-        repository.getBestSellers(name, {
+        repository.getBestSellers(booksGenre, {
             view.hideLoading()
             val books = it.results.books
             if (books.isNotEmpty()) {
@@ -30,7 +31,7 @@ class BestSellersPresenter(private val repository: BestSellersRepository) : Best
 
     override fun changeBookStatus(book: Book, favorite: Boolean) {
 
-        if (favorite){
+        if (favorite) {
             repository.favoriteBook(book)
             view.showFavoriteBookMessage()
         } else {

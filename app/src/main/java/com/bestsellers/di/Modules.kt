@@ -27,7 +27,7 @@ val module = applicationContext {
     factory { FavoritePresenter(get()) as FavoriteContract.Presenter }
 
     factory { BestSellersActivity() }
-    factory { BestSellersPresenter(get()) as BestSellersContract.Presenter }
+    factory { param -> BestSellersPresenter(param["booksGenre"], get()) as BestSellersContract.Presenter }
 
     factory { BookDetailsActivity() }
     factory { BookDetailsPresenter(get()) as BookDetailsContract.Presenter }

@@ -8,6 +8,7 @@ import com.bestsellers.common.BaseActivity
 import com.bestsellers.data.model.Average
 import com.bestsellers.data.model.Book
 import com.bestsellers.util.*
+import com.bestsellers.util.ext.*
 import kotlinx.android.synthetic.main.details_activity.*
 import org.koin.android.ext.android.inject
 
@@ -15,22 +16,21 @@ import org.koin.android.ext.android.inject
 class BookDetailsActivity : BaseActivity(), BookDetailsContract.View {
 
     override val presenter: BookDetailsContract.Presenter by inject()
-    private var book: Book? = null
+    private val book by argument<Book>(BOOK)
     private lateinit var menuFavorite: MenuItem
     private val menuItemPosition = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setContentView(R.layout.details_activity)
         presenter.view = this
-        book = intent.extras.getSerializable(BOOK) as? Book
         setBookInformation()
+        presenter.getBookRatingAverage(book.getIsbn())
         super.onCreate(savedInstanceState)
     }
 
     private fun setBookInformation() {
-        book?.apply {
+        book.apply {
             configureActionBar(title)
-            presenter.getBookRatingAverage(getIsbn())
             txtIsbn10.text = getString(R.string.isbn10, getIsbn())
             weeksOnList.text = getWeeksOnTheList(this@BookDetailsActivity)
             titleBook.text = title
@@ -46,7 +46,7 @@ class BookDetailsActivity : BaseActivity(), BookDetailsContract.View {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_details, menu)
         menuFavorite = menu.getItem(menuItemPosition)
-        presenter.verifyIsFavoriteBook(book?.title)
+        presenter.verifyIsFavoriteBook(book.title)
         return true
     }
 
@@ -66,7 +66,7 @@ class BookDetailsActivity : BaseActivity(), BookDetailsContract.View {
     }
 
     private fun favoriteItem() {
-        book?.let { presenter.changeBookStatus(it, menuFavorite.title == getString(R.string.favorite)) }
+        book.let { presenter.changeBookStatus(it, menuFavorite.title == getString(R.string.favorite)) }
     }
 
     override fun showErrorMessage() {
@@ -86,7 +86,7 @@ class BookDetailsActivity : BaseActivity(), BookDetailsContract.View {
         showToast(getString(R.string.remove_favorite_message))
     }
 
-    override fun loadBookRatingAverage(average: Average) {
+    override fun showBookRatingAverage(average: Average) {
         reviewsRatingBar.rating = average.average_rating
     }
 }

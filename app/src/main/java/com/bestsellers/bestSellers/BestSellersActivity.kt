@@ -8,6 +8,7 @@ import com.bestsellers.bookdetails.BookDetailsActivity
 import com.bestsellers.common.BaseActivity
 import com.bestsellers.data.model.Book
 import com.bestsellers.util.*
+import com.bestsellers.util.ext.*
 import com.yarolegovich.discretescrollview.DiscreteScrollView
 import com.yarolegovich.discretescrollview.transform.ScaleTransformer
 import kotlinx.android.synthetic.main.activity_best_sellers.*
@@ -20,21 +21,22 @@ import org.koin.android.ext.android.inject
  */
 class BestSellersActivity : BaseActivity(), BestSellersContract.View, DiscreteScrollView.OnItemChangedListener<BestSellersAdapter.ViewHolder> {
 
-    override val presenter : BestSellersContract.Presenter by inject()
+    private val booksGenre by argument<String>(GENRE_NAME)
     private var booksList = ArrayList<Book>()
     private val maxScale = 1.05f
     private val minScale = 0.8f
+    override val presenter by inject<BestSellersContract.Presenter> { mapOf("booksGenre" to booksGenre) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_best_sellers)
         presenter.view = this
-        presenter.requestBestSellers(intent?.extras?.getString(GENRE_NAME)?: "")
-        configureView(intent.extras.getString(DISPLAY_NAME))
+        presenter.requestBestSellers()
+        configureView()
     }
 
-    private fun configureView(listName: String) {
-        configureActionBar(listName)
+    private fun configureView() {
+        configureActionBar(booksGenre)
         configureBestSellersList()
         datailsButton.setOnClickListener { showBookDetails() }
         fabbuyButton.setOnClickListener { openUrlInBrowser(getCurrentBook().amazon_product_url) }
@@ -105,5 +107,4 @@ class BestSellersActivity : BaseActivity(), BestSellersContract.View, DiscreteSc
         if (booksList.isNotEmpty())
             presenter.verifyIsFavoriteBook(getCurrentBook())
     }
-
 }

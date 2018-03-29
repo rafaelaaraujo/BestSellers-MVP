@@ -33,7 +33,7 @@ class BookDetailsPresenterTest : BaseTest(){
             getBookRatingAverage("123")
         }
 
-        verify(view).loadBookRatingAverage(getAverage())
+        verify(view).showBookRatingAverage(getAverage())
         Mockito.verify(view, Mockito.never()).showErrorMessage()
     }
 

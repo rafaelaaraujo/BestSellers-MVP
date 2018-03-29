@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.bestsellers.R
 import com.bestsellers.data.model.Book
-import com.bestsellers.util.loadUrl
+import com.bestsellers.util.ext.loadUrl
 import kotlinx.android.synthetic.main.best_seller_item.view.*
 
 /**

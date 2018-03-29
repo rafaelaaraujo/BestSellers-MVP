@@ -12,8 +12,9 @@ ext {
 }
 
 jacoco {
-    toolVersion = "0.7.1.201405082137"
+    toolVersion = "0.8.0"
 }
+
 
 task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest', 'createDebugCoverageReport']) {
 
@@ -64,6 +65,13 @@ android {
     testOptions {
         unitTests.returnDefaultValues = true
     }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/'
+        test.java.srcDirs += 'src/test/'
+        androidTest.java.srcDirs += 'src/androidTest/'
+    }
+
 }
 
 dependencies {

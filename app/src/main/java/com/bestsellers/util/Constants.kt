@@ -15,7 +15,6 @@ var GOODREADS_BASE_URL = "https://www.goodreads.com/"
 const val NY_AUTORIZATION = "f60617ae371d44d898018a1e77a89a8d"
 const val API_KEY = "api-key"
 const val URL_NAMES = "/svc/books/v3/lists/names.json"
-const val URL_REVIEWS = "/svc/books/v3/reviews.json"
 const val SHARED_ITEM_ID = "sharedView"
 
 

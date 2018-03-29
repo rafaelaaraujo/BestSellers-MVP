@@ -16,7 +16,7 @@ class BookDetailsPresenter(private val repository: BestSellersRepository) : Book
 
         repository.getBookAverage(isbn, {
             if(it.books.isNotEmpty()){
-                view.loadBookRatingAverage(it.books[0])
+                view.showBookRatingAverage(it.books[0])
             }
         }, {
             view.showErrorMessage()
