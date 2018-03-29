@@ -1,8 +1,6 @@
 package com.bestsellers.bestsellers
 
 import com.bestsellers.BaseTest
-import com.bestsellers.bestSellers.BestSellersContract
-import com.bestsellers.bestSellers.BestSellersPresenter
 import com.bestsellers.data.model.BestSellers
 import com.bestsellers.data.model.Book
 import com.bestsellers.data.model.Results

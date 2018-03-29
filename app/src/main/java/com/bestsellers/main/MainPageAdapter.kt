@@ -3,7 +3,7 @@ package com.bestsellers.main
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
-import com.bestsellers.bookGenre.BookGenresFragment
+import com.bestsellers.bookgenre.BookGenresFragment
 import com.bestsellers.favorite.FavoriteFragment
 
 /**

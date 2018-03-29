@@ -1,10 +1,10 @@
 package com.bestsellers.di
 
-import com.bestsellers.bestSellers.BestSellersActivity
-import com.bestsellers.bestSellers.BestSellersContract
-import com.bestsellers.bestSellers.BestSellersPresenter
-import com.bestsellers.bookGenre.BookGenresFragment
-import com.bestsellers.bookGenre.BookGenresPresenter
+import com.bestsellers.bestsellers.BestSellersActivity
+import com.bestsellers.bestsellers.BestSellersContract
+import com.bestsellers.bestsellers.BestSellersPresenter
+import com.bestsellers.bookgenre.BookGenresFragment
+import com.bestsellers.bookgenre.BookGenresPresenter
 import com.bestsellers.bookdetails.BookDetailsActivity
 import com.bestsellers.bookdetails.BookDetailsContract
 import com.bestsellers.bookdetails.BookDetailsPresenter

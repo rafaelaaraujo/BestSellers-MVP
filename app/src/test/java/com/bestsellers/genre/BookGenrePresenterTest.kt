@@ -2,8 +2,7 @@ package com.bestsellers.genre
 
 import com.bestsellers.BaseTest
 import com.bestsellers.bookdetails.BookGenresContract
-import com.bestsellers.bookGenre.BookGenresPresenter
-import com.bestsellers.bookdetails.BookDetailsPresenter
+import com.bestsellers.bookgenre.BookGenresPresenter
 import com.bestsellers.data.model.BookGenres
 import com.bestsellers.data.model.Genre
 import io.reactivex.Observable.just

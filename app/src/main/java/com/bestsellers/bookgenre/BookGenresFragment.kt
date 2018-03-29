@@ -1,4 +1,4 @@
-package com.bestsellers.bookGenre
+package com.bestsellers.bookgenre
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -9,7 +9,7 @@ import android.view.*
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import com.bestsellers.R
-import com.bestsellers.bestSellers.BestSellersActivity
+import com.bestsellers.bestsellers.BestSellersActivity
 import com.bestsellers.bookdetails.BookGenresContract
 import com.bestsellers.data.model.Genre
 import com.bestsellers.util.DISPLAY_NAME

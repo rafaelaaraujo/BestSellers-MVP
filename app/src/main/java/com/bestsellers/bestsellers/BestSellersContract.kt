@@ -1,4 +1,4 @@
-package com.bestsellers.bestSellers
+package com.bestsellers.bestsellers
 
 import com.bestsellers.common.BasePresenter
 import com.bestsellers.common.BaseView

@@ -1,4 +1,4 @@
-package com.bestsellers.bestSellers
+package com.bestsellers.bestsellers
 
 import android.os.Bundle
 import android.view.View.GONE

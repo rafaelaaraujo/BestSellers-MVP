@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_gray"
-    tools:context="com.bestsellers.bestSellers.BestSellersActivity">
+    tools:context="com.bestsellers.bestsellers.BestSellersActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

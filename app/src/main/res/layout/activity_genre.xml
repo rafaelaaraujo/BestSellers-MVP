@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/background_gray"
-    tools:context="com.bestsellers.bookGenre.BookGenresFragment">
+    tools:context="com.bestsellers.bookgenre.BookGenresFragment">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/genreGrid"

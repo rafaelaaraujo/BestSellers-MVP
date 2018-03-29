@@ -1,4 +1,4 @@
-package com.bestsellers.bestSellers
+package com.bestsellers.bestsellers
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater

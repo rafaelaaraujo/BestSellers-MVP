@@ -17,7 +17,7 @@
             android:name=".bookdetails.BookDetailsActivity"
             android:label="@string/app_name" />
         <activity
-            android:name=".bestSellers.BestSellersActivity"
+            android:name=".bestsellers.BestSellersActivity"
             android:label="@string/app_name" />
         <activity
             android:name=".main.MainActivity"
