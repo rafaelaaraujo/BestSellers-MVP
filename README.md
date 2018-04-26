@@ -2,7 +2,7 @@
 
 Used [The New York Times Books API](https://developer.nytimes.com/books_api.json) , 
 
-- Model View Presenter Architecture
+- Model View Presenter Architecture (MVP)
 - Koin library for writing dependency injection
 - Room Persistence Library
 - RxJava/RxAndroid
