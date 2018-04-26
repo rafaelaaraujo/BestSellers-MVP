@@ -48,7 +48,7 @@ open class BestSellersRepository(
         favoriteDao?.deleteBook(book)
     }
 
-    fun favoriteBook(book: Book) {
+    fun addFavoriteBook(book: Book) {
         favoriteDao?.insertBook(book)
     }
 

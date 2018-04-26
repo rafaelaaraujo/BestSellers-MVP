@@ -32,7 +32,7 @@ class BestSellersPresenter(private val booksGenre: String,
     override fun changeBookStatus(book: Book, favorite: Boolean) {
 
         if (favorite) {
-            repository.favoriteBook(book)
+            repository.addFavoriteBook(book)
             view.showFavoriteBookMessage()
         } else {
             repository.removeFavoriteBook(book)
