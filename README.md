@@ -2,13 +2,12 @@
 
 Used [The New York Times Books API](https://developer.nytimes.com/books_api.json) , 
 
-- MVP
-- Koin
-- Room
+- Model View Presenter Architecture
+- Koin library for writing dependency injection
+- Room Persistence Library
 - RxJava/RxAndroid
 - Retrofit 2
-- Mockito
-- Espresso
+- Mockito and Espresso for writing tests
 
 
 ![Alt Text](https://github.com/rafaelaaraujo/BestSellers/blob/master/appgif.gif)
