@@ -20,16 +20,9 @@ import org.koin.dsl.module.applicationContext
  */
 val module = applicationContext {
 
-    factory { BookGenresFragment() }
     factory { BookGenresPresenter(get()) as BookGenresContract.Presenter }
-
-    factory { FavoriteFragment() }
     factory { FavoritePresenter(get()) as FavoriteContract.Presenter }
-
-    factory { BestSellersActivity() }
     factory { param -> BestSellersPresenter(param["booksGenre"], get()) as BestSellersContract.Presenter }
-
-    factory { BookDetailsActivity() }
     factory { BookDetailsPresenter(get()) as BookDetailsContract.Presenter }
 
     bean { BestSellersRepository() }

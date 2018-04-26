@@ -22,7 +22,7 @@ import org.koin.android.ext.android.inject
  */
 class FavoriteFragment : Fragment(), FavoriteContract.View {
 
-    override val presenter: FavoriteContract.Presenter by inject()
+    override val presenter by inject<FavoriteContract.Presenter>()
     private var favoriteList: List<Book> = ArrayList()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

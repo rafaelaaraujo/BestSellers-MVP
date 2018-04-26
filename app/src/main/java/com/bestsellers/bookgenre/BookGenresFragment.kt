@@ -26,7 +26,7 @@ import org.koin.android.ext.android.inject
 
 class BookGenresFragment : Fragment(), BookGenresContract.View, SearchView.OnQueryTextListener {
 
-    override val presenter: BookGenresContract.Presenter by inject()
+    override val presenter by inject<BookGenresContract.Presenter>()
     private lateinit var adapter: BookGenresAdapter
     private var genreList = ArrayList<Genre>()
     private var searchView: SearchView? = null

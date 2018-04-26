@@ -22,10 +22,10 @@ import org.koin.android.ext.android.inject
 class BestSellersActivity : BaseActivity(), BestSellersContract.View, DiscreteScrollView.OnItemChangedListener<BestSellersAdapter.ViewHolder> {
 
     private val booksGenre by argument<String>(GENRE_NAME)
+    override val presenter by inject<BestSellersContract.Presenter> { mapOf("booksGenre" to booksGenre) }
     private var booksList = ArrayList<Book>()
     private val maxScale = 1.05f
     private val minScale = 0.8f
-    override val presenter by inject<BestSellersContract.Presenter> { mapOf("booksGenre" to booksGenre) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
